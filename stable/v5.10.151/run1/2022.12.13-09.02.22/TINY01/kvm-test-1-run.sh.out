@@ -1,0 +1,5 @@
+ --- Tue Dec 13 09:23:34 AM UTC 2022: Starting build
+ --- Tue Dec 13 09:27:24 AM UTC 2022: Starting kernel
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1381680
+Grace period for qemu job at pid 1381680
