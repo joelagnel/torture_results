@@ -1,0 +1,4 @@
+/tmp/tmp.HaBrCwjOsf
+On branch crap
+nothing to commit, working tree clean
+6d46ef50b123f2da3871690e619f5169eb97af92
