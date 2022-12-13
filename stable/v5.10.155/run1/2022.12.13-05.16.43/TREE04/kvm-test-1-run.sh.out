@@ -1,0 +1,6 @@
+ --- Tue Dec 13 05:23:20 AM UTC 2022: Starting build
+ --- Tue Dec 13 05:41:46 AM UTC 2022: Starting kernel
+CPU-hotplug kernel, adding rcutorture onoff.
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1079665
+Grace period for qemu job at pid 1079665

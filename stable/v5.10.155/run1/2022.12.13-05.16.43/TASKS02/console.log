@@ -1,0 +1,2389 @@
+c[?7l[2J[0mSeaBIOS (version 1.16.0-debian-1.16.0-4)
+Booting from ROM...
+early console in setup code
+c[?7l[2J[    0.000000] Linux version 5.10.155+ (root@joelboxx.c.googlers.com) (gcc (Debian 12.2.0-3) 12.2.0, GNU ld (GNU Binutils for Debian) 2.39) #16 Tue Dec 13 05:37:30 UTC 2022
+[    0.000000] Command line: selinux=0 initcall_debug debug console=ttyS0 rcutorture.torture_type=tasks rcutorture.n_barrier_cbs=4 rcutorture.stat_interval=15 rcutorture.shutdown_secs=1800 rcutorture.test_no_idle_hz=1 rcutorture.verbose=1
+[    0.000000] x86/fpu: x87 FPU will use FXSAVE
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
+[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved
+[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000001ffdefff] usable
+[    0.000000] BIOS-e820: [mem 0x000000001ffdf000-0x000000001fffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000b0000000-0x00000000bfffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fed1c000-0x00000000fed1ffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved
+[    0.000000] NX (Execute Disable) protection: active
+[    0.000000] SMBIOS 2.8 present.
+[    0.000000] DMI: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.0-debian-1.16.0-4 04/01/2014
+[    0.000000] Hypervisor detected: KVM
+[    0.000000] kvm-clock: Using msrs 4b564d01 and 4b564d00
+[    0.000000] kvm-clock: cpu 0, msr c043001, primary cpu clock
+[    0.000001] kvm-clock: using sched offset of 806939218 cycles
+[    0.000170] clocksource: kvm-clock: mask: 0xffffffffffffffff max_cycles: 0x1cd42e4dffb, max_idle_ns: 881590591483 ns
+[    0.000223] tsc: Detected 1999.999 MHz processor
+[    0.008169] e820: update [mem 0x00000000-0x00000fff] usable ==> reserved
+[    0.008174] e820: remove [mem 0x000a0000-0x000fffff] usable
+[    0.008180] last_pfn = 0x1ffdf max_arch_pfn = 0x400000000
+[    0.008977] MTRR default type: write-back
+[    0.009052] MTRR fixed ranges enabled:
+[    0.009053]   00000-9FFFF write-back
+[    0.009055]   A0000-BFFFF uncachable
+[    0.009056]   C0000-FFFFF write-protect
+[    0.009056] MTRR variable ranges enabled:
+[    0.009058]   0 base 00C0000000 mask FFC0000000 uncachable
+[    0.009059]   1 disabled
+[    0.009060]   2 disabled
+[    0.009060]   3 disabled
+[    0.009061]   4 disabled
+[    0.009061]   5 disabled
+[    0.009062]   6 disabled
+[    0.009063]   7 disabled
+[    0.009407] x86/PAT: Configuration [0-7]: WB  WC  UC- UC  WB  WC  UC- UC  
+[    0.019026] found SMP MP-table at [mem 0x000f5ba0-0x000f5baf]
+[    0.025944] check: Scanning 1 areas for low memory corruption
+[    0.037712] ACPI: Early table checksum verification disabled
+[    0.039781] ACPI: RSDP 0x00000000000F59E0 000014 (v00 BOCHS )
+[    0.040139] ACPI: RSDT 0x000000001FFE229A 000038 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.040147] ACPI: FACP 0x000000001FFE2092 0000F4 (v03 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.040199] ACPI: DSDT 0x000000001FFE0040 002052 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.040203] ACPI: FACS 0x000000001FFE0000 000040
+[    0.040207] ACPI: APIC 0x000000001FFE2186 000078 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.040210] ACPI: HPET 0x000000001FFE21FE 000038 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.040214] ACPI: MCFG 0x000000001FFE2236 00003C (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.040218] ACPI: WAET 0x000000001FFE2272 000028 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.040221] ACPI: Reserving FACP table memory at [mem 0x1ffe2092-0x1ffe2185]
+[    0.040223] ACPI: Reserving DSDT table memory at [mem 0x1ffe0040-0x1ffe2091]
+[    0.040224] ACPI: Reserving FACS table memory at [mem 0x1ffe0000-0x1ffe003f]
+[    0.040225] ACPI: Reserving APIC table memory at [mem 0x1ffe2186-0x1ffe21fd]
+[    0.040226] ACPI: Reserving HPET table memory at [mem 0x1ffe21fe-0x1ffe2235]
+[    0.040227] ACPI: Reserving MCFG table memory at [mem 0x1ffe2236-0x1ffe2271]
+[    0.040228] ACPI: Reserving WAET table memory at [mem 0x1ffe2272-0x1ffe2299]
+[    0.041126] ACPI: Local APIC address 0xfee00000
+[    0.043017] Zone ranges:
+[    0.043063]   DMA      [mem 0x0000000000001000-0x0000000000ffffff]
+[    0.043209]   DMA32    [mem 0x0000000001000000-0x000000001ffdefff]
+[    0.043255]   Normal   empty
+[    0.043256] Movable zone start for each node
+[    0.043257] Early memory node ranges
+[    0.043258]   node   0: [mem 0x0000000000001000-0x000000000009efff]
+[    0.043290]   node   0: [mem 0x0000000000100000-0x000000001ffdefff]
+[    0.043350] Initmem setup node 0 [mem 0x0000000000001000-0x000000001ffdefff]
+[    0.043351] On node 0 totalpages: 130941
+[    0.043501]   DMA zone: 64 pages used for memmap
+[    0.043503]   DMA zone: 21 pages reserved
+[    0.043548]   DMA zone: 3998 pages, LIFO batch:0
+[    0.043549]   DMA32 zone: 1984 pages used for memmap
+[    0.043550]   DMA32 zone: 126943 pages, LIFO batch:31
+[    0.044436] On node 0, zone DMA: 1 pages in unavailable ranges
+[    0.044498] On node 0, zone DMA: 97 pages in unavailable ranges
+[    0.125921] On node 0, zone DMA32: 33 pages in unavailable ranges
+[    0.130145] ACPI: PM-Timer IO Port: 0x608
+[    0.130150] ACPI: Local APIC address 0xfee00000
+[    0.130280] ACPI: LAPIC_NMI (acpi_id[0xff] dfl dfl lint[0x1])
+[    0.131484] IOAPIC[0]: apic_id 0, version 17, address 0xfec00000, GSI 0-23
+[    0.131550] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+[    0.131629] ACPI: INT_SRC_OVR (bus 0 bus_irq 5 global_irq 5 high level)
+[    0.131631] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+[    0.131700] ACPI: INT_SRC_OVR (bus 0 bus_irq 10 global_irq 10 high level)
+[    0.131702] ACPI: INT_SRC_OVR (bus 0 bus_irq 11 global_irq 11 high level)
+[    0.131703] ACPI: IRQ0 used by override.
+[    0.131704] ACPI: IRQ5 used by override.
+[    0.131705] ACPI: IRQ9 used by override.
+[    0.131706] ACPI: IRQ10 used by override.
+[    0.131707] ACPI: IRQ11 used by override.
+[    0.131709] Using ACPI (MADT) for SMP configuration information
+[    0.131754] ACPI: HPET id: 0x8086a201 base: 0xfed00000
+[    0.133120] kvm-guest: stealtime: cpu 0, msr b84d780
+[    0.134148] PM: hibernation: Registered nosave memory: [mem 0x00000000-0x00000fff]
+[    0.134151] PM: hibernation: Registered nosave memory: [mem 0x0009f000-0x0009ffff]
+[    0.134151] PM: hibernation: Registered nosave memory: [mem 0x000a0000-0x000effff]
+[    0.134152] PM: hibernation: Registered nosave memory: [mem 0x000f0000-0x000fffff]
+[    0.134154] [mem 0x20000000-0xafffffff] available for PCI devices
+[    0.134235] Booting paravirtualized kernel on KVM
+[    0.134719] clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1910969940391419 ns
+[    0.149607] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+[    0.149704] pcpu-alloc: [0] 0 
+[    0.150123] Built 1 zonelists, mobility grouping on.  Total pages: 128872
+[    0.150223] Kernel command line: selinux=0 initcall_debug debug console=ttyS0 rcutorture.torture_type=tasks rcutorture.n_barrier_cbs=4 rcutorture.stat_interval=15 rcutorture.shutdown_secs=1800 rcutorture.test_no_idle_hz=1 rcutorture.verbose=1
+[    0.157100] Dentry cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.160510] Inode-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.161527] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.174995] Memory: 481560K/523764K available (14349K kernel code, 2619K rwdata, 4608K rodata, 1252K init, 1876K bss, 41944K reserved, 0K cma-reserved)
+[    0.175607] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.175897] Kernel/User page tables isolation: enabled
+[    0.188688] NR_IRQS: 4352, nr_irqs: 256, preallocated irqs: 16
+[    0.191477] calling  con_init+0x0/0x22a @ 0
+[    0.379942] Console: colour VGA+ 80x25
+[    0.384570] initcall con_init+0x0/0x22a returned 0 after 0 usecs
+[    0.384780] calling  hvc_console_init+0x0/0x13 @ 0
+[    0.384881] initcall hvc_console_init+0x0/0x13 returned 0 after 0 usecs
+[    0.384884] calling  univ8250_console_init+0x0/0x26 @ 0
+[    1.174739] printk: console [ttyS0] enabled
+[    1.179147] initcall univ8250_console_init+0x0/0x26 returned 0 after 0 usecs
+[    1.188183] ACPI: Core revision 20200925
+[    1.202298] clocksource: hpet: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604467 ns
+[    1.219135] APIC: Switch to symmetric I/O mode setup
+[    1.276732] ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+[    1.291212] clocksource: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x39a85afc727, max_idle_ns: 881590685098 ns
+[    1.306099] Calibrating delay loop (skipped) preset value.. 3999.99 BogoMIPS (lpj=1999999)
+[    1.307323] pid_max: default: 32768 minimum: 301
+[    1.312234] LSM: Security Framework initializing
+[    1.314721] Mount-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    1.315164] Mountpoint-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    1.329783] Last level iTLB entries: 4KB 0, 2MB 0, 4MB 0
+[    1.330104] Last level dTLB entries: 4KB 0, 2MB 0, 4MB 0, 1GB 0
+[    1.331182] CPU: Intel Common KVM processor (family: 0xf, model: 0x6, stepping: 0x1)
+[    1.332103] Spectre V1 : Mitigation: usercopy/swapgs barriers and __user pointer sanitization
+[    1.334159] Spectre V2 : Mitigation: Retpolines
+[    1.335104] Spectre V2 : Spectre v2 / SpectreRSB mitigation: Filling RSB on context switch
+[    1.336103] Spectre V2 : Spectre v2 / SpectreRSB : Filling RSB on VMEXIT
+[    1.337105] Speculative Store Bypass: Vulnerable
+[    1.338226] MDS: Vulnerable: Clear CPU buffers attempted, no microcode
+[    1.340104] MMIO Stale Data: Unknown: No mitigations
+[    1.521907] calling  init_hw_perf_events+0x0/0x6ce @ 1
+[    1.522165] Performance Events: unsupported Netburst CPU model 6 no PMU driver, software events only.
+[    1.523117] initcall init_hw_perf_events+0x0/0x6ce returned 0 after 976 usecs
+[    1.524112] calling  init_real_mode+0x0/0x1e9 @ 1
+[    1.528709] initcall init_real_mode+0x0/0x1e9 returned 0 after 1953 usecs
+[    1.529109] calling  trace_init_perf_perm_irq_work_exit+0x0/0x12 @ 1
+[    1.530107] initcall trace_init_perf_perm_irq_work_exit+0x0/0x12 returned 0 after 0 usecs
+[    1.531166] calling  validate_x2apic+0x0/0x4a @ 1
+[    1.532139] initcall validate_x2apic+0x0/0x4a returned 0 after 0 usecs
+[    1.533107] calling  register_nmi_cpu_backtrace_handler+0x0/0x15 @ 1
+[    1.534107] initcall register_nmi_cpu_backtrace_handler+0x0/0x15 returned 0 after 0 usecs
+[    1.535107] calling  kvm_setup_vsyscall_timeinfo+0x0/0x34 @ 1
+[    1.536106] initcall kvm_setup_vsyscall_timeinfo+0x0/0x34 returned 0 after 0 usecs
+[    1.537203] calling  spawn_ksoftirqd+0x0/0x34 @ 1
+[    1.539162] initcall spawn_ksoftirqd+0x0/0x34 returned 0 after 0 usecs
+[    1.540173] calling  trace_init_flags_sys_enter+0x0/0xe @ 1
+[    1.541108] initcall trace_init_flags_sys_enter+0x0/0xe returned 0 after 0 usecs
+[    1.542107] calling  trace_init_flags_sys_exit+0x0/0xe @ 1
+[    1.543106] initcall trace_init_flags_sys_exit+0x0/0xe returned 0 after 0 usecs
+[    1.544106] calling  init_kprobes+0x0/0x14d @ 1
+[    1.547373] initcall init_kprobes+0x0/0x14d returned 0 after 1953 usecs
+[    1.549105] calling  init_events+0x0/0x3d @ 1
+[    1.551186] initcall init_events+0x0/0x3d returned 0 after 976 usecs
+[    1.552105] calling  init_trace_printk+0x0/0xc @ 1
+[    1.553105] initcall init_trace_printk+0x0/0xc returned 0 after 0 usecs
+[    1.554106] calling  event_trace_enable_again+0x0/0x23 @ 1
+[    1.555108] initcall event_trace_enable_again+0x0/0x23 returned 0 after 0 usecs
+[    1.556108] calling  static_call_init+0x0/0x6d @ 1
+[    1.557107] initcall static_call_init+0x0/0x6d returned 0 after 0 usecs
+[    1.558107] calling  jump_label_init_module+0x0/0xc @ 1
+[    1.559107] initcall jump_label_init_module+0x0/0xc returned 0 after 0 usecs
+[    1.560107] calling  init_zero_pfn+0x0/0x37 @ 1
+[    1.561107] initcall init_zero_pfn+0x0/0x37 returned 0 after 0 usecs
+[    1.562155] calling  initialize_ptr_random+0x0/0x54 @ 1
+[    1.563106] initcall initialize_ptr_random+0x0/0x54 returned 0 after 0 usecs
+[    1.564167] calling  efi_memreserve_root_init+0x0/0x25 @ 1
+[    1.565172] initcall efi_memreserve_root_init+0x0/0x25 returned 0 after 0 usecs
+[    1.566108] calling  efi_earlycon_remap_fb+0x0/0x51 @ 1
+[    1.567106] initcall efi_earlycon_remap_fb+0x0/0x51 returned 0 after 0 usecs
+[    1.690519] devtmpfs: initialized
+[    1.692738] calling  ipc_ns_init+0x0/0x3d @ 1
+[    1.693123] initcall ipc_ns_init+0x0/0x3d returned 0 after 0 usecs
+[    1.694112] calling  init_mmap_min_addr+0x0/0x21 @ 1
+[    1.695109] initcall init_mmap_min_addr+0x0/0x21 returned 0 after 0 usecs
+[    1.696107] calling  pci_realloc_setup_params+0x0/0x3f @ 1
+[    1.697106] initcall pci_realloc_setup_params+0x0/0x3f returned 0 after 0 usecs
+[    1.699099] calling  net_ns_init+0x0/0x11c @ 1
+[    1.701499] initcall net_ns_init+0x0/0x11c returned 0 after 0 usecs
+[    1.702121] calling  e820__register_nvs_regions+0x0/0x37 @ 1
+[    1.704106] initcall e820__register_nvs_regions+0x0/0x37 returned 0 after 0 usecs
+[    1.705106] calling  cpufreq_register_tsc_scaling+0x0/0x2e @ 1
+[    1.706107] initcall cpufreq_register_tsc_scaling+0x0/0x2e returned 0 after 0 usecs
+[    1.707108] calling  reboot_init+0x0/0x3c @ 1
+[    1.708500] initcall reboot_init+0x0/0x3c returned 0 after 0 usecs
+[    1.709106] calling  init_lapic_sysfs+0x0/0x20 @ 1
+[    1.710105] initcall init_lapic_sysfs+0x0/0x20 returned 0 after 0 usecs
+[    1.711107] calling  wq_sysfs_init+0x0/0x2a @ 1
+[    1.712256] initcall wq_sysfs_init+0x0/0x2a returned 0 after 0 usecs
+[    1.713106] calling  ksysfs_init+0x0/0x92 @ 1
+[    1.714113] initcall ksysfs_init+0x0/0x92 returned 0 after 0 usecs
+[    1.715106] calling  pm_init+0x0/0x76 @ 1
+[    1.716185] initcall pm_init+0x0/0x76 returned 0 after 0 usecs
+[    1.717215] calling  pm_disk_init+0x0/0x13 @ 1
+[    1.718198] initcall pm_disk_init+0x0/0x13 returned 0 after 0 usecs
+[    1.719104] calling  swsusp_header_init+0x0/0x2b @ 1
+[    1.720105] initcall swsusp_header_init+0x0/0x2b returned 0 after 0 usecs
+[    1.721105] calling  rcu_set_runtime_mode+0x0/0x11 @ 1
+[    1.722104] initcall rcu_set_runtime_mode+0x0/0x11 returned 0 after 0 usecs
+[    1.723105] calling  init_jiffies_clocksource+0x0/0x13 @ 1
+[    1.724104] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+[    1.725105] initcall init_jiffies_clocksource+0x0/0x13 returned 0 after 976 usecs
+[    1.726103] calling  futex_init+0x0/0xd5 @ 1
+[    1.727106] futex hash table entries: 256 (order: 0, 6144 bytes, linear)
+[    1.728108] initcall futex_init+0x0/0xd5 returned 0 after 976 usecs
+[    1.729103] calling  cgroup_wq_init+0x0/0x28 @ 1
+[    1.730108] initcall cgroup_wq_init+0x0/0x28 returned 0 after 0 usecs
+[    1.731103] calling  cgroup1_wq_init+0x0/0x28 @ 1
+[    1.732107] initcall cgroup1_wq_init+0x0/0x28 returned 0 after 0 usecs
+[    1.733104] calling  init_kprobe_trace_early+0x0/0x2a @ 1
+[    1.734159] initcall init_kprobe_trace_early+0x0/0x2a returned 0 after 0 usecs
+[    1.735104] calling  fsnotify_init+0x0/0x48 @ 1
+[    1.736111] initcall fsnotify_init+0x0/0x48 returned 0 after 0 usecs
+[    1.737107] calling  filelock_init+0x0/0x60 @ 1
+[    1.739153] initcall filelock_init+0x0/0x60 returned 0 after 976 usecs
+[    1.740105] calling  init_misc_binfmt+0x0/0x2c @ 1
+[    1.741179] initcall init_misc_binfmt+0x0/0x2c returned 0 after 0 usecs
+[    1.742107] calling  init_script_binfmt+0x0/0x15 @ 1
+[    1.743159] initcall init_script_binfmt+0x0/0x15 returned 0 after 0 usecs
+[    1.744106] calling  init_elf_binfmt+0x0/0x15 @ 1
+[    1.745107] initcall init_elf_binfmt+0x0/0x15 returned 0 after 0 usecs
+[    1.746107] calling  init_compat_elf_binfmt+0x0/0x15 @ 1
+[    1.747109] initcall init_compat_elf_binfmt+0x0/0x15 returned 0 after 0 usecs
+[    1.748171] calling  debugfs_init+0x0/0x5c @ 1
+[    1.749120] initcall debugfs_init+0x0/0x5c returned 0 after 0 usecs
+[    1.750108] calling  tracefs_init+0x0/0x3a @ 1
+[    1.751195] initcall tracefs_init+0x0/0x3a returned 0 after 0 usecs
+[    1.752107] calling  prandom_init_early+0x0/0x111 @ 1
+[    1.753107] initcall prandom_init_early+0x0/0x111 returned 0 after 0 usecs
+[    1.754107] calling  virtio_init+0x0/0x20 @ 1
+[    1.756118] initcall virtio_init+0x0/0x20 returned 0 after 976 usecs
+[    1.757106] calling  iommu_init+0x0/0x2a @ 1
+[    1.758128] initcall iommu_init+0x0/0x2a returned 0 after 0 usecs
+[    1.759106] calling  component_debug_init+0x0/0x1c @ 1
+[    1.760174] initcall component_debug_init+0x0/0x1c returned 0 after 0 usecs
+[    1.761106] calling  early_resume_init+0x0/0xb9 @ 1
+[    1.763773] PM: RTC time: 05:41:49, date: 2022-12-13
+[    1.764106] initcall early_resume_init+0x0/0xb9 returned 0 after 976 usecs
+[    1.765106] calling  cpufreq_core_init+0x0/0x62 @ 1
+[    1.767134] initcall cpufreq_core_init+0x0/0x62 returned 0 after 976 usecs
+[    1.768105] calling  cpufreq_gov_performance_init+0x0/0xc @ 1
+[    1.769132] initcall cpufreq_gov_performance_init+0x0/0xc returned 0 after 0 usecs
+[    1.770107] calling  cpufreq_gov_userspace_init+0x0/0xc @ 1
+[    1.771107] initcall cpufreq_gov_userspace_init+0x0/0xc returned 0 after 0 usecs
+[    1.772106] calling  CPU_FREQ_GOV_ONDEMAND_init+0x0/0xc @ 1
+[    1.773105] initcall CPU_FREQ_GOV_ONDEMAND_init+0x0/0xc returned 0 after 0 usecs
+[    1.774106] calling  cpuidle_init+0x0/0x1f @ 1
+[    1.776107] initcall cpuidle_init+0x0/0x1f returned 0 after 976 usecs
+[    1.777104] calling  capsule_reboot_register+0x0/0xc @ 1
+[    1.778123] initcall capsule_reboot_register+0x0/0xc returned 0 after 0 usecs
+[    1.779104] calling  sock_init+0x0/0x93 @ 1
+[    1.781189] initcall sock_init+0x0/0x93 returned 0 after 976 usecs
+[    1.782108] calling  net_inuse_init+0x0/0x23 @ 1
+[    1.783113] initcall net_inuse_init+0x0/0x23 returned 0 after 0 usecs
+[    1.784105] calling  net_defaults_init+0x0/0x23 @ 1
+[    1.785105] initcall net_defaults_init+0x0/0x23 returned 0 after 0 usecs
+[    1.786105] calling  init_default_flow_dissectors+0x0/0x4f @ 1
+[    1.787106] initcall init_default_flow_dissectors+0x0/0x4f returned 0 after 0 usecs
+[    1.788105] calling  netpoll_init+0x0/0x25 @ 1
+[    1.789105] initcall netpoll_init+0x0/0x25 returned 0 after 0 usecs
+[    1.790105] calling  netlink_proto_init+0x0/0x14f @ 1
+[    1.791165] NET: Registered protocol family 16
+[    1.792120] initcall netlink_proto_init+0x0/0x14f returned 0 after 976 usecs
+[    1.793106] calling  genl_init+0x0/0x35 @ 1
+[    1.794118] initcall genl_init+0x0/0x35 returned 0 after 0 usecs
+[    1.795107] calling  bsp_pm_check_init+0x0/0x13 @ 1
+[    1.796111] initcall bsp_pm_check_init+0x0/0x13 returned 0 after 0 usecs
+[    1.797129] calling  irq_sysfs_init+0x0/0xb7 @ 1
+[    1.798150] initcall irq_sysfs_init+0x0/0xb7 returned 0 after 0 usecs
+[    1.799107] calling  audit_init+0x0/0x15d @ 1
+[    1.800111] audit: initializing netlink subsys (disabled)
+[    1.801153] initcall audit_init+0x0/0x15d returned 0 after 976 usecs
+[    1.802107] calling  release_early_probes+0x0/0x32 @ 1
+[    1.803106] initcall release_early_probes+0x0/0x32 returned 0 after 0 usecs
+[    1.804106] calling  bdi_class_init+0x0/0x48 @ 1
+[    1.805163] initcall bdi_class_init+0x0/0x48 returned 0 after 0 usecs
+[    1.806110] calling  mm_sysfs_init+0x0/0x28 @ 1
+[    1.807127] initcall mm_sysfs_init+0x0/0x28 returned 0 after 0 usecs
+[    1.808109] calling  init_per_zone_wmark_min+0x0/0x5e @ 1
+[    1.809106] initcall init_per_zone_wmark_min+0x0/0x5e returned 0 after 0 usecs
+[    1.810107] calling  mpi_init+0x0/0x3e @ 1
+[    1.811111] initcall mpi_init+0x0/0x3e returned 0 after 0 usecs
+[    1.812104] calling  kobject_uevent_init+0x0/0xc @ 1
+[    1.813112] initcall kobject_uevent_init+0x0/0xc returned 0 after 0 usecs
+[    1.814105] calling  pcibus_class_init+0x0/0x13 @ 1
+[    1.815117] initcall pcibus_class_init+0x0/0x13 returned 0 after 0 usecs
+[    1.816133] calling  pci_driver_init+0x0/0x21 @ 1
+[    1.817124] initcall pci_driver_init+0x0/0x21 returned 0 after 0 usecs
+[    1.818105] calling  backlight_class_init+0x0/0xa8 @ 1
+[    1.819129] initcall backlight_class_init+0x0/0xa8 returned 0 after 0 usecs
+[    1.820115] calling  tty_class_init+0x0/0x33 @ 1
+[    1.821122] initcall tty_class_init+0x0/0x33 returned 0 after 0 usecs
+[    1.822107] calling  vtconsole_class_init+0x0/0xb5 @ 1
+[    1.823194] initcall vtconsole_class_init+0x0/0xb5 returned 0 after 0 usecs
+[    1.824106] calling  iommu_dev_init+0x0/0x13 @ 1
+[    1.825141] initcall iommu_dev_init+0x0/0x13 returned 0 after 0 usecs
+[    1.826105] calling  mipi_dsi_bus_init+0x0/0xc @ 1
+[    1.827186] initcall mipi_dsi_bus_init+0x0/0xc returned 0 after 0 usecs
+[    1.828105] calling  devlink_class_init+0x0/0x40 @ 1
+[    1.829114] initcall devlink_class_init+0x0/0x40 returned 0 after 0 usecs
+[    1.830104] calling  software_node_init+0x0/0x2a @ 1
+[    1.831108] initcall software_node_init+0x0/0x2a returned 0 after 0 usecs
+[    1.832105] calling  wakeup_sources_debugfs_init+0x0/0x23 @ 1
+[    1.833116] initcall wakeup_sources_debugfs_init+0x0/0x23 returned 0 after 0 usecs
+[    1.834105] calling  wakeup_sources_sysfs_init+0x0/0x2c @ 1
+[    1.835117] initcall wakeup_sources_sysfs_init+0x0/0x2c returned 0 after 0 usecs
+[    1.836105] calling  regmap_initcall+0x0/0xc @ 1
+[    1.837148] initcall regmap_initcall+0x0/0xc returned 0 after 0 usecs
+[    1.838105] calling  i2c_init+0x0/0xb3 @ 1
+[    1.840246] initcall i2c_init+0x0/0xb3 returned 0 after 976 usecs
+[    1.841107] calling  thermal_init+0x0/0xf2 @ 1
+[    1.843135] thermal_sys: Registered thermal governor 'step_wise'
+[    1.843136] thermal_sys: Registered thermal governor 'user_space'
+[    1.844119] initcall thermal_init+0x0/0xf2 returned 0 after 1953 usecs
+[    1.846107] calling  init_menu+0x0/0xc @ 1
+[    1.847105] cpuidle: using governor menu
+[    1.848106] initcall init_menu+0x0/0xc returned 0 after 976 usecs
+[    1.849106] calling  pcc_init+0x0/0x4d @ 1
+[    1.850125] initcall pcc_init+0x0/0x4d returned -19 after 0 usecs
+[    1.851108] calling  amd_postcore_init+0x0/0x11e @ 1
+[    1.852106] initcall amd_postcore_init+0x0/0x11e returned 0 after 0 usecs
+[    1.853125] calling  bts_init+0x0/0xba @ 1
+[    1.854106] initcall bts_init+0x0/0xba returned -19 after 0 usecs
+[    1.855105] calling  pt_init+0x0/0x2ef @ 1
+[    1.856105] initcall pt_init+0x0/0x2ef returned -19 after 0 usecs
+[    1.857107] calling  boot_params_ksysfs_init+0x0/0x2ee @ 1
+[    1.858134] initcall boot_params_ksysfs_init+0x0/0x2ee returned 0 after 0 usecs
+[    1.859106] calling  sbf_init+0x0/0xb9 @ 1
+[    1.860106] initcall sbf_init+0x0/0xb9 returned 0 after 0 usecs
+[    1.861105] calling  arch_kdebugfs_init+0x0/0x219 @ 1
+[    1.862273] initcall arch_kdebugfs_init+0x0/0x219 returned 0 after 0 usecs
+[    1.863106] calling  intel_pconfig_init+0x0/0x85 @ 1
+[    1.864120] initcall intel_pconfig_init+0x0/0x85 returned 0 after 0 usecs
+[    1.866108] calling  mtrr_if_init+0x0/0x5d @ 1
+[    1.867116] initcall mtrr_if_init+0x0/0x5d returned 0 after 0 usecs
+[    1.868106] calling  activate_jump_labels+0x0/0x31 @ 1
+[    1.870107] initcall activate_jump_labels+0x0/0x31 returned 0 after 0 usecs
+[    1.871107] calling  ffh_cstate_init+0x0/0x29 @ 1
+[    1.872112] initcall ffh_cstate_init+0x0/0x29 returned 0 after 0 usecs
+[    1.873106] calling  activate_jump_labels+0x0/0x31 @ 1
+[    1.875118] initcall activate_jump_labels+0x0/0x31 returned 0 after 976 usecs
+[    1.876106] calling  kvm_alloc_cpumask+0x0/0x2b @ 1
+[    1.877152] initcall kvm_alloc_cpumask+0x0/0x2b returned 0 after 0 usecs
+[    1.878106] calling  kcmp_cookies_init+0x0/0x37 @ 1
+[    1.879109] initcall kcmp_cookies_init+0x0/0x37 returned 0 after 0 usecs
+[    1.880108] calling  cryptomgr_init+0x0/0xc @ 1
+[    1.881172] initcall cryptomgr_init+0x0/0xc returned 0 after 0 usecs
+[    1.882105] calling  acpi_pci_init+0x0/0x57 @ 1
+[    1.883140] ACPI: bus type PCI registered
+[    1.885779] initcall acpi_pci_init+0x0/0x57 returned 0 after 1953 usecs
+[    1.887310] calling  dma_channel_table_init+0x0/0xce @ 1
+[    1.889265] initcall dma_channel_table_init+0x0/0xce returned 0 after 976 usecs
+[    1.890105] calling  dma_bus_init+0x0/0xdc @ 1
+[    1.892657] initcall dma_bus_init+0x0/0xdc returned 0 after 976 usecs
+[    1.893107] calling  iommu_dma_init+0x0/0x10 @ 1
+[    1.894160] initcall iommu_dma_init+0x0/0x10 returned 0 after 0 usecs
+[    1.895107] calling  dmi_id_init+0x0/0x37c @ 1
+[    1.896626] initcall dmi_id_init+0x0/0x37c returned 0 after 0 usecs
+[    1.897119] calling  pci_arch_init+0x0/0x71 @ 1
+[    1.899728] PCI: MMCONFIG for domain 0000 [bus 00-ff] at [mem 0xb0000000-0xbfffffff] (base 0xb0000000)
+[    1.900204] PCI: MMCONFIG at [mem 0xb0000000-0xbfffffff] reserved in E820
+[    1.902263] PCI: Using configuration type 1 for base access
+[    1.903194] initcall pci_arch_init+0x0/0x71 returned 0 after 4882 usecs
+[    1.904218] calling  init_vdso+0x0/0x13 @ 1
+[    1.905162] initcall init_vdso+0x0/0x13 returned 0 after 0 usecs
+[    1.906105] calling  sysenter_setup+0x0/0x13 @ 1
+[    1.907113] initcall sysenter_setup+0x0/0x13 returned 0 after 0 usecs
+[    1.908106] calling  fixup_ht_bug+0x0/0x7f @ 1
+[    1.909154] initcall fixup_ht_bug+0x0/0x7f returned 0 after 0 usecs
+[    1.910106] calling  topology_init+0x0/0x15 @ 1
+[    1.911274] initcall topology_init+0x0/0x15 returned 0 after 0 usecs
+[    1.912155] calling  intel_epb_init+0x0/0x68 @ 1
+[    1.913135] initcall intel_epb_init+0x0/0x68 returned -19 after 0 usecs
+[    1.914106] calling  mtrr_init_finialize+0x0/0x3e @ 1
+[    1.915142] initcall mtrr_init_finialize+0x0/0x3e returned 0 after 0 usecs
+[    1.916121] calling  uid_cache_init+0x0/0x6f @ 1
+[    1.917231] initcall uid_cache_init+0x0/0x6f returned 0 after 0 usecs
+[    1.918107] calling  param_sysfs_init+0x0/0x1ba @ 1
+[    1.921675] initcall param_sysfs_init+0x0/0x1ba returned 0 after 1953 usecs
+[    1.922120] calling  user_namespace_sysctl_init+0x0/0x33 @ 1
+[    1.924260] initcall user_namespace_sysctl_init+0x0/0x33 returned 0 after 976 usecs
+[    1.925108] calling  proc_schedstat_init+0x0/0x24 @ 1
+[    1.926196] initcall proc_schedstat_init+0x0/0x24 returned 0 after 0 usecs
+[    1.927105] calling  pm_sysrq_init+0x0/0x18 @ 1
+[    1.928105] initcall pm_sysrq_init+0x0/0x18 returned 0 after 0 usecs
+[    1.929153] calling  create_proc_profile+0x0/0x50 @ 1
+[    1.930107] initcall create_proc_profile+0x0/0x50 returned 0 after 0 usecs
+[    1.931107] calling  time_ns_init+0x0/0x7 @ 1
+[    1.932123] initcall time_ns_init+0x0/0x7 returned 0 after 0 usecs
+[    1.933105] calling  crash_save_vmcoreinfo_init+0x0/0x756 @ 1
+[    1.934503] initcall crash_save_vmcoreinfo_init+0x0/0x756 returned 0 after 0 usecs
+[    1.935106] calling  crash_notes_memory_init+0x0/0x35 @ 1
+[    1.936136] initcall crash_notes_memory_init+0x0/0x35 returned 0 after 0 usecs
+[    1.937105] calling  cgroup_sysfs_init+0x0/0x13 @ 1
+[    1.938150] initcall cgroup_sysfs_init+0x0/0x13 returned 0 after 0 usecs
+[    1.939105] calling  cgroup_namespaces_init+0x0/0x7 @ 1
+[    1.940105] initcall cgroup_namespaces_init+0x0/0x7 returned 0 after 0 usecs
+[    1.941105] calling  init_optprobes+0x0/0x13 @ 1
+[    1.942263] Kprobes globally optimized
+[    1.943105] initcall init_optprobes+0x0/0x13 returned 0 after 976 usecs
+[    1.944106] calling  oom_init+0x0/0x2f @ 1
+[    1.946441] audit: type=2000 audit(1670910108.372:1): state=initialized audit_enabled=0 res=1
+[    1.947292] initcall oom_init+0x0/0x2f returned 0 after 1953 usecs
+[    1.948106] calling  default_bdi_init+0x0/0x35 @ 1
+[    1.949586] initcall default_bdi_init+0x0/0x35 returned 0 after 0 usecs
+[    1.950106] calling  percpu_enable_async+0x0/0xe @ 1
+[    1.951141] initcall percpu_enable_async+0x0/0xe returned 0 after 0 usecs
+[    1.952106] calling  kcompactd_init+0x0/0x46 @ 1
+[    1.953321] initcall kcompactd_init+0x0/0x46 returned 0 after 0 usecs
+[    1.954108] calling  init_user_reserve+0x0/0x30 @ 1
+[    1.955151] initcall init_user_reserve+0x0/0x30 returned 0 after 0 usecs
+[    1.956108] calling  init_admin_reserve+0x0/0x30 @ 1
+[    1.957108] initcall init_admin_reserve+0x0/0x30 returned 0 after 0 usecs
+[    1.958109] calling  init_reserve_notifier+0x0/0x7 @ 1
+[    1.960107] initcall init_reserve_notifier+0x0/0x7 returned 0 after 976 usecs
+[    1.961109] calling  swap_init_sysfs+0x0/0x62 @ 1
+[    1.962141] initcall swap_init_sysfs+0x0/0x62 returned 0 after 0 usecs
+[    1.963106] calling  swapfile_init+0x0/0x46 @ 1
+[    1.964107] initcall swapfile_init+0x0/0x46 returned 0 after 0 usecs
+[    1.965106] calling  hugetlb_init+0x0/0x411 @ 1
+[    1.966213] HugeTLB registered 2.00 MiB page size, pre-allocated 0 pages
+[    1.967134] initcall hugetlb_init+0x0/0x411 returned 0 after 976 usecs
+[    1.968106] calling  io_wq_init+0x0/0x34 @ 1
+[    1.969169] initcall io_wq_init+0x0/0x34 returned 0 after 0 usecs
+[    1.970107] calling  seqiv_module_init+0x0/0xc @ 1
+[    1.971192] initcall seqiv_module_init+0x0/0xc returned 0 after 0 usecs
+[    1.972118] calling  echainiv_module_init+0x0/0xc @ 1
+[    1.973105] initcall echainiv_module_init+0x0/0xc returned 0 after 0 usecs
+[    1.974107] calling  rsa_init+0x0/0x50 @ 1
+[    1.976823] cryptomgr_test (17) used greatest stack depth: 15544 bytes left
+[    1.977159] initcall rsa_init+0x0/0x50 returned 0 after 1953 usecs
+[    1.978106] calling  crypto_cmac_module_init+0x0/0xc @ 1
+[    1.980106] initcall crypto_cmac_module_init+0x0/0xc returned 0 after 0 usecs
+[    1.981106] calling  hmac_module_init+0x0/0xc @ 1
+[    1.982105] initcall hmac_module_init+0x0/0xc returned 0 after 0 usecs
+[    1.983105] calling  crypto_null_mod_init+0x0/0x65 @ 1
+[    1.984242] initcall crypto_null_mod_init+0x0/0x65 returned 0 after 0 usecs
+[    1.985146] calling  md5_mod_init+0x0/0xc @ 1
+[    1.987159] initcall md5_mod_init+0x0/0xc returned 0 after 0 usecs
+[    1.988106] calling  sha256_generic_mod_init+0x0/0x11 @ 1
+[    1.989161] initcall sha256_generic_mod_init+0x0/0x11 returned 0 after 0 usecs
+[    1.990106] calling  crypto_cbc_module_init+0x0/0xc @ 1
+[    1.991106] initcall crypto_cbc_module_init+0x0/0xc returned 0 after 0 usecs
+[    1.992105] calling  crypto_ctr_module_init+0x0/0x11 @ 1
+[    1.993121] initcall crypto_ctr_module_init+0x0/0x11 returned 0 after 0 usecs
+[    1.994105] calling  crypto_gcm_module_init+0x0/0x64 @ 1
+[    1.995134] initcall crypto_gcm_module_init+0x0/0x64 returned 0 after 0 usecs
+[    1.996106] calling  crypto_ccm_module_init+0x0/0x11 @ 1
+[    1.997107] initcall crypto_ccm_module_init+0x0/0x11 returned 0 after 0 usecs
+[    1.998105] calling  aes_init+0x0/0xc @ 1
+[    1.999158] initcall aes_init+0x0/0xc returned 0 after 0 usecs
+[    2.000105] calling  crc32c_mod_init+0x0/0xc @ 1
+[    2.001138] initcall crc32c_mod_init+0x0/0xc returned 0 after 0 usecs
+[    2.002105] calling  crypto_authenc_module_init+0x0/0xc @ 1
+[    2.003106] initcall crypto_authenc_module_init+0x0/0xc returned 0 after 0 usecs
+[    2.004104] calling  crypto_authenc_esn_module_init+0x0/0xc @ 1
+[    2.005105] initcall crypto_authenc_esn_module_init+0x0/0xc returned 0 after 0 usecs
+[    2.006105] calling  drbg_init+0x0/0x7c @ 1
+[    2.007244] initcall drbg_init+0x0/0x7c returned 0 after 0 usecs
+[    2.008105] calling  ghash_mod_init+0x0/0xc @ 1
+[    2.009134] initcall ghash_mod_init+0x0/0xc returned 0 after 0 usecs
+[    2.010105] calling  init_bio+0x0/0x9a @ 1
+[    2.011228] initcall init_bio+0x0/0x9a returned 0 after 0 usecs
+[    2.012105] calling  blk_settings_init+0x0/0x29 @ 1
+[    2.013105] initcall blk_settings_init+0x0/0x29 returned 0 after 0 usecs
+[    2.014104] calling  blk_ioc_init+0x0/0x29 @ 1
+[    2.015108] initcall blk_ioc_init+0x0/0x29 returned 0 after 0 usecs
+[    2.016105] calling  blk_mq_init+0x0/0x96 @ 1
+[    2.017133] initcall blk_mq_init+0x0/0x96 returned 0 after 0 usecs
+[    2.018105] calling  genhd_device_init+0x0/0x75 @ 1
+[    2.020264] initcall genhd_device_init+0x0/0x75 returned 0 after 0 usecs
+[    2.021106] calling  pci_slot_init+0x0/0x40 @ 1
+[    2.022126] initcall pci_slot_init+0x0/0x40 returned 0 after 0 usecs
+[    2.023105] calling  fbmem_init+0x0/0xd8 @ 1
+[    2.024262] initcall fbmem_init+0x0/0xd8 returned 0 after 0 usecs
+[    2.025104] calling  acpi_init+0x0/0x316 @ 1
+[    2.026254] ACPI: Added _OSI(Module Device)
+[    2.027118] ACPI: Added _OSI(Processor Device)
+[    2.028103] ACPI: Added _OSI(3.0 _SCP Extensions)
+[    2.029102] ACPI: Added _OSI(Processor Aggregator Device)
+[    2.030105] ACPI: Added _OSI(Linux-Dell-Video)
+[    2.031104] ACPI: Added _OSI(Linux-Lenovo-NV-HDMI-Audio)
+[    2.032103] ACPI: Added _OSI(Linux-HPI-Hybrid-Graphics)
+[    2.035726] ACPI: 1 ACPI AML tables successfully acquired and loaded
+[    2.040300] ACPI: Interpreter enabled
+[    2.042135] ACPI: (supports S0 S3 S4 S5)
+[    2.043116] ACPI: Using IOAPIC for interrupt routing
+[    2.044220] PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+[    2.045393] ACPI: Enabled 2 GPEs in block 00 to 3F
+[    2.050559] ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+[    2.051225] acpi PNP0A08:00: _OSC: OS supports [ExtendedConfig ASPM ClockPM Segments MSI HPX-Type3]
+[    2.052193] acpi PNP0A08:00: _OSC: platform does not support [LTR]
+[    2.053162] acpi PNP0A08:00: _OSC: OS now controls [PME PCIeCapability]
+[    2.054230] PCI host bridge to bus 0000:00
+[    2.055117] pci_bus 0000:00: root bus resource [io  0x0000-0x0cf7 window]
+[    2.056106] pci_bus 0000:00: root bus resource [io  0x0d00-0xffff window]
+[    2.057106] pci_bus 0000:00: root bus resource [mem 0x000a0000-0x000bffff window]
+[    2.058108] pci_bus 0000:00: root bus resource [mem 0x20000000-0xafffffff window]
+[    2.059105] pci_bus 0000:00: root bus resource [mem 0xc0000000-0xfebfffff window]
+[    2.060104] pci_bus 0000:00: root bus resource [mem 0x100000000-0x8ffffffff window]
+[    2.061106] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    2.063143] pci 0000:00:00.0: calling  quirk_mmio_always_on+0x0/0x10 @ 1
+[    2.064107] pci 0000:00:00.0: quirk_mmio_always_on+0x0/0x10 took 0 usecs
+[    2.065123] pci 0000:00:00.0: [8086:29c0] type 00 class 0x060000
+[    2.069458] pci 0000:00:00.0: calling  quirk_igfx_skip_te_disable+0x0/0x80 @ 1
+[    2.070113] pci 0000:00:00.0: quirk_igfx_skip_te_disable+0x0/0x80 took 0 usecs
+[    2.073266] pci 0000:00:01.0: [1234:1111] type 00 class 0x030000
+[    2.078899] pci 0000:00:01.0: reg 0x10: [mem 0xfd000000-0xfdffffff pref]
+[    2.088897] pci 0000:00:01.0: reg 0x18: [mem 0xfebf0000-0xfebf0fff]
+[    2.108986] pci 0000:00:01.0: reg 0x30: [mem 0xfebe0000-0xfebeffff pref]
+[    2.111884] pci 0000:00:01.0: calling  efifb_fixup_resources+0x0/0xf0 @ 1
+[    2.112125] pci 0000:00:01.0: efifb_fixup_resources+0x0/0xf0 took 0 usecs
+[    2.121048] pci 0000:00:1f.0: [8086:2918] type 00 class 0x060100
+[    2.127878] pci 0000:00:1f.0: calling  quirk_ich7_lpc+0x0/0x60 @ 1
+[    2.128357] pci 0000:00:1f.0: quirk: [io  0x0600-0x067f] claimed by ICH6 ACPI/GPIO/TCO
+[    2.129508] pci 0000:00:1f.0: quirk_ich7_lpc+0x0/0x60 took 976 usecs
+[    2.130110] pci 0000:00:1f.0: calling  quirk_igfx_skip_te_disable+0x0/0x80 @ 1
+[    2.131106] pci 0000:00:1f.0: quirk_igfx_skip_te_disable+0x0/0x80 took 0 usecs
+[    2.134763] pci 0000:00:1f.2: [8086:2922] type 00 class 0x010601
+[    2.144863] pci 0000:00:1f.2: reg 0x20: [io  0xc040-0xc05f]
+[    2.147105] pci 0000:00:1f.2: reg 0x24: [mem 0xfebf1000-0xfebf1fff]
+[    2.149795] pci 0000:00:1f.2: calling  quirk_igfx_skip_te_disable+0x0/0x80 @ 1
+[    2.150109] pci 0000:00:1f.2: quirk_igfx_skip_te_disable+0x0/0x80 took 0 usecs
+[    2.154550] pci 0000:00:1f.3: [8086:2930] type 00 class 0x0c0500
+[    2.160590] pci 0000:00:1f.3: reg 0x20: [io  0x0700-0x073f]
+[    2.163819] pci 0000:00:1f.3: calling  quirk_igfx_skip_te_disable+0x0/0x80 @ 1
+[    2.164112] pci 0000:00:1f.3: quirk_igfx_skip_te_disable+0x0/0x80 took 0 usecs
+[    2.166857] pci_bus 0000:00: on NUMA node 0
+[    2.169240] ACPI: PCI Interrupt Link [LNKA] (IRQs 5 *10 11)
+[    2.170578] ACPI: PCI Interrupt Link [LNKB] (IRQs 5 *10 11)
+[    2.172475] ACPI: PCI Interrupt Link [LNKC] (IRQs 5 10 *11)
+[    2.173574] ACPI: PCI Interrupt Link [LNKD] (IRQs 5 10 *11)
+[    2.174604] ACPI: PCI Interrupt Link [LNKE] (IRQs 5 *10 11)
+[    2.175603] ACPI: PCI Interrupt Link [LNKF] (IRQs 5 *10 11)
+[    2.177501] ACPI: PCI Interrupt Link [LNKG] (IRQs 5 10 *11)
+[    2.178601] ACPI: PCI Interrupt Link [LNKH] (IRQs 5 10 *11)
+[    2.180330] ACPI: PCI Interrupt Link [GSIA] (IRQs *16)
+[    2.181136] ACPI: PCI Interrupt Link [GSIB] (IRQs *17)
+[    2.182117] ACPI: PCI Interrupt Link [GSIC] (IRQs *18)
+[    2.183151] ACPI: PCI Interrupt Link [GSID] (IRQs *19)
+[    2.184117] ACPI: PCI Interrupt Link [GSIE] (IRQs *20)
+[    2.185137] ACPI: PCI Interrupt Link [GSIF] (IRQs *21)
+[    2.186117] ACPI: PCI Interrupt Link [GSIG] (IRQs *22)
+[    2.187118] ACPI: PCI Interrupt Link [GSIH] (IRQs *23)
+[    2.190904] initcall acpi_init+0x0/0x316 returned 0 after 160156 usecs
+[    2.191329] calling  pnp_init+0x0/0xc @ 1
+[    2.192150] initcall pnp_init+0x0/0xc returned 0 after 0 usecs
+[    2.193108] calling  misc_init+0x0/0xbf @ 1
+[    2.194231] initcall misc_init+0x0/0xbf returned 0 after 0 usecs
+[    2.195106] calling  iommu_subsys_init+0x0/0x4e @ 1
+[    2.196176] iommu: Default domain type: Translated 
+[    2.197106] initcall iommu_subsys_init+0x0/0x4e returned 0 after 976 usecs
+[    2.198106] calling  vga_arb_device_init+0x0/0x26c @ 1
+[    2.199892] pci 0000:00:01.0: vgaarb: setting as boot VGA device
+[    2.200099] pci 0000:00:01.0: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
+[    2.200107] pci 0000:00:01.0: vgaarb: bridge control possible
+[    2.201103] vgaarb: loaded
+[    2.202107] initcall vga_arb_device_init+0x0/0x26c returned 0 after 2929 usecs
+[    2.203109] calling  cn_init+0x0/0xf0 @ 1
+[    2.204388] initcall cn_init+0x0/0xf0 returned 0 after 0 usecs
+[    2.205106] calling  dma_buf_init+0x0/0xad @ 1
+[    2.207200] initcall dma_buf_init+0x0/0xad returned 0 after 976 usecs
+[    2.208107] calling  init_scsi+0x0/0x79 @ 1
+[    2.210418] SCSI subsystem initialized
+[    2.211121] initcall init_scsi+0x0/0x79 returned 0 after 1953 usecs
+[    2.212120] calling  ata_init+0x0/0x332 @ 1
+[    2.214406] libata version 3.00 loaded.
+[    2.215106] initcall ata_init+0x0/0x332 returned 0 after 1953 usecs
+[    2.216106] calling  phy_init+0x0/0x250 @ 1
+[    2.217384] initcall phy_init+0x0/0x250 returned 0 after 0 usecs
+[    2.218105] calling  init_pcmcia_cs+0x0/0x35 @ 1
+[    2.219241] initcall init_pcmcia_cs+0x0/0x35 returned 0 after 0 usecs
+[    2.220108] calling  usb_common_init+0x0/0x1c @ 1
+[    2.221165] initcall usb_common_init+0x0/0x1c returned 0 after 0 usecs
+[    2.222108] calling  usb_init+0x0/0x12e @ 1
+[    2.223257] ACPI: bus type USB registered
+[    2.224411] usbcore: registered new interface driver usbfs
+[    2.225175] usbcore: registered new interface driver hub
+[    2.226141] usbcore: registered new device driver usb
+[    2.227107] initcall usb_init+0x0/0x12e returned 0 after 3906 usecs
+[    2.228109] calling  serio_init+0x0/0x29 @ 1
+[    2.229227] initcall serio_init+0x0/0x29 returned 0 after 0 usecs
+[    2.230108] calling  input_init+0x0/0xf6 @ 1
+[    2.231175] initcall input_init+0x0/0xf6 returned 0 after 0 usecs
+[    2.232108] calling  rtc_init+0x0/0x4d @ 1
+[    2.233142] initcall rtc_init+0x0/0x4d returned 0 after 0 usecs
+[    2.234106] calling  pps_init+0x0/0xa9 @ 1
+[    2.235138] pps_core: LinuxPPS API ver. 1 registered
+[    2.236102] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    2.237106] initcall pps_init+0x0/0xa9 returned 0 after 1953 usecs
+[    2.238107] calling  ptp_init+0x0/0x98 @ 1
+[    2.239112] PTP clock support registered
+[    2.240107] initcall ptp_init+0x0/0x98 returned 0 after 976 usecs
+[    2.241106] calling  power_supply_class_init+0x0/0x3f @ 1
+[    2.243122] initcall power_supply_class_init+0x0/0x3f returned 0 after 976 usecs
+[    2.244106] calling  hwmon_init+0x0/0x104 @ 1
+[    2.245152] initcall hwmon_init+0x0/0x104 returned 0 after 0 usecs
+[    2.246105] calling  md_init+0x0/0x16b @ 1
+[    2.248234] initcall md_init+0x0/0x16b returned 0 after 976 usecs
+[    2.249106] calling  leds_init+0x0/0x3b @ 1
+[    2.250204] initcall leds_init+0x0/0x3b returned 0 after 0 usecs
+[    2.251105] calling  dmi_init+0x0/0x113 @ 1
+[    2.252260] initcall dmi_init+0x0/0x113 returned 0 after 0 usecs
+[    2.253106] calling  efisubsys_init+0x0/0x4e6 @ 1
+[    2.254124] initcall efisubsys_init+0x0/0x4e6 returned 0 after 0 usecs
+[    2.255119] calling  nvmem_init+0x0/0xc @ 1
+[    2.256141] initcall nvmem_init+0x0/0xc returned 0 after 0 usecs
+[    2.257105] calling  init_soundcore+0x0/0x33 @ 1
+[    2.258150] initcall init_soundcore+0x0/0x33 returned 0 after 0 usecs
+[    2.259104] calling  alsa_sound_init+0x0/0x8f @ 1
+[    2.260194] Advanced Linux Sound Architecture Driver Initialized.
+[    2.261106] initcall alsa_sound_init+0x0/0x8f returned 0 after 976 usecs
+[    2.262122] calling  alsa_seq_device_init+0x0/0x71 @ 1
+[    2.263195] initcall alsa_seq_device_init+0x0/0x71 returned 0 after 0 usecs
+[    2.264107] calling  hda_bus_init+0x0/0xc @ 1
+[    2.265155] initcall hda_bus_init+0x0/0xc returned 0 after 0 usecs
+[    2.267106] calling  proto_init+0x0/0xc @ 1
+[    2.268140] initcall proto_init+0x0/0xc returned 0 after 0 usecs
+[    2.269106] calling  net_dev_init+0x0/0x1cc @ 1
+[    2.272378] initcall net_dev_init+0x0/0x1cc returned 0 after 1953 usecs
+[    2.273105] calling  neigh_init+0x0/0x84 @ 1
+[    2.274109] initcall neigh_init+0x0/0x84 returned 0 after 0 usecs
+[    2.275106] calling  fib_notifier_init+0x0/0xc @ 1
+[    2.276108] initcall fib_notifier_init+0x0/0xc returned 0 after 0 usecs
+[    2.278105] calling  fib_rules_init+0x0/0xab @ 1
+[    2.279139] initcall fib_rules_init+0x0/0xab returned 0 after 0 usecs
+[    2.280105] calling  pktsched_init+0x0/0x10e @ 1
+[    2.281141] initcall pktsched_init+0x0/0x10e returned 0 after 0 usecs
+[    2.282105] calling  tc_filter_init+0x0/0xfa @ 1
+[    2.283139] initcall tc_filter_init+0x0/0xfa returned 0 after 0 usecs
+[    2.284106] calling  tc_action_init+0x0/0x54 @ 1
+[    2.285107] initcall tc_action_init+0x0/0x54 returned 0 after 0 usecs
+[    2.286106] calling  ethnl_init+0x0/0x52 @ 1
+[    2.287171] initcall ethnl_init+0x0/0x52 returned 0 after 0 usecs
+[    2.288106] calling  nexthop_init+0x0/0xd8 @ 1
+[    2.289163] initcall nexthop_init+0x0/0xd8 returned 0 after 0 usecs
+[    2.290105] calling  cipso_v4_init+0x0/0x5a @ 1
+[    2.291150] initcall cipso_v4_init+0x0/0x5a returned 0 after 0 usecs
+[    2.292108] calling  ieee80211_init+0x0/0x24 @ 1
+[    2.294381] initcall ieee80211_init+0x0/0x24 returned 0 after 976 usecs
+[    2.295108] calling  netlbl_init+0x0/0x78 @ 1
+[    2.296121] NetLabel: Initializing
+[    2.297103] NetLabel:  domain hash size = 128
+[    2.298102] NetLabel:  protocols = UNLABELED CIPSOv4 CALIPSO
+[    2.299317] NetLabel:  unlabeled traffic allowed by default
+[    2.300108] initcall netlbl_init+0x0/0x78 returned 0 after 3906 usecs
+[    2.301110] calling  rfkill_init+0x0/0x111 @ 1
+[    2.303285] initcall rfkill_init+0x0/0x111 returned 0 after 976 usecs
+[    2.304108] calling  pci_subsys_init+0x0/0x66 @ 1
+[    2.305156] PCI: Using ACPI for IRQ routing
+[    3.051904] PCI: pci_cache_line_size set to 64 bytes
+[    3.053277] e820: reserve RAM buffer [mem 0x0009fc00-0x0009ffff]
+[    3.054139] e820: reserve RAM buffer [mem 0x1ffdf000-0x1fffffff]
+[    3.055195] initcall pci_subsys_init+0x0/0x66 returned 0 after 732421 usecs
+[    3.056172] calling  nmi_warning_debugfs+0x0/0x26 @ 1
+[    3.057210] initcall nmi_warning_debugfs+0x0/0x26 returned 0 after 0 usecs
+[    3.058128] calling  save_microcode_in_initrd+0x0/0x51 @ 1
+[    3.059211] initcall save_microcode_in_initrd+0x0/0x51 returned 0 after 0 usecs
+[    3.060121] calling  hpet_late_init+0x0/0x1f6 @ 1
+[    3.061259] hpet: 3 channels of 0 reserved for per-cpu timers
+[    3.064564] hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0
+[    3.065104] hpet0: 3 comparators, 64-bit 100.000000 MHz counter
+[    3.070256] initcall hpet_late_init+0x0/0x1f6 returned 0 after 8789 usecs
+[    3.071261] calling  init_amd_nbs+0x0/0x11c @ 1
+[    3.072380] initcall init_amd_nbs+0x0/0x11c returned 0 after 0 usecs
+[    3.073124] calling  clocksource_done_booting+0x0/0x41 @ 1
+[    3.074311] clocksource: Switched to clocksource kvm-clock
+[    3.080998] initcall clocksource_done_booting+0x0/0x41 returned 0 after 6732 usecs
+[    3.089615] calling  tracer_init_tracefs+0x0/0x1fb @ 1
+[    3.480854] initcall tracer_init_tracefs+0x0/0x1fb returned 0 after 376383 usecs
+[    3.489828] calling  init_trace_printk_function_export+0x0/0x2c @ 1
+[    3.496890] initcall init_trace_printk_function_export+0x0/0x2c returned 0 after 7 usecs
+[    3.506056] calling  init_kprobe_trace+0x0/0x1a9 @ 1
+[    3.511724] initcall init_kprobe_trace+0x0/0x1a9 returned 0 after 7 usecs
+[    3.519455] calling  init_dynamic_event+0x0/0x3d @ 1
+[    3.525103] initcall init_dynamic_event+0x0/0x3d returned 0 after 5 usecs
+[    3.533064] calling  init_uprobe_trace+0x0/0x5c @ 1
+[    3.538873] initcall init_uprobe_trace+0x0/0x5c returned 0 after 23 usecs
+[    3.546743] calling  init_pipe_fs+0x0/0x44 @ 1
+[    3.552315] initcall init_pipe_fs+0x0/0x44 returned 0 after 343 usecs
+[    3.559812] calling  inotify_user_setup+0x0/0x47 @ 1
+[    3.566498] initcall inotify_user_setup+0x0/0x47 returned 0 after 180 usecs
+[    3.576658] calling  eventpoll_init+0x0/0xcc @ 1
+[    3.582601] initcall eventpoll_init+0x0/0xcc returned 0 after 99 usecs
+[    3.590284] calling  anon_inode_init+0x0/0x58 @ 1
+[    3.596809] initcall anon_inode_init+0x0/0x58 returned 0 after 397 usecs
+[    3.605211] calling  proc_locks_init+0x0/0x27 @ 1
+[    3.611209] initcall proc_locks_init+0x0/0x27 returned 0 after 184 usecs
+[    3.620711] calling  iomap_init+0x0/0x1b @ 1
+[    3.632002] initcall iomap_init+0x0/0x1b returned 0 after 4582 usecs
+[    3.639667] calling  dquot_init+0x0/0xd7 @ 1
+[    3.644677] VFS: Disk quotas dquot_6.6.0
+[    3.650112] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    3.658566] initcall dquot_init+0x0/0xd7 returned 0 after 13560 usecs
+[    3.666707] calling  quota_init+0x0/0x23 @ 1
+[    3.675086] initcall quota_init+0x0/0x23 returned 0 after 2721 usecs
+[    3.683601] calling  proc_cmdline_init+0x0/0x21 @ 1
+[    3.690780] initcall proc_cmdline_init+0x0/0x21 returned 0 after 319 usecs
+[    3.701495] calling  proc_consoles_init+0x0/0x24 @ 1
+[    3.709231] initcall proc_consoles_init+0x0/0x24 returned 0 after 138 usecs
+[    3.719583] calling  proc_cpuinfo_init+0x0/0x1e @ 1
+[    3.727153] initcall proc_cpuinfo_init+0x0/0x1e returned 0 after 4 usecs
+[    3.737334] calling  proc_devices_init+0x0/0x24 @ 1
+[    3.744668] initcall proc_devices_init+0x0/0x24 returned 0 after 33 usecs
+[    3.754068] calling  proc_interrupts_init+0x0/0x24 @ 1
+[    3.761699] initcall proc_interrupts_init+0x0/0x24 returned 0 after 4 usecs
+[    3.771864] calling  proc_loadavg_init+0x0/0x21 @ 1
+[    3.780850] initcall proc_loadavg_init+0x0/0x21 returned 0 after 3 usecs
+[    3.789458] calling  proc_meminfo_init+0x0/0x21 @ 1
+[    3.797690] initcall proc_meminfo_init+0x0/0x21 returned 0 after 3 usecs
+[    3.805754] calling  proc_stat_init+0x0/0x1e @ 1
+[    3.811389] initcall proc_stat_init+0x0/0x1e returned 0 after 3 usecs
+[    3.819342] calling  proc_uptime_init+0x0/0x21 @ 1
+[    3.825090] initcall proc_uptime_init+0x0/0x21 returned 0 after 3 usecs
+[    3.833498] calling  proc_version_init+0x0/0x21 @ 1
+[    3.839762] initcall proc_version_init+0x0/0x21 returned 0 after 3 usecs
+[    3.847948] calling  proc_softirqs_init+0x0/0x21 @ 1
+[    3.853987] initcall proc_softirqs_init+0x0/0x21 returned 0 after 66 usecs
+[    3.862103] calling  proc_kcore_init+0x0/0xea @ 1
+[    3.868593] initcall proc_kcore_init+0x0/0xea returned 0 after 627 usecs
+[    3.876682] calling  vmcore_init+0x0/0x578 @ 1
+[    3.882621] initcall vmcore_init+0x0/0x578 returned 0 after 132 usecs
+[    3.890708] calling  proc_kmsg_init+0x0/0x21 @ 1
+[    3.896457] initcall proc_kmsg_init+0x0/0x21 returned 0 after 3 usecs
+[    3.904648] calling  proc_page_init+0x0/0x3b @ 1
+[    3.910725] initcall proc_page_init+0x0/0x3b returned 0 after 4 usecs
+[    3.918664] calling  init_ramfs_fs+0x0/0xc @ 1
+[    3.923923] initcall init_ramfs_fs+0x0/0xc returned 0 after 28 usecs
+[    3.931519] calling  init_hugetlbfs_fs+0x0/0xf6 @ 1
+[    3.937382] initcall init_hugetlbfs_fs+0x0/0xf6 returned 0 after 167 usecs
+[    3.945459] calling  blk_scsi_ioctl_init+0x0/0x2a5 @ 1
+[    3.951583] initcall blk_scsi_ioctl_init+0x0/0x2a5 returned 0 after 81 usecs
+[    3.959702] calling  acpi_event_init+0x0/0x2c @ 1
+[    3.965192] initcall acpi_event_init+0x0/0x2c returned 0 after 97 usecs
+[    3.972934] calling  pnp_system_init+0x0/0xc @ 1
+[    3.985257] initcall pnp_system_init+0x0/0xc returned 0 after 6493 usecs
+[    3.993306] calling  pnpacpi_init+0x0/0x69 @ 1
+[    3.998547] pnp: PnP ACPI init
+[    4.003332] pnp 00:00: Plug and Play ACPI device, IDs PNP0303 (active)
+[    4.011608] pnp 00:01: Plug and Play ACPI device, IDs PNP0f13 (active)
+[    4.019387] pnp 00:02: Plug and Play ACPI device, IDs PNP0400 (active)
+[    4.027454] pnp 00:03: Plug and Play ACPI device, IDs PNP0501 (active)
+[    4.035274] pnp 00:04: Plug and Play ACPI device, IDs PNP0b00 (active)
+[    4.044723] system 00:05: [mem 0xb0000000-0xbfffffff window] has been reserved
+[    4.053272] system 00:05: Plug and Play ACPI device, IDs PNP0c01 (active)
+[    4.064710] pnp: PnP ACPI: found 6 devices
+[    4.069836] initcall pnpacpi_init+0x0/0x69 returned 0 after 69647 usecs
+[    4.077858] calling  chr_dev_init+0x0/0x14d @ 1
+[    4.113785] initcall chr_dev_init+0x0/0x14d returned 0 after 29642 usecs
+[    4.123612] calling  firmware_class_init+0x0/0xde @ 1
+[    4.131143] initcall firmware_class_init+0x0/0xde returned 0 after 458 usecs
+[    4.140989] calling  init_pcmcia_bus+0x0/0x5b @ 1
+[    4.149101] initcall init_pcmcia_bus+0x0/0x5b returned 0 after 1000 usecs
+[    4.157877] calling  init_acpi_pm_clocksource+0x0/0xda @ 1
+[    4.173780] clocksource: acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idle_ns: 2085701024 ns
+[    4.186988] initcall init_acpi_pm_clocksource+0x0/0xda returned 0 after 19905 usecs
+[    4.196851] calling  sysctl_core_init+0x0/0x26 @ 1
+[    4.206709] initcall sysctl_core_init+0x0/0x26 returned 0 after 1567 usecs
+[    4.218871] calling  eth_offload_init+0x0/0x13 @ 1
+[    4.226292] initcall eth_offload_init+0x0/0x13 returned 0 after 286 usecs
+[    4.236388] calling  ipv4_offload_init+0x0/0x73 @ 1
+[    4.243387] initcall ipv4_offload_init+0x0/0x73 returned 0 after 645 usecs
+[    4.252644] calling  inet_init+0x0/0x276 @ 1
+[    4.260729] NET: Registered protocol family 2
+[    4.279079] IP idents hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    4.318771] tcp_listen_portaddr_hash hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    4.329827] TCP established hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    4.341833] TCP bind hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    4.355063] TCP: Hash tables configured (established 4096 bind 4096)
+[    4.367896] UDP hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    4.375895] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    4.387609] initcall inet_init+0x0/0x276 returned 0 after 124966 usecs
+[    4.395677] calling  af_unix_init+0x0/0x4d @ 1
+[    4.401412] NET: Registered protocol family 1
+[    4.407554] initcall af_unix_init+0x0/0x4d returned 0 after 5996 usecs
+[    4.415736] calling  ipv6_offload_init+0x0/0x7e @ 1
+[    4.422646] initcall ipv6_offload_init+0x0/0x7e returned 0 after 564 usecs
+[    4.431311] calling  init_sunrpc+0x0/0x65 @ 1
+[    4.446989] RPC: Registered named UNIX socket transport module.
+[    4.454272] RPC: Registered udp transport module.
+[    4.460477] RPC: Registered tcp transport module.
+[    4.466263] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    4.474007] initcall init_sunrpc+0x0/0x65 returned 0 after 36360 usecs
+[    4.481613] calling  cfg80211_init+0x0/0xc5 @ 1
+[    4.487585] initcall cfg80211_init+0x0/0xc5 returned 0 after 553 usecs
+[    4.495419] calling  pcibios_assign_resources+0x0/0xa8 @ 1
+[    4.501949] pci_bus 0000:00: resource 4 [io  0x0000-0x0cf7 window]
+[    4.509428] pci_bus 0000:00: resource 5 [io  0x0d00-0xffff window]
+[    4.516849] pci_bus 0000:00: resource 6 [mem 0x000a0000-0x000bffff window]
+[    4.524943] pci_bus 0000:00: resource 7 [mem 0x20000000-0xafffffff window]
+[    4.533759] pci_bus 0000:00: resource 8 [mem 0xc0000000-0xfebfffff window]
+[    4.542259] pci_bus 0000:00: resource 9 [mem 0x100000000-0x8ffffffff window]
+[    4.551392] initcall pcibios_assign_resources+0x0/0xa8 returned 0 after 48403 usecs
+[    4.560168] calling  pci_apply_final_quirks+0x0/0x124 @ 1
+[    4.566639] pci 0000:00:01.0: calling  pci_fixup_video+0x0/0xe0 @ 1
+[    4.575553] pci 0000:00:01.0: Video device with shadowed ROM at [mem 0x000c0000-0x000dffff]
+[    4.585815] pci 0000:00:01.0: pci_fixup_video+0x0/0xe0 took 10504 usecs
+[    4.594660] PCI: CLS 0 bytes, default 64
+[    4.599376] initcall pci_apply_final_quirks+0x0/0x124 returned 0 after 32096 usecs
+[    4.608217] calling  acpi_reserve_resources+0x0/0xea @ 1
+[    4.614787] initcall acpi_reserve_resources+0x0/0xea returned 0 after 43 usecs
+[    4.623580] calling  populate_rootfs+0x0/0x102 @ 1
+[    4.630791] initcall populate_rootfs+0x0/0x102 returned 0 after 1254 usecs
+[    4.639415] calling  pci_iommu_init+0x0/0x3e @ 1
+[    4.645487] initcall pci_iommu_init+0x0/0x3e returned 0 after 95 usecs
+[    4.653780] calling  ia32_binfmt_init+0x0/0x13 @ 1
+[    4.660202] initcall ia32_binfmt_init+0x0/0x13 returned 0 after 24 usecs
+[    4.670027] calling  rapl_pmu_init+0x0/0x25f @ 1
+[    4.677073] initcall rapl_pmu_init+0x0/0x25f returned -19 after 127 usecs
+[    4.686879] calling  amd_uncore_init+0x0/0x310 @ 1
+[    4.693844] initcall amd_uncore_init+0x0/0x310 returned -19 after 0 usecs
+[    4.702227] calling  amd_ibs_init+0x0/0x233 @ 1
+[    4.708456] initcall amd_ibs_init+0x0/0x233 returned -19 after 0 usecs
+[    4.716899] calling  amd_iommu_pc_init+0x0/0x20c @ 1
+[    4.723270] initcall amd_iommu_pc_init+0x0/0x20c returned -19 after 0 usecs
+[    4.731644] calling  msr_init+0x0/0x55 @ 1
+[    4.736800] initcall msr_init+0x0/0x55 returned 0 after 258 usecs
+[    4.745628] calling  intel_uncore_init+0x0/0x31e @ 1
+[    4.751873] initcall intel_uncore_init+0x0/0x31e returned -19 after 71 usecs
+[    4.760740] calling  cstate_pmu_init+0x0/0x181 @ 1
+[    4.766873] initcall cstate_pmu_init+0x0/0x181 returned -19 after 0 usecs
+[    4.775660] calling  register_kernel_offset_dumper+0x0/0x1a @ 1
+[    4.784787] initcall register_kernel_offset_dumper+0x0/0x1a returned 0 after 239 usecs
+[    4.796789] calling  i8259A_init_ops+0x0/0x20 @ 1
+[    4.803731] initcall i8259A_init_ops+0x0/0x20 returned 0 after 1 usecs
+[    4.811616] calling  init_tsc_clocksource+0x0/0xa4 @ 1
+[    4.818340] clocksource: tsc: mask: 0xffffffffffffffff max_cycles: 0x39a85afc727, max_idle_ns: 881590685098 ns
+[    4.830531] initcall init_tsc_clocksource+0x0/0xa4 returned 0 after 11877 usecs
+[    4.839612] calling  add_rtc_cmos+0x0/0xb0 @ 1
+[    4.845168] initcall add_rtc_cmos+0x0/0xb0 returned 0 after 32 usecs
+[    4.852593] calling  i8237A_init_ops+0x0/0x3a @ 1
+[    4.858229] initcall i8237A_init_ops+0x0/0x3a returned 0 after 84 usecs
+[    4.866044] calling  umwait_init+0x0/0x94 @ 1
+[    4.871403] initcall umwait_init+0x0/0x94 returned -19 after 22 usecs
+[    4.879084] calling  thermal_throttle_init_device+0x0/0x3d @ 1
+[    4.885969] initcall thermal_throttle_init_device+0x0/0x3d returned 0 after 28 usecs
+[    4.895002] calling  msr_init+0x0/0xd7 @ 1
+[    4.899937] initcall msr_init+0x0/0xd7 returned 0 after 110 usecs
+[    4.907194] calling  cpuid_init+0x0/0xd7 @ 1
+[    4.912452] initcall cpuid_init+0x0/0xd7 returned 0 after 127 usecs
+[    4.919982] calling  ioapic_init_ops+0x0/0x13 @ 1
+[    4.927040] initcall ioapic_init_ops+0x0/0x13 returned 0 after 20 usecs
+[    4.936744] calling  add_pcspkr+0x0/0x6c @ 1
+[    4.943250] initcall add_pcspkr+0x0/0x6c returned 0 after 51 usecs
+[    4.952012] calling  start_periodic_check_for_corruption+0x0/0x30 @ 1
+[    4.959667] check: Scanning for low memory corruption every 60 seconds
+[    4.967493] initcall start_periodic_check_for_corruption+0x0/0x30 returned 0 after 7639 usecs
+[    4.977499] calling  sysfb_init+0x0/0x9c @ 1
+[    4.983966] initcall sysfb_init+0x0/0x9c returned 0 after 93 usecs
+[    4.993182] calling  audit_classes_init+0x0/0xae @ 1
+[    5.000871] initcall audit_classes_init+0x0/0xae returned 0 after 24 usecs
+[    5.010741] calling  iosf_mbi_init+0x0/0x24 @ 1
+[    5.016391] initcall iosf_mbi_init+0x0/0x24 returned 0 after 189 usecs
+[    5.024227] calling  proc_execdomains_init+0x0/0x21 @ 1
+[    5.038215] initcall proc_execdomains_init+0x0/0x21 returned 0 after 1728 usecs
+[    5.048464] calling  register_warn_debugfs+0x0/0x23 @ 1
+[    5.055814] initcall register_warn_debugfs+0x0/0x23 returned 0 after 884 usecs
+[    5.064688] calling  ioresources_init+0x0/0x49 @ 1
+[    5.070723] initcall ioresources_init+0x0/0x49 returned 0 after 45 usecs
+[    5.078950] calling  snapshot_device_init+0x0/0xc @ 1
+[    5.090435] initcall snapshot_device_init+0x0/0xc returned 0 after 5124 usecs
+[    5.101369] calling  irq_pm_init_ops+0x0/0x13 @ 1
+[    5.108798] initcall irq_pm_init_ops+0x0/0x13 returned 0 after 178 usecs
+[    5.116794] calling  rcu_torture_init+0x0/0x89f @ 1
+[    5.122691] tasks-torture:--- Start of test: nreaders=1 nfakewriters=4 stat_interval=15 verbose=1 test_no_idle_hz=1 shuffle_interval=3 stutter=5 irqreader=1 fqs_duration=0 fqs_holdoff=0 fqs_stutter=3 test_boost=1/0 test_boost_interval=7 test_boost_duration=4 shutdown_secs=1800 stall_cpu=0 stall_cpu_holdoff=10 stall_cpu_irqsoff=0 stall_cpu_block=0 n_barrier_cbs=4 onoff_interval=0 onoff_holdoff=0 read_exit_delay=13 read_exit_burst=16
+[    5.166372] tasks:  Start-test grace-period state: g0 f0x0
+[    5.172909] tasks-torture: Creating rcu_torture_writer task
+[    5.180689] tasks-torture: Creating rcu_torture_fakewriter task
+[    5.187729] tasks-torture: rcu_torture_writer task started
+[    5.194229] tasks-torture: GP expediting controlled from boot/sysfs for tasks.
+[    5.202644] rcu_torture_writer: Testing expedited GPs.
+[    5.208726] rcu_torture_writer: Testing asynchronous GPs.
+[    5.215158] rcu_torture_writer: Testing normal GPs.
+[    5.221109] tasks-torture: Creating rcu_torture_fakewriter task
+[    5.228384] tasks-torture: rcu_torture_fakewriter task started
+[    5.235364] tasks-torture: Creating rcu_torture_fakewriter task
+[    5.242405] tasks-torture: rcu_torture_fakewriter task started
+[    5.249625] tasks-torture: Creating rcu_torture_fakewriter task
+[    5.256617] tasks-torture: rcu_torture_fakewriter task started
+[    5.264498] tasks-torture: Creating rcu_torture_reader task
+[    5.271114] tasks-torture: rcu_torture_fakewriter task started
+[    5.279368] tasks-torture: Creating rcu_torture_stats task
+[    5.285919] tasks-torture: rcu_torture_reader task started
+[    5.293600] tasks-torture: Creating torture_shuffle task
+[    5.299988] tasks-torture: rcu_torture_stats task started
+[    5.308201] tasks-torture: Creating torture_stutter task
+[    5.314673] tasks-torture: torture_shuffle task started
+[    5.321036] tasks-torture: Creating torture_shutdown task
+[    5.327609] tasks-torture: torture_stutter task started
+[    5.334642] tasks-torture: rcu_torture_fwd_prog_init: Disabled, unsupported by RCU flavor under test
+[    5.346116] tasks-torture: Creating rcu_torture_barrier_cbs task
+[    5.353308] tasks-torture: torture_shutdown task started
+[    5.360881] tasks-torture:torture_shutdown task: 1799960 ms remaining
+[    5.370483] tasks-torture: Creating rcu_torture_barrier_cbs task
+[    5.379462] tasks-torture: rcu_torture_barrier_cbs task started
+[    5.387423] tasks-torture: Creating rcu_torture_barrier_cbs task
+[    5.394532] tasks-torture: rcu_torture_barrier_cbs task started
+[    5.401711] tasks-torture: Creating rcu_torture_barrier_cbs task
+[    5.408877] tasks-torture: rcu_torture_barrier_cbs task started
+[    5.416007] tasks-torture: Creating rcu_torture_barrier task
+[    5.422729] tasks-torture: rcu_torture_barrier_cbs task started
+[    5.430615] tasks-torture: Creating rcu_torture_read_exit task
+[    5.437492] tasks-torture: rcu_torture_barrier task starting
+[    5.447775] initcall rcu_torture_init+0x0/0x89f returned 0 after 317635 usecs
+[    5.455995] calling  timekeeping_init_ops+0x0/0x13 @ 1
+[    5.461975] initcall timekeeping_init_ops+0x0/0x13 returned 0 after 13 usecs
+[    5.470072] calling  init_clocksource_sysfs+0x0/0x23 @ 1
+[    5.476356] initcall init_clocksource_sysfs+0x0/0x23 returned 0 after 195 usecs
+[    5.484651] calling  init_timer_list_procfs+0x0/0x31 @ 1
+[    5.491470] initcall init_timer_list_procfs+0x0/0x31 returned 0 after 4 usecs
+[    5.499561] calling  alarmtimer_init+0x0/0xb5 @ 1
+[    5.505975] initcall alarmtimer_init+0x0/0xb5 returned 0 after 330 usecs
+[    5.513579] calling  init_posix_timers+0x0/0x29 @ 1
+[    5.524279] initcall init_posix_timers+0x0/0x29 returned 0 after 187 usecs
+[    5.532221] calling  clockevents_init_sysfs+0x0/0x8b @ 1
+[    5.545292] initcall clockevents_init_sysfs+0x0/0x8b returned 0 after 106 usecs
+[    5.554864] calling  proc_dma_init+0x0/0x21 @ 1
+[    5.561553] initcall proc_dma_init+0x0/0x21 returned 0 after 48 usecs
+[    5.570746] calling  proc_modules_init+0x0/0x1e @ 1
+[    5.576418] initcall proc_modules_init+0x0/0x1e returned 0 after 16 usecs
+[    5.584290] calling  kallsyms_init+0x0/0x21 @ 1
+[    5.589693] initcall kallsyms_init+0x0/0x21 returned 0 after 2 usecs
+[    5.597396] calling  pid_namespaces_init+0x0/0x2c @ 1
+[    5.603336] initcall pid_namespaces_init+0x0/0x2c returned 0 after 31 usecs
+[    5.611947] calling  audit_watch_init+0x0/0x37 @ 1
+[    5.618936] initcall audit_watch_init+0x0/0x37 returned 0 after 27 usecs
+[    5.628256] calling  audit_fsnotify_init+0x0/0x37 @ 1
+[    5.635384] initcall audit_fsnotify_init+0x0/0x37 returned 0 after 1 usecs
+[    5.645256] calling  audit_tree_init+0x0/0x6d @ 1
+[    5.651589] initcall audit_tree_init+0x0/0x6d returned 0 after 20 usecs
+[    5.660137] calling  seccomp_sysctl_init+0x0/0x2b @ 1
+[    5.666233] initcall seccomp_sysctl_init+0x0/0x2b returned 0 after 70 usecs
+[    5.674164] calling  utsname_sysctl_init+0x0/0x13 @ 1
+[    5.680008] initcall utsname_sysctl_init+0x0/0x13 returned 0 after 59 usecs
+[    5.687882] calling  init_tracepoints+0x0/0x27 @ 1
+[    5.694037] initcall init_tracepoints+0x0/0x27 returned 0 after 59 usecs
+[    5.702820] calling  init_blk_tracer+0x0/0x50 @ 1
+[    5.710414] initcall init_blk_tracer+0x0/0x50 returned 0 after 748 usecs
+[    5.720188] calling  perf_event_sysfs_init+0x0/0x81 @ 1
+[    5.728370] initcall perf_event_sysfs_init+0x0/0x81 returned 0 after 657 usecs
+[    5.736690] calling  system_trusted_keyring_init+0x0/0x5f @ 1
+[    5.743312] Initialise system trusted keyrings
+[    5.748499] initcall system_trusted_keyring_init+0x0/0x5f returned 0 after 5063 usecs
+[    5.757343] calling  kswapd_init+0x0/0x13 @ 1
+[    5.762442] tasks-torture: rcu_torture_read_exit: Start of test
+[    5.769574] initcall kswapd_init+0x0/0x13 returned 0 after 6970 usecs
+[    5.776958] calling  extfrag_debug_init+0x0/0x54 @ 1
+[    5.782691] initcall extfrag_debug_init+0x0/0x54 returned 0 after 90 usecs
+[    5.790396] calling  slab_proc_init+0x0/0x21 @ 1
+[    5.795775] initcall slab_proc_init+0x0/0x21 returned 0 after 84 usecs
+[    5.803172] calling  workingset_init+0x0/0x8c @ 1
+[    5.808694] workingset: timestamp_bits=62 max_order=17 bucket_order=0
+[    5.817899] initcall workingset_init+0x0/0x8c returned 0 after 8996 usecs
+[    5.827493] calling  proc_vmalloc_init+0x0/0x27 @ 1
+[    5.834535] initcall proc_vmalloc_init+0x0/0x27 returned 0 after 32 usecs
+[    5.843320] calling  procswaps_init+0x0/0x1e @ 1
+[    5.848714] initcall procswaps_init+0x0/0x1e returned 0 after 43 usecs
+[    5.856241] calling  slab_sysfs_init+0x0/0xea @ 1
+[    5.866346] initcall slab_sysfs_init+0x0/0xea returned 0 after 4466 usecs
+[    5.874065] calling  fcntl_init+0x0/0x29 @ 1
+[    5.879035] initcall fcntl_init+0x0/0x29 returned 0 after 6 usecs
+[    5.885997] calling  proc_filesystems_init+0x0/0x21 @ 1
+[    5.891990] initcall proc_filesystems_init+0x0/0x21 returned 0 after 3 usecs
+[    5.900482] calling  start_dirtytime_writeback+0x0/0x29 @ 1
+[    5.906828] initcall start_dirtytime_writeback+0x0/0x29 returned 0 after 1 usecs
+[    5.915262] calling  blkdev_init+0x0/0x1b @ 1
+[    5.920571] initcall blkdev_init+0x0/0x1b returned 0 after 249 usecs
+[    5.928077] calling  dio_init+0x0/0x2c @ 1
+[    5.932790] initcall dio_init+0x0/0x2c returned 0 after 98 usecs
+[    5.939681] calling  dnotify_init+0x0/0x78 @ 1
+[    5.944795] initcall dnotify_init+0x0/0x78 returned 0 after 7 usecs
+[    5.951887] calling  aio_setup+0x0/0x78 @ 1
+[    5.956922] initcall aio_setup+0x0/0x78 returned 0 after 201 usecs
+[    5.963871] calling  io_uring_init+0x0/0x2c @ 1
+[    5.968986] initcall io_uring_init+0x0/0x2c returned 0 after 4 usecs
+[    5.976043] calling  mbcache_init+0x0/0x30 @ 1
+[    5.981179] initcall mbcache_init+0x0/0x30 returned 0 after 36 usecs
+[    5.988492] calling  init_grace+0x0/0xc @ 1
+[    5.993421] initcall init_grace+0x0/0xc returned 0 after 93 usecs
+[    6.000278] calling  init_v2_quota_format+0x0/0x21 @ 1
+[    6.006203] initcall init_v2_quota_format+0x0/0x21 returned 0 after 87 usecs
+[    6.014105] calling  init_devpts_fs+0x0/0x27 @ 1
+[    6.019365] initcall init_devpts_fs+0x0/0x27 returned 0 after 114 usecs
+[    6.027476] calling  ext4_init_fs+0x0/0x1cb @ 1
+[    6.032988] initcall ext4_init_fs+0x0/0x1cb returned 0 after 336 usecs
+[    6.040232] calling  journal_init+0x0/0x11c @ 1
+[    6.045352] initcall journal_init+0x0/0x11c returned 0 after 72 usecs
+[    6.052467] calling  init_fat_fs+0x0/0x49 @ 1
+[    6.057397] initcall init_fat_fs+0x0/0x49 returned 0 after 61 usecs
+[    6.064248] calling  init_vfat_fs+0x0/0xc @ 1
+[    6.069115] initcall init_vfat_fs+0x0/0xc returned 0 after 3 usecs
+[    6.075985] calling  init_msdos_fs+0x0/0xc @ 1
+[    6.080966] initcall init_msdos_fs+0x0/0xc returned 0 after 2 usecs
+[    6.088099] calling  init_iso9660_fs+0x0/0x6c @ 1
+[    6.093756] rcu_torture_rea (61) used greatest stack depth: 15536 bytes left
+[    6.101637] initcall init_iso9660_fs+0x0/0x6c returned 0 after 8076 usecs
+[    6.109189] calling  init_nfs_fs+0x0/0x13a @ 1
+[    6.114898] initcall init_nfs_fs+0x0/0x13a returned 0 after 640 usecs
+[    6.122259] calling  init_nfs_v2+0x0/0x13 @ 1
+[    6.127269] initcall init_nfs_v2+0x0/0x13 returned 0 after 80 usecs
+[    6.134437] calling  init_nfs_v3+0x0/0x13 @ 1
+[    6.139538] initcall init_nfs_v3+0x0/0x13 returned 0 after 15 usecs
+[    6.146723] calling  init_nfs_v4+0x0/0x32 @ 1
+[    6.151840] NFS: Registering the id_resolver key type
+[    6.157741] Key type id_resolver registered
+[    6.162622] Key type id_legacy registered
+[    6.167500] initcall init_nfs_v4+0x0/0x32 returned 0 after 15339 usecs
+[    6.175076] calling  init_nlm+0x0/0x5b @ 1
+[    6.180793] initcall init_nlm+0x0/0x5b returned 0 after 166 usecs
+[    6.188237] calling  init_nls_cp437+0x0/0xe @ 1
+[    6.193628] initcall init_nls_cp437+0x0/0xe returned 0 after 40 usecs
+[    6.201071] calling  init_nls_ascii+0x0/0xe @ 1
+[    6.206456] initcall init_nls_ascii+0x0/0xe returned 0 after 0 usecs
+[    6.213794] calling  init_nls_iso8859_1+0x0/0xe @ 1
+[    6.219500] initcall init_nls_iso8859_1+0x0/0xe returned 0 after 1 usecs
+[    6.227215] calling  init_nls_utf8+0x0/0x21 @ 1
+[    6.232501] initcall init_nls_utf8+0x0/0x21 returned 0 after 1 usecs
+[    6.239816] calling  init_autofs_fs+0x0/0x25 @ 1
+[    6.245471] initcall init_autofs_fs+0x0/0x25 returned 0 after 226 usecs
+[    6.253368] calling  ipc_init+0x0/0x24 @ 1
+[    6.258323] initcall ipc_init+0x0/0x24 returned 0 after 37 usecs
+[    6.265334] calling  ipc_sysctl_init+0x0/0x13 @ 1
+[    6.271000] initcall ipc_sysctl_init+0x0/0x13 returned 0 after 37 usecs
+[    6.278568] calling  init_mqueue_fs+0x0/0x92 @ 1
+[    6.284125] initcall init_mqueue_fs+0x0/0x92 returned 0 after 164 usecs
+[    6.291762] calling  key_proc_init+0x0/0x63 @ 1
+[    6.297069] initcall key_proc_init+0x0/0x63 returned 0 after 17 usecs
+[    6.305297] calling  selinux_nf_ip_init+0x0/0x2e @ 1
+[    6.311038] initcall selinux_nf_ip_init+0x0/0x2e returned 0 after 38 usecs
+[    6.319031] calling  init_sel_fs+0x0/0x116 @ 1
+[    6.324480] initcall init_sel_fs+0x0/0x116 returned 0 after 0 usecs
+[    6.331738] calling  selnl_init+0x0/0x7c @ 1
+[    6.337046] initcall selnl_init+0x0/0x7c returned 0 after 305 usecs
+[    6.344254] calling  sel_netif_init+0x0/0x36 @ 1
+[    6.350400] initcall sel_netif_init+0x0/0x36 returned 0 after 0 usecs
+[    6.359070] calling  sel_netnode_init+0x0/0x33 @ 1
+[    6.364519] initcall sel_netnode_init+0x0/0x33 returned 0 after 0 usecs
+[    6.372082] calling  sel_netport_init+0x0/0x33 @ 1
+[    6.377794] initcall sel_netport_init+0x0/0x33 returned 0 after 0 usecs
+[    6.385417] calling  aurule_init+0x0/0x2a @ 1
+[    6.391619] initcall aurule_init+0x0/0x2a returned 0 after 2 usecs
+[    6.399598] calling  crypto_algapi_init+0x0/0xc @ 1
+[    6.405355] initcall crypto_algapi_init+0x0/0xc returned 0 after 4 usecs
+[    6.413253] calling  jent_mod_init+0x0/0x2d @ 1
+[    6.427628] initcall jent_mod_init+0x0/0x2d returned 0 after 8861 usecs
+[    6.435907] calling  asymmetric_key_init+0x0/0xc @ 1
+[    6.443052] Key type asymmetric registered
+[    6.449266] initcall asymmetric_key_init+0x0/0xc returned 0 after 6066 usecs
+[    6.459408] calling  x509_key_init+0x0/0xc @ 1
+[    6.465554] Asymmetric key parser 'x509' registered
+[    6.471315] initcall x509_key_init+0x0/0xc returned 0 after 5664 usecs
+[    6.478817] calling  proc_genhd_init+0x0/0x41 @ 1
+[    6.485002] initcall proc_genhd_init+0x0/0x41 returned 0 after 25 usecs
+[    6.492817] calling  bsg_init+0x0/0x113 @ 1
+[    6.497912] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 251)
+[    6.506157] initcall bsg_init+0x0/0x113 returned 0 after 8387 usecs
+[    6.513224] calling  deadline_init+0x0/0xc @ 1
+[    6.518321] io scheduler mq-deadline registered
+[    6.523471] initcall deadline_init+0x0/0xc returned 0 after 5048 usecs
+[    6.530869] calling  kyber_init+0x0/0xc @ 1
+[    6.535716] io scheduler kyber registered
+[    6.540326] initcall kyber_init+0x0/0xc returned 0 after 4521 usecs
+[    6.547376] calling  mod_init+0x0/0x7 @ 1
+[    6.551949] initcall mod_init+0x0/0x7 returned 0 after 0 usecs
+[    6.558587] calling  sg_pool_init+0x0/0xb4 @ 1
+[    6.563749] initcall sg_pool_init+0x0/0xb4 returned 0 after 110 usecs
+[    6.570984] calling  pcie_portdrv_init+0x0/0x39 @ 1
+[    6.576997] initcall pcie_portdrv_init+0x0/0x39 returned 0 after 461 usecs
+[    6.584735] calling  pci_proc_init+0x0/0x68 @ 1
+[    6.589987] initcall pci_proc_init+0x0/0x68 returned 0 after 10 usecs
+[    6.597269] calling  pci_hotplug_init+0x0/0x7 @ 1
+[    6.602618] initcall pci_hotplug_init+0x0/0x7 returned 0 after 0 usecs
+[    6.609990] calling  efifb_driver_init+0x0/0xe @ 1
+[    6.615457] initcall efifb_driver_init+0x0/0xe returned 0 after 41 usecs
+[    6.622988] calling  ged_driver_init+0x0/0xe @ 1
+[    6.628372] initcall ged_driver_init+0x0/0xe returned 0 after 130 usecs
+[    6.636019] calling  acpi_ac_init+0x0/0x92 @ 1
+[    6.641519] initcall acpi_ac_init+0x0/0x92 returned 0 after 404 usecs
+[    6.648865] calling  acpi_button_driver_init+0x0/0x52 @ 1
+[    6.655553] input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input0
+[    6.664263] ACPI: Power Button [PWRF]
+[    6.668843] initcall acpi_button_driver_init+0x0/0x52 returned 0 after 13490 usecs
+[    6.677247] calling  acpi_fan_driver_init+0x0/0xe @ 1
+[    6.683118] initcall acpi_fan_driver_init+0x0/0xe returned 0 after 11 usecs
+[    6.690992] calling  acpi_video_init+0x0/0xcb @ 1
+[    6.696501] initcall acpi_video_init+0x0/0xcb returned 0 after 41 usecs
+[    6.704049] calling  acpi_processor_driver_init+0x0/0xad @ 1
+[    6.710928] initcall acpi_processor_driver_init+0x0/0xad returned 0 after 363 usecs
+[    6.719685] calling  acpi_thermal_init+0x0/0x71 @ 1
+[    6.725466] initcall acpi_thermal_init+0x0/0x71 returned 0 after 113 usecs
+[    6.733351] calling  acpi_battery_init+0x0/0x32 @ 1
+[    6.739070] initcall acpi_battery_init+0x0/0x32 returned 0 after 3 usecs
+[    6.747607] calling  bgrt_init+0x0/0xb6 @ 1
+[    6.753750] initcall bgrt_init+0x0/0xb6 returned -19 after 0 usecs
+[    6.762645] calling  gpio_clk_driver_init+0x0/0xe @ 1
+[    6.770306] initcall gpio_clk_driver_init+0x0/0xe returned 0 after 51 usecs
+[    6.780282] calling  plt_clk_driver_init+0x0/0xe @ 1
+[    6.789146] initcall plt_clk_driver_init+0x0/0xe returned 0 after 23 usecs
+[    6.799067] calling  virtio_pci_driver_init+0x0/0x15 @ 1
+[    6.806861] initcall virtio_pci_driver_init+0x0/0x15 returned 0 after 53 usecs
+[    6.817256] calling  n_null_init+0x0/0x1e @ 1
+[    6.823629] initcall n_null_init+0x0/0x1e returned 0 after 1 usecs
+[    6.832474] calling  pty_init+0x0/0x1e8 @ 1
+[    6.839046] initcall pty_init+0x0/0x1e8 returned 0 after 474 usecs
+[    6.847910] calling  sysrq_init+0x0/0x62 @ 1
+[    6.854180] initcall sysrq_init+0x0/0x62 returned 0 after 5 usecs
+[    6.861375] calling  serial8250_init+0x0/0x17e @ 1
+[    6.867397] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    6.875626] 00:03: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[    6.885890] initcall serial8250_init+0x0/0x17e returned 0 after 18100 usecs
+[    6.893898] calling  serial_pci_driver_init+0x0/0x15 @ 1
+[    6.900042] initcall serial_pci_driver_init+0x0/0x15 returned 0 after 60 usecs
+[    6.908780] calling  exar_pci_driver_init+0x0/0x15 @ 1
+[    6.914723] initcall exar_pci_driver_init+0x0/0x15 returned 0 after 37 usecs
+[    6.922686] calling  lpss8250_pci_driver_init+0x0/0x15 @ 1
+[    6.929258] initcall lpss8250_pci_driver_init+0x0/0x15 returned 0 after 29 usecs
+[    6.937473] calling  mid8250_pci_driver_init+0x0/0x15 @ 1
+[    6.943859] initcall mid8250_pci_driver_init+0x0/0x15 returned 0 after 19 usecs
+[    6.952459] calling  virtio_console_init+0x0/0xff @ 1
+[    6.958630] initcall virtio_console_init+0x0/0xff returned 0 after 130 usecs
+[    6.967143] calling  hpet_init+0x0/0x64 @ 1
+[    6.973357] initcall hpet_init+0x0/0x64 returned 0 after 813 usecs
+[    6.980563] calling  nvram_module_init+0x0/0x83 @ 1
+[    6.986501] Non-volatile memory driver v1.3
+[    6.991783] initcall nvram_module_init+0x0/0x83 returned 0 after 5261 usecs
+[    6.999881] calling  hwrng_modinit+0x0/0x8a @ 1
+[    7.005214] initcall hwrng_modinit+0x0/0x8a returned 0 after 163 usecs
+[    7.012592] calling  mod_init+0x0/0x48 @ 1
+[    7.017174] initcall mod_init+0x0/0x48 returned -19 after 0 usecs
+[    7.023948] calling  agp_init+0x0/0x23 @ 1
+[    7.028683] Linux agpgart interface v0.103
+[    7.033372] initcall agp_init+0x0/0x23 returned 0 after 4576 usecs
+[    7.040420] calling  agp_amd64_mod_init+0x0/0x5 @ 1
+[    7.046298] initcall agp_amd64_mod_init+0x0/0x5 returned -19 after 158 usecs
+[    7.055241] calling  agp_intel_init+0x0/0x28 @ 1
+[    7.068689] initcall agp_intel_init+0x0/0x28 returned 0 after 2940 usecs
+[    7.077263] calling  drm_kms_helper_init+0x0/0x7 @ 1
+[    7.083432] initcall drm_kms_helper_init+0x0/0x7 returned 0 after 31 usecs
+[    7.091989] calling  drm_core_init+0x0/0x9e @ 1
+[    7.103014] initcall drm_core_init+0x0/0x9e returned 0 after 2552 usecs
+[    7.112640] calling  i915_init+0x0/0x6b @ 1
+[    7.122098] initcall i915_init+0x0/0x6b returned 0 after 3169 usecs
+[    7.131333] calling  cn_proc_init+0x0/0x35 @ 1
+[    7.137955] initcall cn_proc_init+0x0/0x35 returned 0 after 14 usecs
+[    7.147126] calling  topology_sysfs_init+0x0/0x27 @ 1
+[    7.153353] initcall topology_sysfs_init+0x0/0x27 returned 0 after 224 usecs
+[    7.161425] calling  cacheinfo_sysfs_init+0x0/0x27 @ 1
+[    7.168544] initcall cacheinfo_sysfs_init+0x0/0x27 returned 0 after 613 usecs
+[    7.178171] calling  loop_init+0x0/0x168 @ 1
+[    7.196898] loop: module loaded
+[    7.200798] initcall loop_init+0x0/0x168 returned 0 after 17344 usecs
+[    7.210863] calling  mac_hid_init+0x0/0x21 @ 1
+[    7.217274] initcall mac_hid_init+0x0/0x21 returned 0 after 37 usecs
+[    7.226251] calling  spi_transport_init+0x0/0x74 @ 1
+[    7.233467] initcall spi_transport_init+0x0/0x74 returned 0 after 197 usecs
+[    7.241792] calling  init_sd+0x0/0x18c @ 1
+[    7.246777] initcall init_sd+0x0/0x18c returned 0 after 235 usecs
+[    7.253564] calling  init_sr+0x0/0x43 @ 1
+[    7.258198] initcall init_sr+0x0/0x43 returned 0 after 34 usecs
+[    7.264798] calling  init_sg+0x0/0x1c0 @ 1
+[    7.269787] initcall init_sg+0x0/0x1c0 returned 0 after 259 usecs
+[    7.276746] calling  ahci_pci_driver_init+0x0/0x15 @ 1
+[    7.283007] ahci 0000:00:1f.2: version 3.0
+[    7.290003] PCI Interrupt Link [GSIA] enabled at IRQ 16
+[    7.303446] ahci 0000:00:1f.2: AHCI 0001.0000 32 slots 6 ports 1.5 Gbps 0x3f impl SATA mode
+[    7.312949] ahci 0000:00:1f.2: flags: 64bit ncq only 
+[    7.328038] scsi host0: ahci
+[    7.331989] scsi host1: ahci
+[    7.336435] scsi host2: ahci
+[    7.342246] scsi host3: ahci
+[    7.346036] scsi host4: ahci
+[    7.349982] scsi host5: ahci
+[    7.353562] ata1: SATA max UDMA/133 abar m4096@0xfebf1000 port 0xfebf1100 irq 24
+[    7.362117] ata2: SATA max UDMA/133 abar m4096@0xfebf1000 port 0xfebf1180 irq 24
+[    7.370738] ata3: SATA max UDMA/133 abar m4096@0xfebf1000 port 0xfebf1200 irq 24
+[    7.379273] ata4: SATA max UDMA/133 abar m4096@0xfebf1000 port 0xfebf1280 irq 24
+[    7.387848] ata5: SATA max UDMA/133 abar m4096@0xfebf1000 port 0xfebf1300 irq 24
+[    7.396666] ata6: SATA max UDMA/133 abar m4096@0xfebf1000 port 0xfebf1380 irq 24
+[    7.405276] initcall ahci_pci_driver_init+0x0/0x15 returned 0 after 119714 usecs
+[    7.414004] calling  piix_init+0x0/0x26 @ 1
+[    7.419035] initcall piix_init+0x0/0x26 returned 0 after 113 usecs
+[    7.426160] calling  amd_pci_driver_init+0x0/0x15 @ 1
+[    7.432038] initcall amd_pci_driver_init+0x0/0x15 returned 0 after 13 usecs
+[    7.440184] calling  oldpiix_pci_driver_init+0x0/0x15 @ 1
+[    7.446547] initcall oldpiix_pci_driver_init+0x0/0x15 returned 0 after 28 usecs
+[    7.455025] calling  sch_pci_driver_init+0x0/0x15 @ 1
+[    7.461398] initcall sch_pci_driver_init+0x0/0x15 returned 0 after 454 usecs
+[    7.470734] calling  net_olddevs_init+0x0/0x55 @ 1
+[    7.476662] initcall net_olddevs_init+0x0/0x55 returned 0 after 117 usecs
+[    7.485947] calling  blackhole_netdev_init+0x0/0x78 @ 1
+[    7.492331] initcall blackhole_netdev_init+0x0/0x78 returned 0 after 313 usecs
+[    7.500723] calling  phy_module_init+0x0/0x13 @ 1
+[    7.506374] initcall phy_module_init+0x0/0x13 returned 0 after 152 usecs
+[    7.514155] calling  tg3_driver_init+0x0/0x15 @ 1
+[    7.519800] initcall tg3_driver_init+0x0/0x15 returned 0 after 42 usecs
+[    7.527648] calling  e100_init_module+0x0/0x4c @ 1
+[    7.533370] e100: Intel(R) PRO/100 Network Driver
+[    7.538960] e100: Copyright(c) 1999-2006 Intel Corporation
+[    7.545478] initcall e100_init_module+0x0/0x4c returned 0 after 11844 usecs
+[    7.555095] calling  e1000_init_module+0x0/0x72 @ 1
+[    7.561296] e1000: Intel(R) PRO/1000 Network Driver
+[    7.567029] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    7.573840] initcall e1000_init_module+0x0/0x72 returned 0 after 12248 usecs
+[    7.582051] calling  e1000_init_module+0x0/0x2d @ 1
+[    7.588732] e1000e: Intel(R) PRO/1000 Network Driver
+[    7.595004] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    7.602708] initcall e1000_init_module+0x0/0x2d returned 0 after 13657 usecs
+[    7.612889] calling  sky2_init_module+0x0/0x21 @ 1
+[    7.619048] sky2: driver version 1.30
+[    7.624256] initcall sky2_init_module+0x0/0x21 returned 0 after 5082 usecs
+[    7.632232] calling  forcedeth_pci_driver_init+0x0/0x15 @ 1
+[    7.639498] initcall forcedeth_pci_driver_init+0x0/0x15 returned 0 after 36 usecs
+[    7.648171] calling  rtl8139_init_module+0x0/0x15 @ 1
+[    7.654476] initcall rtl8139_init_module+0x0/0x15 returned 0 after 48 usecs
+[    7.664737] calling  rtl8169_pci_driver_init+0x0/0x15 @ 1
+[    7.672717] initcall rtl8169_pci_driver_init+0x0/0x15 returned 0 after 47 usecs
+[    7.683303] calling  cdrom_init+0x0/0xc @ 1
+[    7.689539] initcall cdrom_init+0x0/0xc returned 0 after 55 usecs
+[    7.698360] calling  nonstatic_sysfs_init+0x0/0xc @ 1
+[    7.705821] initcall nonstatic_sysfs_init+0x0/0xc returned 0 after 1 usecs
+[    7.715807] calling  yenta_cardbus_driver_init+0x0/0x15 @ 1
+[    7.722422] initcall yenta_cardbus_driver_init+0x0/0x15 returned 0 after 59 usecs
+[    7.731597] calling  mon_init+0x0/0x123 @ 1
+[    7.741426] initcall mon_init+0x0/0x123 returned 0 after 4400 usecs
+[    7.749102] calling  ehci_hcd_init+0x0/0x55 @ 1
+[    7.754793] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    7.763162] initcall ehci_hcd_init+0x0/0x55 returned 0 after 8237 usecs
+[    7.771507] calling  ehci_pci_init+0x0/0x64 @ 1
+[    7.777413] ehci-pci: EHCI PCI platform driver
+[    7.783332] initcall ehci_pci_init+0x0/0x64 returned 0 after 5778 usecs
+[    7.791745] calling  ohci_hcd_mod_init+0x0/0x4d @ 1
+[    7.797905] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    7.805843] initcall ohci_hcd_mod_init+0x0/0x4d returned 0 after 7749 usecs
+[    7.815280] calling  ohci_pci_init+0x0/0x64 @ 1
+[    7.821903] ohci-pci: OHCI PCI platform driver
+[    7.828265] initcall ohci_pci_init+0x0/0x64 returned 0 after 6226 usecs
+[    7.837414] calling  uhci_hcd_init+0x0/0xa6 @ 1
+[    7.843797] uhci_hcd: USB Universal Host Controller Interface driver
+[    7.852716] initcall uhci_hcd_init+0x0/0xa6 returned 0 after 8707 usecs
+[    7.862074] calling  xhci_hcd_init+0x0/0x1e @ 1
+[    7.869838] initcall xhci_hcd_init+0x0/0x1e returned 0 after 28 usecs
+[    7.877413] calling  xhci_pci_init+0x0/0x49 @ 1
+[    7.883022] initcall xhci_pci_init+0x0/0x49 returned 0 after 101 usecs
+[    7.890835] calling  usblp_driver_init+0x0/0x15 @ 1
+[    7.896812] usbcore: registered new interface driver usblp
+[    7.903519] initcall usblp_driver_init+0x0/0x15 returned 0 after 6672 usecs
+[    7.911921] calling  usb_storage_driver_init+0x0/0x2a @ 1
+[    7.918662] usbcore: registered new interface driver usb-storage
+[    7.926214] initcall usb_storage_driver_init+0x0/0x2a returned 0 after 7450 usecs
+[    7.935436] calling  i8042_init+0x0/0x4c2 @ 1
+[    7.941447] i8042: PNP: PS/2 Controller [PNP0303:KBD,PNP0f13:MOU] at 0x60,0x64 irq 1,12
+[    7.959071] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    7.965287] serio: i8042 AUX port at 0x60,0x64 irq 12
+[    7.971532] initcall i8042_init+0x0/0x4c2 returned 0 after 29882 usecs
+[    7.979532] calling  serport_init+0x0/0x2c @ 1
+[    7.985120] initcall serport_init+0x0/0x2c returned 0 after 0 usecs
+[    7.992796] calling  input_leds_init+0x0/0xc @ 1
+[    7.998623] initcall input_leds_init+0x0/0xc returned 0 after 66 usecs
+[    8.006637] calling  evdev_init+0x0/0xc @ 1
+[    8.012952] initcall evdev_init+0x0/0xc returned 0 after 1121 usecs
+[    8.020502] calling  atkbd_init+0x0/0x21 @ 1
+[    8.025750] initcall atkbd_init+0x0/0x21 returned 0 after 53 usecs
+[    8.033214] calling  psmouse_init+0x0/0x7f @ 1
+[    8.038824] initcall psmouse_init+0x0/0x7f returned 0 after 67 usecs
+[    8.046656] calling  cmos_init+0x0/0x73 @ 1
+[    8.052477] rtc_cmos 00:04: RTC can wake from S4
+[    8.064930] input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input1
+[    8.097796] rtc_cmos 00:04: registered as rtc0
+[    8.103944] rtc_cmos 00:04: alarms up to one day, y3k, 242 bytes nvram, hpet irqs
+[    8.113269] initcall cmos_init+0x0/0x73 returned 0 after 60025 usecs
+[    8.120950] calling  smbalert_driver_init+0x0/0xe @ 1
+[    8.127508] initcall smbalert_driver_init+0x0/0xe returned 0 after 84 usecs
+[    8.136165] calling  i2c_i801_init+0x0/0xc5 @ 1
+[    8.143911] i801_smbus 0000:00:1f.3: SMBus using PCI interrupt
+[    8.152680] i2c i2c-0: 1/1 memory slots populated (from DMI)
+[    8.160223] i2c i2c-0: Memory type 0x07 not supported yet, not instantiating SPD
+[    8.169984] initcall i2c_i801_init+0x0/0xc5 returned 0 after 27512 usecs
+[    8.179007] calling  ptp_kvm_init+0x0/0xf0 @ 1
+[    8.186580] ata3: SATA link up 1.5 Gbps (SStatus 113 SControl 300)
+[    8.196832] ata3.00: ATAPI: QEMU DVD-ROM, 2.5+, max UDMA/100
+[    8.205419] ata3.00: applying bridge limits
+[    8.212990] ata3.00: configured for UDMA/100
+[    8.221384] ata2: SATA link down (SStatus 0 SControl 300)
+[    8.229836] ata1: SATA link down (SStatus 0 SControl 300)
+[    8.237870] ata4: SATA link down (SStatus 0 SControl 300)
+[    8.246468] scsi 2:0:0:0: CD-ROM            QEMU     QEMU DVD-ROM     2.5+ PQ: 0 ANSI: 5
+[    8.260302] initcall ptp_kvm_init+0x0/0xf0 returned 0 after 73647 usecs
+[    8.268459] calling  dm_init+0x0/0x3c @ 1
+[    8.275056] sr 2:0:0:0: [sr0] scsi3-mmc drive: 4x/4x cd/rw xa/form2 tray
+[    8.283368] cdrom: Uniform CD-ROM driver Revision: 3.20
+[    8.290841] device-mapper: ioctl: 4.43.0-ioctl (2020-10-01) initialised: dm-devel@redhat.com
+[    8.301098] initcall dm_init+0x0/0x3c returned 0 after 27027 usecs
+[    8.308830] calling  dm_mirror_init+0x0/0x29 @ 1
+[    8.314602] initcall dm_mirror_init+0x0/0x29 returned 0 after 19 usecs
+[    8.322781] calling  dm_dirty_log_init+0x0/0x4f @ 1
+[    8.328820] initcall dm_dirty_log_init+0x0/0x4f returned 0 after 42 usecs
+[    8.337837] calling  dm_zero_init+0x0/0x29 @ 1
+[    8.344196] initcall dm_zero_init+0x0/0x29 returned 0 after 2 usecs
+[    8.352933] calling  intel_pstate_init+0x0/0x4a2 @ 1
+[    8.359159] intel_pstate: CPU model not supported
+[    8.367090] initcall intel_pstate_init+0x0/0x4a2 returned -19 after 7741 usecs
+[    8.376471] calling  haltpoll_init+0x0/0xc0 @ 1
+[    8.382480] initcall haltpoll_init+0x0/0xc0 returned -19 after 30 usecs
+[    8.391212] calling  efivars_sysfs_init+0x0/0x30 @ 1
+[    8.397899] initcall efivars_sysfs_init+0x0/0x30 returned 0 after 31 usecs
+[    8.406731] calling  esrt_sysfs_init+0x0/0x2a2 @ 1
+[    8.412874] initcall esrt_sysfs_init+0x0/0x2a2 returned -38 after 39 usecs
+[    8.421849] calling  hid_init+0x0/0x5c @ 1
+[    8.427425] hid: raw HID events driver (C) Jiri Kosina
+[    8.434583] initcall hid_init+0x0/0x5c returned 0 after 7068 usecs
+[    8.443784] calling  hid_generic_init+0x0/0x15 @ 1
+[    8.450041] initcall hid_generic_init+0x0/0x15 returned 0 after 63 usecs
+[    8.458918] calling  a4_driver_init+0x0/0x15 @ 1
+[    8.465810] initcall a4_driver_init+0x0/0x15 returned 0 after 19 usecs
+[    8.474441] calling  apple_driver_init+0x0/0x15 @ 1
+[    8.480957] initcall apple_driver_init+0x0/0x15 returned 0 after 116 usecs
+[    8.490397] calling  belkin_driver_init+0x0/0x15 @ 1
+[    8.497152] initcall belkin_driver_init+0x0/0x15 returned 0 after 20 usecs
+[    8.506254] calling  ch_driver_init+0x0/0x15 @ 1
+[    8.512788] initcall ch_driver_init+0x0/0x15 returned 0 after 20 usecs
+[    8.522239] calling  ch_driver_init+0x0/0x15 @ 1
+[    8.528781] initcall ch_driver_init+0x0/0x15 returned 0 after 21 usecs
+[    8.537332] calling  cp_driver_init+0x0/0x15 @ 1
+[    8.543656] initcall cp_driver_init+0x0/0x15 returned 0 after 22 usecs
+[    8.553213] calling  ez_driver_init+0x0/0x15 @ 1
+[    8.560186] initcall ez_driver_init+0x0/0x15 returned 0 after 19 usecs
+[    8.570907] calling  gyration_driver_init+0x0/0x15 @ 1
+[    8.580597] initcall gyration_driver_init+0x0/0x15 returned 0 after 80 usecs
+[    8.591258] calling  ite_driver_init+0x0/0x15 @ 1
+[    8.597861] initcall ite_driver_init+0x0/0x15 returned 0 after 17 usecs
+[    8.607496] calling  ks_driver_init+0x0/0x15 @ 1
+[    8.614023] initcall ks_driver_init+0x0/0x15 returned 0 after 19 usecs
+[    8.623502] calling  lg_driver_init+0x0/0x15 @ 1
+[    8.630469] initcall lg_driver_init+0x0/0x15 returned 0 after 56 usecs
+[    8.640096] calling  lg_g15_driver_init+0x0/0x15 @ 1
+[    8.647503] initcall lg_g15_driver_init+0x0/0x15 returned 0 after 45 usecs
+[    8.657002] calling  ms_driver_init+0x0/0x15 @ 1
+[    8.663756] initcall ms_driver_init+0x0/0x15 returned 0 after 22 usecs
+[    8.672723] calling  mr_driver_init+0x0/0x15 @ 1
+[    8.679040] initcall mr_driver_init+0x0/0x15 returned 0 after 32 usecs
+[    8.688034] calling  ntrig_driver_init+0x0/0x15 @ 1
+[    8.695793] initcall ntrig_driver_init+0x0/0x15 returned 0 after 25 usecs
+[    8.706571] calling  pl_driver_init+0x0/0x15 @ 1
+[    8.713959] initcall pl_driver_init+0x0/0x15 returned 0 after 23 usecs
+[    8.724343] calling  pl_driver_init+0x0/0x15 @ 1
+[    8.731807] initcall pl_driver_init+0x0/0x15 returned 0 after 20 usecs
+[    8.742110] calling  redragon_driver_init+0x0/0x15 @ 1
+[    8.750260] initcall redragon_driver_init+0x0/0x15 returned 0 after 22 usecs
+[    8.761287] calling  samsung_driver_init+0x0/0x15 @ 1
+[    8.769486] initcall samsung_driver_init+0x0/0x15 returned 0 after 24 usecs
+[    8.780344] calling  sony_init+0x0/0x38 @ 1
+[    8.787340] initcall sony_init+0x0/0x38 returned 0 after 66 usecs
+[    8.796921] calling  sp_driver_init+0x0/0x15 @ 1
+[    8.804221] initcall sp_driver_init+0x0/0x15 returned 0 after 122 usecs
+[    8.814516] calling  ts_driver_init+0x0/0x15 @ 1
+[    8.822812] initcall ts_driver_init+0x0/0x15 returned 0 after 21 usecs
+[    8.833393] calling  hid_init+0x0/0x58 @ 1
+[    8.839944] usbcore: registered new interface driver usbhid
+[    8.848870] usbhid: USB HID core driver
+[    8.854809] initcall hid_init+0x0/0x58 returned 0 after 14670 usecs
+[    8.864303] calling  eeepc_laptop_init+0x0/0x57 @ 1
+[    8.871847] initcall eeepc_laptop_init+0x0/0x57 returned -19 after 75 usecs
+[    8.882444] calling  pmc_atom_init+0x0/0x27a @ 1
+[    8.889748] initcall pmc_atom_init+0x0/0x27a returned -19 after 27 usecs
+[    8.900185] calling  alsa_hwdep_init+0x0/0x5e @ 1
+[    8.907963] initcall alsa_hwdep_init+0x0/0x5e returned 0 after 113 usecs
+[    8.918612] calling  alsa_timer_init+0x0/0x1f0 @ 1
+[    8.926074] ata5: SATA link down (SStatus 0 SControl 300)
+[    8.934663] ata6: SATA link down (SStatus 0 SControl 300)
+[    8.952986] sr 2:0:0:0: Attached scsi CD-ROM sr0
+[    8.960562] sr 2:0:0:0: Attached scsi generic sg0 type 5
+[    8.968256] initcall alsa_timer_init+0x0/0x1f0 returned 0 after 42373 usecs
+[    8.977863] calling  snd_hrtimer_init+0x0/0x117 @ 1
+[    8.984280] initcall snd_hrtimer_init+0x0/0x117 returned 0 after 3 usecs
+[    8.993280] calling  alsa_pcm_init+0x0/0x64 @ 1
+[    8.999649] initcall alsa_pcm_init+0x0/0x64 returned 0 after 10 usecs
+[    9.008292] calling  alsa_seq_init+0x0/0x4a @ 1
+[    9.014734] initcall alsa_seq_init+0x0/0x4a returned 0 after 348 usecs
+[    9.023606] calling  alsa_seq_dummy_init+0x0/0x9c @ 1
+[    9.030622] initcall alsa_seq_dummy_init+0x0/0x9c returned 0 after 126 usecs
+[    9.040474] calling  azx_driver_init+0x0/0x15 @ 1
+[    9.047647] initcall azx_driver_init+0x0/0x15 returned 0 after 76 usecs
+[    9.056792] calling  sock_diag_init+0x0/0x2a @ 1
+[    9.064731] initcall sock_diag_init+0x0/0x2a returned 0 after 492 usecs
+[    9.073835] calling  blackhole_init+0x0/0xc @ 1
+[    9.080090] initcall blackhole_init+0x0/0xc returned 0 after 1 usecs
+[    9.088676] calling  nfnetlink_init+0x0/0x57 @ 1
+[    9.094964] initcall nfnetlink_init+0x0/0x57 returned 0 after 72 usecs
+[    9.103908] calling  nfnetlink_log_init+0x0/0x99 @ 1
+[    9.111077] initcall nfnetlink_log_init+0x0/0x99 returned 0 after 106 usecs
+[    9.120846] calling  nf_conntrack_standalone_init+0x0/0x87 @ 1
+[    9.130619] initcall nf_conntrack_standalone_init+0x0/0x87 returned 0 after 1640 usecs
+[    9.141419] calling  ctnetlink_init+0x0/0x83 @ 1
+[    9.148032] initcall ctnetlink_init+0x0/0x83 returned 0 after 1 usecs
+[    9.158818] calling  nf_conntrack_ftp_init+0x0/0x12c @ 1
+[    9.166202] initcall nf_conntrack_ftp_init+0x0/0x12c returned 0 after 38 usecs
+[    9.176057] calling  nf_conntrack_irc_init+0x0/0x129 @ 1
+[    9.183653] initcall nf_conntrack_irc_init+0x0/0x129 returned 0 after 5 usecs
+[    9.193352] calling  nf_conntrack_sip_init+0x0/0x172 @ 1
+[    9.201432] initcall nf_conntrack_sip_init+0x0/0x172 returned 0 after 7 usecs
+[    9.211440] calling  nf_nat_init+0x0/0xbb @ 1
+[    9.218099] initcall nf_nat_init+0x0/0xbb returned 0 after 107 usecs
+[    9.226787] calling  nf_nat_ftp_init+0x0/0x2a @ 1
+[    9.233008] initcall nf_nat_ftp_init+0x0/0x2a returned 0 after 0 usecs
+[    9.241944] calling  nf_nat_irc_init+0x0/0x2a @ 1
+[    9.248450] initcall nf_nat_irc_init+0x0/0x2a returned 0 after 0 usecs
+[    9.257249] calling  nf_nat_sip_init+0x0/0x36 @ 1
+[    9.264431] initcall nf_nat_sip_init+0x0/0x36 returned 0 after 1 usecs
+[    9.274020] calling  xt_init+0x0/0xcf @ 1
+[    9.280012] initcall xt_init+0x0/0xcf returned 0 after 46 usecs
+[    9.288457] calling  tcpudp_mt_init+0x0/0x11 @ 1
+[    9.295479] initcall tcpudp_mt_init+0x0/0x11 returned 0 after 27 usecs
+[    9.305038] calling  connsecmark_tg_init+0x0/0xc @ 1
+[    9.312525] initcall connsecmark_tg_init+0x0/0xc returned 0 after 0 usecs
+[    9.322174] calling  nflog_tg_init+0x0/0xc @ 1
+[    9.328328] initcall nflog_tg_init+0x0/0xc returned 0 after 1 usecs
+[    9.337581] calling  secmark_tg_init+0x0/0x11 @ 1
+[    9.344216] initcall secmark_tg_init+0x0/0x11 returned 0 after 1 usecs
+[    9.353134] calling  tcpmss_tg_init+0x0/0x11 @ 1
+[    9.360112] initcall tcpmss_tg_init+0x0/0x11 returned 0 after 0 usecs
+[    9.369751] calling  conntrack_mt_init+0x0/0x11 @ 1
+[    9.376862] initcall conntrack_mt_init+0x0/0x11 returned 0 after 1 usecs
+[    9.388275] calling  policy_mt_init+0x0/0x11 @ 1
+[    9.395806] initcall policy_mt_init+0x0/0x11 returned 0 after 1 usecs
+[    9.406899] calling  state_mt_init+0x0/0xc @ 1
+[    9.414310] initcall state_mt_init+0x0/0xc returned 0 after 1 usecs
+[    9.423316] calling  gre_offload_init+0x0/0x48 @ 1
+[    9.430343] initcall gre_offload_init+0x0/0x48 returned 0 after 162 usecs
+[    9.440206] calling  sysctl_ipv4_init+0x0/0x46 @ 1
+[    9.448075] initcall sysctl_ipv4_init+0x0/0x46 returned 0 after 570 usecs
+[    9.458414] calling  tunnel4_init+0x0/0x58 @ 1
+[    9.465632] initcall tunnel4_init+0x0/0x58 returned 0 after 476 usecs
+[    9.475100] calling  nf_defrag_init+0x0/0xc @ 1
+[    9.481324] initcall nf_defrag_init+0x0/0xc returned 0 after 19 usecs
+[    9.490228] calling  ip_tables_init+0x0/0x8d @ 1
+[    9.496837] initcall ip_tables_init+0x0/0x8d returned 0 after 256 usecs
+[    9.506157] calling  iptable_filter_init+0x0/0x4c @ 1
+[    9.513935] initcall iptable_filter_init+0x0/0x4c returned 0 after 1017 usecs
+[    9.525010] calling  iptable_mangle_init+0x0/0xb8 @ 1
+[    9.533736] initcall iptable_mangle_init+0x0/0xb8 returned 0 after 120 usecs
+[    9.545743] calling  reject_tg_init+0x0/0xc @ 1
+[    9.553133] initcall reject_tg_init+0x0/0xc returned 0 after 1 usecs
+[    9.562137] calling  cubictcp_register+0x0/0x53 @ 1
+[    9.569494] initcall cubictcp_register+0x0/0x53 returned 0 after 62 usecs
+[    9.579416] calling  xfrm_user_init+0x0/0x45 @ 1
+[    9.586569] Initializing XFRM netlink socket
+[    9.593261] initcall xfrm_user_init+0x0/0x45 returned 0 after 6557 usecs
+[    9.603352] calling  inet6_init+0x0/0x35e @ 1
+[    9.610484] NET: Registered protocol family 10
+[    9.847589] input: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input3
+[   10.314650] Segment Routing with IPv6
+[   10.320993] initcall inet6_init+0x0/0x35e returned 0 after 694445 usecs
+[   10.331827] calling  ah6_init+0x0/0x71 @ 1
+[   10.338497] initcall ah6_init+0x0/0x71 returned 0 after 98 usecs
+[   10.348353] calling  esp6_init+0x0/0x71 @ 1
+[   10.355419] initcall esp6_init+0x0/0x71 returned 0 after 1 usecs
+[   10.365237] calling  ip6_tables_init+0x0/0x8d @ 1
+[   10.373138] initcall ip6_tables_init+0x0/0x8d returned 0 after 50 usecs
+[   10.385080] calling  ip6table_filter_init+0x0/0x4c @ 1
+[   10.395068] initcall ip6table_filter_init+0x0/0x4c returned 0 after 551 usecs
+[   10.408570] calling  ip6table_mangle_init+0x0/0xb8 @ 1
+[   10.416884] initcall ip6table_mangle_init+0x0/0xb8 returned 0 after 230 usecs
+[   10.427635] calling  nf_defrag_init+0x0/0x45 @ 1
+[   10.435560] initcall nf_defrag_init+0x0/0x45 returned 0 after 143 usecs
+[   10.445991] calling  ipv6header_mt6_init+0x0/0xc @ 1
+[   10.455391] initcall ipv6header_mt6_init+0x0/0xc returned 0 after 1 usecs
+[   10.465372] calling  reject_tg6_init+0x0/0xc @ 1
+[   10.472682] initcall reject_tg6_init+0x0/0xc returned 0 after 1 usecs
+[   10.483218] calling  sit_init+0x0/0xc3 @ 1
+[   10.490226] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[   10.506564] initcall sit_init+0x0/0xc3 returned 0 after 15948 usecs
+[   10.518002] calling  packet_init+0x0/0x75 @ 1
+[   10.525863] NET: Registered protocol family 17
+[   10.532637] initcall packet_init+0x0/0x75 returned 0 after 6611 usecs
+[   10.541585] calling  init_rpcsec_gss+0x0/0x60 @ 1
+[   10.550233] initcall init_rpcsec_gss+0x0/0x60 returned 0 after 1711 usecs
+[   10.559504] calling  init_dns_resolver+0x0/0xca @ 1
+[   10.569286] Key type dns_resolver registered
+[   10.575176] initcall init_dns_resolver+0x0/0xca returned 0 after 8644 usecs
+[   10.585831] calling  pm_check_save_msr+0x0/0x80 @ 1
+[   10.594686] initcall pm_check_save_msr+0x0/0x80 returned 0 after 657 usecs
+[   10.606016] calling  mcheck_init_device+0x0/0x112 @ 1
+[   10.616910] initcall mcheck_init_device+0x0/0x112 returned 0 after 1915 usecs
+[   10.634395] calling  mcheck_late_init+0x0/0x58 @ 1
+[   10.641944] initcall mcheck_late_init+0x0/0x58 returned 0 after 226 usecs
+[   10.654791] calling  severities_debugfs_init+0x0/0x29 @ 1
+[   10.663869] initcall severities_debugfs_init+0x0/0x29 returned 0 after 8 usecs
+[   10.675010] calling  microcode_init+0x0/0x1bd @ 1
+[   10.682589] initcall microcode_init+0x0/0x1bd returned -22 after 165 usecs
+[   10.693497] calling  hpet_insert_resource+0x0/0x22 @ 1
+[   10.702697] initcall hpet_insert_resource+0x0/0x22 returned 0 after 298 usecs
+[   10.714991] calling  start_sync_check_timer+0x0/0x4f @ 1
+[   10.723379] initcall start_sync_check_timer+0x0/0x4f returned 0 after 106 usecs
+[   10.734076] calling  update_mp_table+0x0/0x4fc @ 1
+[   10.741242] initcall update_mp_table+0x0/0x4fc returned 0 after 107 usecs
+[   10.752004] calling  lapic_insert_resource+0x0/0x3f @ 1
+[   10.760506] initcall lapic_insert_resource+0x0/0x3f returned 0 after 2 usecs
+[   10.771670] calling  print_ICs+0x0/0x8c @ 1
+[   10.777858] initcall print_ICs+0x0/0x8c returned 0 after 159 usecs
+[   10.788475] calling  create_tlb_single_page_flush_ceiling+0x0/0x28 @ 1
+[   10.800823] initcall create_tlb_single_page_flush_ceiling+0x0/0x28 returned 0 after 198 usecs
+[   10.813095] calling  pat_memtype_list_init+0x0/0x31 @ 1
+[   10.821065] initcall pat_memtype_list_init+0x0/0x31 returned 0 after 72 usecs
+[   10.832121] calling  create_init_pkru_value+0x0/0x28 @ 1
+[   10.840155] initcall create_init_pkru_value+0x0/0x28 returned 0 after 8 usecs
+[   10.852343] calling  init_oops_id+0x0/0x40 @ 1
+[   10.859909] initcall init_oops_id+0x0/0x40 returned 0 after 5 usecs
+[   10.870480] calling  sched_clock_init_late+0x0/0x6e @ 1
+[   10.879093] sched_clock: Marking stable (9773008063, 1105930394)->(14127872643, -3248934186)
+[   10.892936] initcall sched_clock_init_late+0x0/0x6e returned 0 after 13598 usecs
+[   10.905762] calling  cpu_latency_qos_init+0x0/0x35 @ 1
+[   10.919527] tasks-torture: rcu_torture_read_exit: End of episode
+[   10.932641] initcall cpu_latency_qos_init+0x0/0x35 returned 0 after 17048 usecs
+[   10.945048] calling  pm_debugfs_init+0x0/0x23 @ 1
+[   10.952059] initcall pm_debugfs_init+0x0/0x23 returned 0 after 10 usecs
+[   10.962580] calling  printk_late_init+0x0/0x10b @ 1
+[   10.970672] initcall printk_late_init+0x0/0x10b returned 0 after 1 usecs
+[   10.982773] calling  swiotlb_create_debugfs+0x0/0x50 @ 1
+[   10.992118] initcall swiotlb_create_debugfs+0x0/0x50 returned 0 after 189 usecs
+[   11.004744] calling  tk_debug_sleep_time_init+0x0/0x23 @ 1
+[   11.014624] initcall tk_debug_sleep_time_init+0x0/0x23 returned 0 after 241 usecs
+[   11.027546] calling  debugfs_kprobe_init+0x0/0x71 @ 1
+[   11.036664] initcall debugfs_kprobe_init+0x0/0x71 returned 0 after 194 usecs
+[   11.049016] calling  taskstats_init+0x0/0x36 @ 1
+[   11.057288] registered taskstats version 1
+[   11.064960] initcall taskstats_init+0x0/0x36 returned 0 after 7556 usecs
+[   11.077057] calling  load_system_certificate_list+0x0/0x26 @ 1
+[   11.088364] Loading compiled-in X.509 certificates
+[   11.111314] initcall load_system_certificate_list+0x0/0x26 returned 0 after 20711 usecs
+[   11.126700] calling  fault_around_debugfs+0x0/0x23 @ 1
+[   11.142579] initcall fault_around_debugfs+0x0/0x23 returned 0 after 6203 usecs
+[   11.155302] calling  max_swapfiles_check+0x0/0x7 @ 1
+[   11.163548] initcall max_swapfiles_check+0x0/0x7 returned 0 after 31 usecs
+[   11.174451] calling  check_early_ioremap_leak+0x0/0x38 @ 1
+[   11.184330] initcall check_early_ioremap_leak+0x0/0x38 returned 0 after 228 usecs
+[   11.197501] calling  init_root_keyring+0x0/0x9 @ 1
+[   11.207675] initcall init_root_keyring+0x0/0x9 returned 0 after 1660 usecs
+[   11.220053] calling  integrity_fs_init+0x0/0x13 @ 1
+[   11.228163] initcall integrity_fs_init+0x0/0x13 returned -19 after 111 usecs
+[   11.239192] calling  blk_timeout_init+0x0/0x12 @ 1
+[   11.247368] initcall blk_timeout_init+0x0/0x12 returned 0 after 0 usecs
+[   11.258119] calling  prandom_init_late+0x0/0x2b @ 1
+[   11.266751] initcall prandom_init_late+0x0/0x2b returned 0 after 294 usecs
+[   11.277354] calling  init_error_injection+0x0/0x6e @ 1
+[   11.293535] initcall init_error_injection+0x0/0x6e returned 0 after 4874 usecs
+[   11.304579] calling  pci_resource_alignment_sysfs_init+0x0/0x13 @ 1
+[   11.318123] initcall pci_resource_alignment_sysfs_init+0x0/0x13 returned 0 after 3374 usecs
+[   11.331343] calling  pci_sysfs_init+0x0/0x47 @ 1
+[   11.341949] initcall pci_sysfs_init+0x0/0x47 returned 0 after 3059 usecs
+[   11.353466] calling  clk_debug_init+0x0/0x10c @ 1
+[   11.361678] initcall clk_debug_init+0x0/0x10c returned 0 after 769 usecs
+[   11.371437] calling  dmar_free_unused_resources+0x0/0xaf @ 1
+[   11.380453] initcall dmar_free_unused_resources+0x0/0xaf returned 0 after 428 usecs
+[   11.393009] calling  sync_state_resume_initcall+0x0/0x10 @ 1
+[   11.402389] initcall sync_state_resume_initcall+0x0/0x10 returned 0 after 225 usecs
+[   11.414498] calling  deferred_probe_initcall+0x0/0x90 @ 1
+[   11.433179] initcall deferred_probe_initcall+0x0/0x90 returned 0 after 9574 usecs
+[   11.443601] calling  late_resume_init+0x0/0x114 @ 1
+[   11.451242] PM:   Magic number: 2:674:668
+[   11.474399] initcall late_resume_init+0x0/0x114 returned 0 after 22908 usecs
+[   11.484608] calling  init_netconsole+0x0/0x220 @ 1
+[   11.493122] printk: console [netcon0] enabled
+[   11.500213] netconsole: network logging started
+[   11.507096] initcall init_netconsole+0x0/0x220 returned 0 after 14759 usecs
+[   11.517303] calling  acpi_cpufreq_init+0x0/0x169 @ 1
+[   11.528755] initcall acpi_cpufreq_init+0x0/0x169 returned -19 after 3236 usecs
+[   11.540743] calling  firmware_memmap_init+0x0/0x32 @ 1
+[   11.549810] initcall firmware_memmap_init+0x0/0x32 returned 0 after 459 usecs
+[   11.561909] calling  register_update_efi_random_seed+0x0/0x1d @ 1
+[   11.571915] initcall register_update_efi_random_seed+0x0/0x1d returned 0 after 57 usecs
+[   11.585544] calling  efi_shutdown_init+0x0/0x3e @ 1
+[   11.593623] initcall efi_shutdown_init+0x0/0x3e returned -19 after 0 usecs
+[   11.604996] calling  efi_earlycon_unmap_fb+0x0/0x25 @ 1
+[   11.613468] initcall efi_earlycon_unmap_fb+0x0/0x25 returned 0 after 118 usecs
+[   11.625218] calling  tcp_congestion_default+0x0/0x13 @ 1
+[   11.634181] initcall tcp_congestion_default+0x0/0x13 returned 0 after 478 usecs
+[   11.645309] calling  ip_auto_config+0x0/0xfba @ 1
+[   11.654569] initcall ip_auto_config+0x0/0xfba returned 0 after 2449 usecs
+[   11.664148] calling  regulatory_init_db+0x0/0x1ab @ 1
+[   11.672456] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[   11.695971] kworker/u2:2 (101) used greatest stack depth: 14928 bytes left
+[   11.710374] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[   11.720822] initcall regulatory_init_db+0x0/0x1ab returned 0 after 47437 usecs
+[   11.732197] calling  pci_mmcfg_late_insert_resources+0x0/0x4f @ 1
+[   11.742036] initcall pci_mmcfg_late_insert_resources+0x0/0x4f returned 0 after 79 usecs
+[   11.756662] calling  software_resume+0x0/0x30 @ 1
+[   11.766736] initcall software_resume+0x0/0x30 returned -2 after 153 usecs
+[   11.780381] calling  clear_boot_tracer+0x0/0x28 @ 1
+[   11.790739] initcall clear_boot_tracer+0x0/0x28 returned 0 after 71 usecs
+[   11.802370] calling  tracing_set_default_clock+0x0/0x5d @ 1
+[   11.810036] initcall tracing_set_default_clock+0x0/0x5d returned 0 after 46 usecs
+[   11.820251] calling  fb_logo_late_init+0x0/0xe @ 1
+[   11.828107] initcall fb_logo_late_init+0x0/0xe returned 0 after 0 usecs
+[   11.838648] calling  clk_disable_unused+0x0/0xdd @ 1
+[   11.846449] initcall clk_disable_unused+0x0/0xdd returned 0 after 93 usecs
+[   11.857610] calling  alsa_sound_last_init+0x0/0x68 @ 1
+[   11.865567] ALSA device list:
+[   11.870286]   No soundcards found.
+[   11.875689] initcall alsa_sound_last_init+0x0/0x68 returned 0 after 9927 usecs
+[   11.887994] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[   11.901607] cfg80211: failed to load regulatory.db
+[   11.916001] Warning: unable to open an initial console.
+[   11.951816] Freeing unused kernel image (initmem) memory: 1252K
+[   11.961466] Write protecting the kernel read-only data: 22528k
+[   11.972415] Freeing unused kernel image (text/rodata gap) memory: 2032K
+[   11.983636] Freeing unused kernel image (rodata/data gap) memory: 1536K
+[   11.994536] Run /init as init process
+[   12.000836]   with arguments:
+[   12.006153]     /init
+[   12.010263]   with environment:
+[   12.015493]     HOME=/
+[   12.019483]     TERM=linux
+[   20.720866] tasks-torture: rtc: (____ptrval____) ver: 38 tfle: 0 rta: 38 rtaf: 0 rtf: 29 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 1581 barrier: 26/27:0 read-exits: 16
+[   20.742449] tasks-torture: Reader Pipe:  9756227 0 0 0 0 0 0 0 0 0 0
+[   20.751042] tasks-torture: Reader Batch:  9756227 0 0 0 0 0 0 0 0 0 0
+[   20.759731] tasks-torture: Free-Block Circulation:  37 37 36 35 34 33 32 31 30 29 0
+[   24.753235] tasks-torture: rcu_torture_read_exit: Start of episode
+[   24.765605] tasks-torture: rcu_torture_read_exit: End of episode
+[   36.081076] tasks-torture: rtc: (____ptrval____) ver: 106 tfle: 0 rta: 107 rtaf: 0 rtf: 96 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 6075 barrier: 62/63:0 read-exits: 33
+[   36.104256] tasks-torture: Reader Pipe:  40540343 0 0 0 0 0 0 0 0 0 0
+[   36.112894] tasks-torture: Reader Batch:  40540343 0 0 0 0 0 0 0 0 0 0
+[   36.121974] tasks-torture: Free-Block Circulation:  106 105 104 103 102 100 99 98 97 96 0
+[   38.192369] tasks-torture: rcu_torture_read_exit: Start of episode
+[   41.648847] tasks-torture: rcu_torture_read_exit: End of episode
+[   51.440683] tasks-torture: rtc: (____ptrval____) ver: 146 tfle: 0 rta: 146 rtaf: 0 rtf: 137 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 8660 barrier: 100/101:0 read-exits: 50
+[   51.459311] tasks-torture: Reader Pipe:  59128778 0 0 0 0 0 0 0 0 0 0
+[   51.468200] tasks-torture: Reader Batch:  59128778 0 0 0 0 0 0 0 0 0 0
+[   51.477428] tasks-torture: Free-Block Circulation:  145 145 144 143 142 141 140 139 138 137 0
+[   54.960255] tasks-torture: rcu_torture_read_exit: Start of episode
+[   54.981450] tasks-torture: rcu_torture_read_exit: End of episode
+[   66.800332] tasks-torture: rtc: (____ptrval____) ver: 217 tfle: 0 rta: 218 rtaf: 0 rtf: 201 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 13178 barrier: 136/136:0 read-exits: 67
+[   66.821264] tasks-torture: Reader Pipe:  93181204 0 0 0 0 0 0 0 0 0 0
+[   66.829572] tasks-torture: Reader Batch:  93181204 0 0 0 0 0 0 0 0 0 0
+[   66.836898] tasks-torture: Free-Block Circulation:  217 215 214 211 210 209 208 206 205 201 0
+[   68.336210] tasks-torture: rcu_torture_read_exit: Start of episode
+[   72.368715] tasks-torture: rcu_torture_read_exit: End of episode
+[   82.160580] tasks-torture: rtc: (____ptrval____) ver: 259 tfle: 0 rta: 259 rtaf: 0 rtf: 250 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 15769 barrier: 174/175:0 read-exits: 84
+[   82.181919] tasks-torture: Reader Pipe:  112998631 0 0 0 0 0 0 0 0 0 0
+[   82.190370] tasks-torture: Reader Batch:  112998631 0 0 0 0 0 0 0 0 0 0
+[   82.198747] tasks-torture: Free-Block Circulation:  258 258 257 256 255 254 253 252 251 250 0
+[   85.680198] tasks-torture: rcu_torture_read_exit: Start of episode
+[   85.692343] tasks-torture: rcu_torture_read_exit: End of episode
+[   97.520205] tasks-torture: rtc: (____ptrval____) ver: 322 tfle: 0 rta: 323 rtaf: 0 rtf: 312 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 20291 barrier: 210/211:0 read-exits: 101
+[   97.541040] tasks-torture: Reader Pipe:  149033557 0 0 0 0 0 0 0 0 0 0
+[   97.549160] tasks-torture: Reader Batch:  149033557 0 0 0 0 0 0 0 0 0 0
+[   97.557611] tasks-torture: Free-Block Circulation:  322 321 320 319 317 316 315 314 313 312 0
+[   98.992266] tasks-torture: rcu_torture_read_exit: Start of episode
+[  103.095287] tasks-torture: rcu_torture_read_exit: End of episode
+[  112.880208] tasks-torture: rtc: (____ptrval____) ver: 367 tfle: 0 rta: 367 rtaf: 0 rtf: 358 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 22877 barrier: 247/248:0 read-exits: 118
+[  112.898109] tasks-torture: Reader Pipe:  169803465 0 0 0 0 0 0 0 0 0 0
+[  112.905294] tasks-torture: Reader Batch:  169803465 0 0 0 0 0 0 0 0 0 0
+[  112.912480] tasks-torture: Free-Block Circulation:  366 366 365 364 363 362 361 360 359 358 0
+[  116.400259] tasks-torture: rcu_torture_read_exit: Start of episode
+[  116.409370] tasks-torture: rcu_torture_read_exit: End of episode
+[  128.240202] tasks-torture: rtc: (____ptrval____) ver: 457 tfle: 0 rta: 458 rtaf: 0 rtf: 438 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 27399 barrier: 285/286:0 read-exits: 135
+[  128.260955] tasks-torture: Reader Pipe:  205316300 0 0 0 0 0 0 0 0 0 0
+[  128.269258] tasks-torture: Reader Batch:  205316300 0 0 0 0 0 0 0 0 0 0
+[  128.277663] tasks-torture: Free-Block Circulation:  457 455 449 448 446 445 444 443 442 438 0
+[  129.712195] tasks-torture: rcu_torture_read_exit: Start of episode
+[  133.808415] tasks-torture: rcu_torture_read_exit: End of episode
+[  143.600196] tasks-torture: rtc: (____ptrval____) ver: 499 tfle: 0 rta: 499 rtaf: 0 rtf: 490 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 29989 barrier: 324/325:0 read-exits: 152
+[  143.619388] tasks-torture: Reader Pipe:  225121662 0 0 0 0 0 0 0 0 0 0
+[  143.627053] tasks-torture: Reader Batch:  225121662 0 0 0 0 0 0 0 0 0 0
+[  143.634839] tasks-torture: Free-Block Circulation:  498 498 497 496 495 494 493 492 491 490 0
+[  147.120220] tasks-torture: rcu_torture_read_exit: Start of episode
+[  147.129527] tasks-torture: rcu_torture_read_exit: End of episode
+[  158.960701] tasks-torture: rtc: (____ptrval____) ver: 574 tfle: 0 rta: 575 rtaf: 0 rtf: 556 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 34504 barrier: 361/362:0 read-exits: 169
+[  158.982327] tasks-torture: Reader Pipe:  259075124 0 0 0 0 0 0 0 0 0 0
+[  158.990907] tasks-torture: Reader Batch:  259075124 0 0 0 0 0 0 0 0 0 0
+[  158.999520] tasks-torture: Free-Block Circulation:  574 571 570 566 562 561 560 559 557 556 0
+[  160.432229] tasks-torture: rcu_torture_read_exit: Start of episode
+[  164.528593] tasks-torture: rcu_torture_read_exit: End of episode
+[  174.320216] tasks-torture: rtc: (____ptrval____) ver: 625 tfle: 0 rta: 625 rtaf: 0 rtf: 616 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 37092 barrier: 397/398:0 read-exits: 186
+[  174.338781] tasks-torture: Reader Pipe:  279781360 0 0 0 0 0 0 0 0 0 0
+[  174.346220] tasks-torture: Reader Batch:  279781360 0 0 0 0 0 0 0 0 0 0
+[  174.353752] tasks-torture: Free-Block Circulation:  624 624 623 622 621 620 619 618 617 616 0
+[  177.841248] tasks-torture: rcu_torture_read_exit: Start of episode
+[  177.850555] tasks-torture: rcu_torture_read_exit: End of episode
+[  189.680341] tasks-torture: rtc: (____ptrval____) ver: 703 tfle: 0 rta: 704 rtaf: 0 rtf: 687 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 41609 barrier: 431/432:0 read-exits: 203
+[  189.698569] tasks-torture: Reader Pipe:  314301983 0 0 0 0 0 0 0 0 0 0
+[  189.705815] tasks-torture: Reader Batch:  314301983 0 0 0 0 0 0 0 0 0 0
+[  189.713168] tasks-torture: Free-Block Circulation:  703 702 699 698 694 693 692 691 689 687 0
+[  191.152273] tasks-torture: rcu_torture_read_exit: Start of episode
+[  195.248639] tasks-torture: rcu_torture_read_exit: End of episode
+[  205.040340] tasks-torture: rtc: (____ptrval____) ver: 751 tfle: 0 rta: 751 rtaf: 0 rtf: 742 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 44205 barrier: 466/467:0 read-exits: 220
+[  205.061933] tasks-torture: Reader Pipe:  333789031 0 0 0 0 0 0 0 0 0 0
+[  205.071063] tasks-torture: Reader Batch:  333789031 0 0 0 0 0 0 0 0 0 0
+[  205.080256] tasks-torture: Free-Block Circulation:  750 750 749 748 747 746 745 744 743 742 0
+[  208.560215] tasks-torture: rcu_torture_read_exit: Start of episode
+[  208.569436] tasks-torture: rcu_torture_read_exit: End of episode
+[  220.400809] tasks-torture: rtc: (____ptrval____) ver: 816 tfle: 0 rta: 817 rtaf: 0 rtf: 803 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 48717 barrier: 502/502:0 read-exits: 237
+[  220.420793] tasks-torture: Reader Pipe:  365304695 0 0 0 0 0 0 0 0 0 0
+[  220.428942] tasks-torture: Reader Batch:  365304695 0 0 0 0 0 0 0 0 0 0
+[  220.436267] tasks-torture: Free-Block Circulation:  816 815 813 812 811 808 807 806 804 803 0
+[  221.872349] tasks-torture: rcu_torture_read_exit: Start of episode
+[  225.968485] tasks-torture: rcu_torture_read_exit: End of episode
+[  235.760186] tasks-torture: rtc: (____ptrval____) ver: 862 tfle: 0 rta: 862 rtaf: 0 rtf: 853 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 51305 barrier: 536/537:0 read-exits: 254
+[  235.777776] tasks-torture: Reader Pipe:  384699600 0 0 0 0 0 0 0 0 0 0
+[  235.784819] tasks-torture: Reader Batch:  384699600 0 0 0 0 0 0 0 0 0 0
+[  235.791854] tasks-torture: Free-Block Circulation:  861 861 860 859 858 857 856 855 854 853 0
+[  239.281198] tasks-torture: rcu_torture_read_exit: Start of episode
+[  239.289537] tasks-torture: rcu_torture_read_exit: End of episode
+[  251.120214] tasks-torture: rtc: (____ptrval____) ver: 933 tfle: 0 rta: 934 rtaf: 0 rtf: 921 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 55824 barrier: 575/576:0 read-exits: 271
+[  251.141750] tasks-torture: Reader Pipe:  418472148 0 0 0 0 0 0 0 0 0 0
+[  251.150025] tasks-torture: Reader Batch:  418472148 0 0 0 0 0 0 0 0 0 0
+[  251.158550] tasks-torture: Free-Block Circulation:  933 932 931 930 929 928 926 925 924 921 0
+[  252.592225] tasks-torture: rcu_torture_read_exit: Start of episode
+[  256.688413] tasks-torture: rcu_torture_read_exit: End of episode
+[  266.480206] tasks-torture: rtc: (____ptrval____) ver: 980 tfle: 0 rta: 980 rtaf: 0 rtf: 971 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 58408 barrier: 613/614:0 read-exits: 288
+[  266.498961] tasks-torture: Reader Pipe:  438278510 0 0 0 0 0 0 0 0 0 0
+[  266.505902] tasks-torture: Reader Batch:  438278510 0 0 0 0 0 0 0 0 0 0
+[  266.512988] tasks-torture: Free-Block Circulation:  979 979 978 977 976 975 974 973 972 971 0
+[  270.000247] tasks-torture: rcu_torture_read_exit: Start of episode
+[  270.017424] tasks-torture: rcu_torture_read_exit: End of episode
+[  281.840756] tasks-torture: rtc: (____ptrval____) ver: 1042 tfle: 0 rta: 1043 rtaf: 0 rtf: 1032 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 62932 barrier: 647/648:0 read-exits: 305
+[  281.859790] tasks-torture: Reader Pipe:  473354701 0 0 0 0 0 0 0 0 0 0
+[  281.867703] tasks-torture: Reader Batch:  473354701 0 0 0 0 0 0 0 0 0 0
+[  281.876233] tasks-torture: Free-Block Circulation:  1042 1041 1040 1039 1038 1036 1035 1034 1033 1032 0
+[  283.312262] tasks-torture: rcu_torture_read_exit: Start of episode
+[  287.413417] tasks-torture: rcu_torture_read_exit: End of episode
+[  297.200800] tasks-torture: rtc: (____ptrval____) ver: 1089 tfle: 0 rta: 1089 rtaf: 0 rtf: 1080 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 65519 barrier: 683/684:0 read-exits: 322
+[  297.220286] tasks-torture: Reader Pipe:  493784690 0 0 0 0 0 0 0 0 0 0
+[  297.227731] tasks-torture: Reader Batch:  493784690 0 0 0 0 0 0 0 0 0 0
+[  297.235194] tasks-torture: Free-Block Circulation:  1088 1088 1087 1086 1085 1084 1083 1082 1081 1080 0
+[  300.721194] tasks-torture: rcu_torture_read_exit: Start of episode
+[  300.730502] tasks-torture: rcu_torture_read_exit: End of episode
+[  312.560740] tasks-torture: rtc: (____ptrval____) ver: 1172 tfle: 0 rta: 1173 rtaf: 0 rtf: 1158 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 70026 barrier: 720/720:0 read-exits: 339
+[  312.581215] tasks-torture: Reader Pipe:  528036303 0 0 0 0 0 0 0 0 0 0
+[  312.588461] tasks-torture: Reader Batch:  528036303 0 0 0 0 0 0 0 0 0 0
+[  312.595850] tasks-torture: Free-Block Circulation:  1172 1170 1167 1165 1164 1163 1162 1160 1159 1158 0
+[  314.032264] tasks-torture: rcu_torture_read_exit: Start of episode
+[  318.133551] tasks-torture: rcu_torture_read_exit: End of episode
+[  327.920762] tasks-torture: rtc: (____ptrval____) ver: 1216 tfle: 0 rta: 1216 rtaf: 0 rtf: 1207 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 72615 barrier: 756/757:0 read-exits: 356
+[  327.944081] tasks-torture: Reader Pipe:  547424659 0 0 0 0 0 0 0 0 0 0
+[  327.951286] tasks-torture: Reader Batch:  547424659 0 0 0 0 0 0 0 0 0 0
+[  327.958366] tasks-torture: Free-Block Circulation:  1215 1215 1214 1213 1212 1211 1210 1209 1208 1207 0
+[  331.440887] tasks-torture: rcu_torture_read_exit: Start of episode
+[  331.451523] tasks-torture: rcu_torture_read_exit: End of episode
+[  343.280697] tasks-torture: rtc: (____ptrval____) ver: 1286 tfle: 0 rta: 1287 rtaf: 0 rtf: 1269 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 77126 barrier: 791/792:0 read-exits: 373
+[  343.301730] tasks-torture: Reader Pipe:  580750824 0 0 0 0 0 0 0 0 0 0
+[  343.309858] tasks-torture: Reader Batch:  580750824 0 0 0 0 0 0 0 0 0 0
+[  343.318181] tasks-torture: Free-Block Circulation:  1286 1283 1282 1281 1280 1279 1278 1277 1274 1269 0
+[  344.752259] tasks-torture: rcu_torture_read_exit: Start of episode
+[  348.848528] tasks-torture: rcu_torture_read_exit: End of episode
+[  358.640556] tasks-torture: rtc: (____ptrval____) ver: 1322 tfle: 0 rta: 1322 rtaf: 0 rtf: 1313 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 79723 barrier: 826/827:0 read-exits: 390
+[  358.659406] tasks-torture: Reader Pipe:  600620717 0 0 0 0 0 0 0 0 0 0
+[  358.666463] tasks-torture: Reader Batch:  600620717 0 0 0 0 0 0 0 0 0 0
+[  358.673678] tasks-torture: Free-Block Circulation:  1321 1321 1320 1319 1318 1317 1316 1315 1314 1313 0
+[  362.160208] tasks-torture: rcu_torture_read_exit: Start of episode
+[  362.172808] tasks-torture: rcu_torture_read_exit: End of episode
+[  374.000628] tasks-torture: rtc: (____ptrval____) ver: 1392 tfle: 0 rta: 1393 rtaf: 0 rtf: 1376 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 84237 barrier: 863/864:0 read-exits: 407
+[  374.018651] tasks-torture: Reader Pipe:  634520467 0 0 0 0 0 0 0 0 0 0
+[  374.025530] tasks-torture: Reader Batch:  634520467 0 0 0 0 0 0 0 0 0 0
+[  374.032518] tasks-torture: Free-Block Circulation:  1392 1391 1390 1389 1386 1385 1379 1378 1377 1376 0
+[  375.472206] tasks-torture: rcu_torture_read_exit: Start of episode
+[  379.568433] tasks-torture: rcu_torture_read_exit: End of episode
+[  389.360187] tasks-torture: rtc: (____ptrval____) ver: 1430 tfle: 0 rta: 1430 rtaf: 0 rtf: 1421 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 86837 barrier: 902/903:0 read-exits: 424
+[  389.378231] tasks-torture: Reader Pipe:  654057681 0 0 0 0 0 0 0 0 0 0
+[  389.385268] tasks-torture: Reader Batch:  654057681 0 0 0 0 0 0 0 0 0 0
+[  389.392990] tasks-torture: Free-Block Circulation:  1429 1429 1428 1427 1426 1425 1424 1423 1422 1421 0
+[  392.881212] tasks-torture: rcu_torture_read_exit: Start of episode
+[  392.889656] tasks-torture: rcu_torture_read_exit: End of episode
+[  404.720711] tasks-torture: rtc: (____ptrval____) ver: 1522 tfle: 0 rta: 1523 rtaf: 0 rtf: 1508 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 91354 barrier: 940/940:0 read-exits: 441
+[  404.742855] tasks-torture: Reader Pipe:  688047774 0 0 0 0 0 0 0 0 0 0
+[  404.751746] tasks-torture: Reader Batch:  688047774 0 0 0 0 0 0 0 0 0 0
+[  404.759235] tasks-torture: Free-Block Circulation:  1522 1521 1517 1515 1514 1513 1512 1511 1509 1508 0
+[  406.192209] tasks-torture: rcu_torture_read_exit: Start of episode
+[  410.288492] tasks-torture: rcu_torture_read_exit: End of episode
+[  420.080263] tasks-torture: rtc: (____ptrval____) ver: 1562 tfle: 0 rta: 1562 rtaf: 0 rtf: 1553 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 93944 barrier: 979/980:0 read-exits: 458
+[  420.099330] tasks-torture: Reader Pipe:  707910661 0 0 0 0 0 0 0 0 0 0
+[  420.108235] tasks-torture: Reader Batch:  707910661 0 0 0 0 0 0 0 0 0 0
+[  420.117390] tasks-torture: Free-Block Circulation:  1561 1561 1560 1559 1558 1557 1556 1555 1554 1553 0
+[  423.601563] tasks-torture: rcu_torture_read_exit: Start of episode
+[  423.611860] tasks-torture: rcu_torture_read_exit: End of episode
+[  435.440325] tasks-torture: rtc: (____ptrval____) ver: 1643 tfle: 0 rta: 1644 rtaf: 0 rtf: 1630 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 98453 barrier: 1016/1017:0 read-exits: 475
+[  435.459268] tasks-torture: Reader Pipe:  743171828 0 0 0 0 0 0 0 0 0 0
+[  435.466489] tasks-torture: Reader Batch:  743171828 0 0 0 0 0 0 0 0 0 0
+[  435.473832] tasks-torture: Free-Block Circulation:  1643 1642 1641 1639 1636 1635 1634 1633 1632 1630 0
+[  436.912306] tasks-torture: rcu_torture_read_exit: Start of episode
+[  441.008457] tasks-torture: rcu_torture_read_exit: End of episode
+[  450.800200] tasks-torture: rtc: (____ptrval____) ver: 1687 tfle: 0 rta: 1687 rtaf: 0 rtf: 1678 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 101045 barrier: 1050/1051:0 read-exits: 492
+[  450.818562] tasks-torture: Reader Pipe:  762108332 0 0 0 0 0 0 0 0 0 0
+[  450.825537] tasks-torture: Reader Batch:  762108332 0 0 0 0 0 0 0 0 0 0
+[  450.832646] tasks-torture: Free-Block Circulation:  1686 1686 1685 1684 1683 1682 1681 1680 1679 1678 0
+[  454.320213] tasks-torture: rcu_torture_read_exit: Start of episode
+[  454.335326] tasks-torture: rcu_torture_read_exit: End of episode
+[  466.160232] tasks-torture: rtc: (____ptrval____) ver: 1764 tfle: 0 rta: 1765 rtaf: 0 rtf: 1749 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 105573 barrier: 1085/1086:0 read-exits: 509
+[  466.184762] tasks-torture: Reader Pipe:  794757494 0 0 0 0 0 0 0 0 0 0
+[  466.194215] tasks-torture: Reader Batch:  794757494 0 0 0 0 0 0 0 0 0 0
+[  466.203789] tasks-torture: Free-Block Circulation:  1764 1763 1762 1761 1758 1757 1756 1754 1751 1749 0
+[  467.632229] tasks-torture: rcu_torture_read_exit: Start of episode
+[  471.728453] tasks-torture: rcu_torture_read_exit: End of episode
+[  481.520728] tasks-torture: rtc: (____ptrval____) ver: 1804 tfle: 0 rta: 1804 rtaf: 0 rtf: 1795 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 108158 barrier: 1124/1125:0 read-exits: 526
+[  481.540388] tasks-torture: Reader Pipe:  811393557 0 0 0 0 0 0 0 0 0 0
+[  481.547839] tasks-torture: Reader Batch:  811393557 0 0 0 0 0 0 0 0 0 0
+[  481.555568] tasks-torture: Free-Block Circulation:  1803 1803 1802 1801 1800 1799 1798 1797 1796 1795 0
+[  485.041201] tasks-torture: rcu_torture_read_exit: Start of episode
+[  485.053369] tasks-torture: rcu_torture_read_exit: End of episode
+[  496.880228] tasks-torture: rtc: (____ptrval____) ver: 1875 tfle: 0 rta: 1876 rtaf: 0 rtf: 1861 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 112674 barrier: 1159/1159:0 read-exits: 543
+[  496.900339] tasks-torture: Reader Pipe:  844519411 0 0 0 0 0 0 0 0 0 0
+[  496.907330] tasks-torture: Reader Batch:  844519411 0 0 0 0 0 0 0 0 0 0
+[  496.914330] tasks-torture: Free-Block Circulation:  1875 1872 1871 1870 1869 1868 1865 1864 1862 1861 0
+[  498.416244] tasks-torture: rcu_torture_read_exit: Start of episode
+[  502.448560] tasks-torture: rcu_torture_read_exit: End of episode
+[  512.240194] tasks-torture: rtc: (____ptrval____) ver: 1919 tfle: 0 rta: 1919 rtaf: 0 rtf: 1910 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 115268 barrier: 1195/1196:0 read-exits: 560
+[  512.258619] tasks-torture: Reader Pipe:  864624590 0 0 0 0 0 0 0 0 0 0
+[  512.265830] tasks-torture: Reader Batch:  864624590 0 0 0 0 0 0 0 0 0 0
+[  512.273107] tasks-torture: Free-Block Circulation:  1918 1918 1917 1916 1915 1914 1913 1912 1911 1910 0
+[  515.760211] tasks-torture: rcu_torture_read_exit: Start of episode
+[  515.777526] tasks-torture: rcu_torture_read_exit: End of episode
+[  527.600260] tasks-torture: rtc: (____ptrval____) ver: 1993 tfle: 0 rta: 1994 rtaf: 0 rtf: 1977 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 119785 barrier: 1230/1231:0 read-exits: 577
+[  527.622719] tasks-torture: Reader Pipe:  897470601 0 0 0 0 0 0 0 0 0 0
+[  527.631376] tasks-torture: Reader Batch:  897470601 0 0 0 0 0 0 0 0 0 0
+[  527.640204] tasks-torture: Free-Block Circulation:  1993 1992 1991 1989 1987 1985 1982 1980 1978 1977 0
+[  529.136238] tasks-torture: rcu_torture_read_exit: Start of episode
+[  533.168535] tasks-torture: rcu_torture_read_exit: End of episode
+[  542.960643] tasks-torture: rtc: (____ptrval____) ver: 2058 tfle: 0 rta: 2058 rtaf: 0 rtf: 2049 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 122371 barrier: 1272/1273:0 read-exits: 594
+[  542.979548] tasks-torture: Reader Pipe:  916661794 0 0 0 0 0 0 0 0 0 0
+[  542.987011] tasks-torture: Reader Batch:  916661794 0 0 0 0 0 0 0 0 0 0
+[  542.994579] tasks-torture: Free-Block Circulation:  2057 2057 2056 2055 2054 2053 2052 2051 2050 2049 0
+[  546.481259] tasks-torture: rcu_torture_read_exit: Start of episode
+[  546.491816] tasks-torture: rcu_torture_read_exit: End of episode
+[  558.320325] tasks-torture: rtc: (____ptrval____) ver: 2118 tfle: 0 rta: 2119 rtaf: 0 rtf: 2107 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 126892 barrier: 1307/1308:0 read-exits: 611
+[  558.340353] tasks-torture: Reader Pipe:  951303710 0 0 0 0 0 0 0 0 0 0
+[  558.348011] tasks-torture: Reader Batch:  951303710 0 0 0 0 0 0 0 0 0 0
+[  558.355728] tasks-torture: Free-Block Circulation:  2118 2117 2116 2115 2113 2112 2111 2110 2109 2107 0
+[  559.792246] tasks-torture: rcu_torture_read_exit: Start of episode
+[  563.888462] tasks-torture: rcu_torture_read_exit: End of episode
+[  573.680190] tasks-torture: rtc: (____ptrval____) ver: 2154 tfle: 0 rta: 2154 rtaf: 0 rtf: 2145 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 129487 barrier: 1343/1344:0 read-exits: 628
+[  573.698933] tasks-torture: Reader Pipe:  971310229 0 0 0 0 0 0 0 0 0 0
+[  573.706164] tasks-torture: Reader Batch:  971310229 0 0 0 0 0 0 0 0 0 0
+[  573.713814] tasks-torture: Free-Block Circulation:  2153 2153 2152 2151 2150 2149 2148 2147 2146 2145 0
+[  577.201197] tasks-torture: rcu_torture_read_exit: Start of episode
+[  577.210531] tasks-torture: rcu_torture_read_exit: End of episode
+[  589.040227] tasks-torture: rtc: (____ptrval____) ver: 2238 tfle: 0 rta: 2239 rtaf: 0 rtf: 2225 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 134005 barrier: 1378/1379:0 read-exits: 645
+[  589.058267] tasks-torture: Reader Pipe:  1005722799 0 0 0 0 0 0 0 0 0 0
+[  589.065292] tasks-torture: Reader Batch:  1005722799 0 0 0 0 0 0 0 0 0 0
+[  589.072496] tasks-torture: Free-Block Circulation:  2238 2237 2235 2232 2231 2229 2228 2227 2226 2225 0
+[  590.512248] tasks-torture: rcu_torture_read_exit: Start of episode
+[  594.608407] tasks-torture: rcu_torture_read_exit: End of episode
+[  604.400233] tasks-torture: rtc: (____ptrval____) ver: 2287 tfle: 0 rta: 2287 rtaf: 0 rtf: 2278 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 136594 barrier: 1416/1417:0 read-exits: 662
+[  604.423340] tasks-torture: Reader Pipe:  1025519088 0 0 0 0 0 0 0 0 0 0
+[  604.432233] tasks-torture: Reader Batch:  1025519088 0 0 0 0 0 0 0 0 0 0
+[  604.441424] tasks-torture: Free-Block Circulation:  2286 2286 2285 2284 2283 2282 2281 2280 2279 2278 0
+[  607.921203] tasks-torture: rcu_torture_read_exit: Start of episode
+[  607.929489] tasks-torture: rcu_torture_read_exit: End of episode
+[  619.760273] tasks-torture: rtc: (____ptrval____) ver: 2351 tfle: 0 rta: 2352 rtaf: 0 rtf: 2342 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 141110 barrier: 1452/1453:0 read-exits: 679
+[  619.781939] tasks-torture: Reader Pipe:  1059795863 0 0 0 0 0 0 0 0 0 0
+[  619.791385] tasks-torture: Reader Batch:  1059795863 0 0 0 0 0 0 0 0 0 0
+[  619.800290] tasks-torture: Free-Block Circulation:  2351 2350 2349 2348 2347 2346 2345 2344 2343 2342 0
+[  621.232211] tasks-torture: rcu_torture_read_exit: Start of episode
+[  625.328541] tasks-torture: rcu_torture_read_exit: End of episode
+[  635.120197] tasks-torture: rtc: (____ptrval____) ver: 2394 tfle: 0 rta: 2394 rtaf: 0 rtf: 2385 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 143695 barrier: 1488/1489:0 read-exits: 696
+[  635.139314] tasks-torture: Reader Pipe:  1079559283 0 0 0 0 0 0 0 0 0 0
+[  635.147675] tasks-torture: Reader Batch:  1079559283 0 0 0 0 0 0 0 0 0 0
+[  635.155324] tasks-torture: Free-Block Circulation:  2393 2393 2392 2391 2390 2389 2388 2387 2386 2385 0
+[  638.641194] tasks-torture: rcu_torture_read_exit: Start of episode
+[  638.650526] tasks-torture: rcu_torture_read_exit: End of episode
+[  650.480671] tasks-torture: rtc: (____ptrval____) ver: 2460 tfle: 0 rta: 2461 rtaf: 0 rtf: 2445 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 148209 barrier: 1524/1525:0 read-exits: 713
+[  650.503466] tasks-torture: Reader Pipe:  1114483915 0 0 0 0 0 0 0 0 0 0
+[  650.512616] tasks-torture: Reader Batch:  1114483915 0 0 0 0 0 0 0 0 0 0
+[  650.521320] tasks-torture: Free-Block Circulation:  2460 2459 2455 2454 2453 2452 2450 2448 2446 2445 0
+[  651.952214] tasks-torture: rcu_torture_read_exit: Start of episode
+[  656.048820] tasks-torture: rcu_torture_read_exit: End of episode
+[  665.840309] tasks-torture: rtc: (____ptrval____) ver: 2504 tfle: 0 rta: 2504 rtaf: 0 rtf: 2495 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 150796 barrier: 1563/1564:0 read-exits: 730
+[  665.863609] tasks-torture: Reader Pipe:  1133495453 0 0 0 0 0 0 0 0 0 0
+[  665.872738] tasks-torture: Reader Batch:  1133495453 0 0 0 0 0 0 0 0 0 0
+[  665.882187] tasks-torture: Free-Block Circulation:  2503 2503 2502 2501 2500 2499 2498 2497 2496 2495 0
+[  669.361222] tasks-torture: rcu_torture_read_exit: Start of episode
+[  669.370674] tasks-torture: rcu_torture_read_exit: End of episode
+[  681.200272] tasks-torture: rtc: (____ptrval____) ver: 2565 tfle: 0 rta: 2566 rtaf: 0 rtf: 2551 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 155319 barrier: 1599/1600:0 read-exits: 747
+[  681.219090] tasks-torture: Reader Pipe:  1166688463 0 0 0 0 0 0 0 0 0 0
+[  681.226090] tasks-torture: Reader Batch:  1166688463 0 0 0 0 0 0 0 0 0 0
+[  681.233381] tasks-torture: Free-Block Circulation:  2565 2564 2561 2560 2559 2557 2555 2554 2553 2551 0
+[  682.672273] tasks-torture: rcu_torture_read_exit: Start of episode
+[  686.768611] tasks-torture: rcu_torture_read_exit: End of episode
+[  696.560234] tasks-torture: rtc: (____ptrval____) ver: 2610 tfle: 0 rta: 2610 rtaf: 0 rtf: 2601 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 157908 barrier: 1635/1636:0 read-exits: 764
+[  696.583466] tasks-torture: Reader Pipe:  1187372951 0 0 0 0 0 0 0 0 0 0
+[  696.592456] tasks-torture: Reader Batch:  1187372951 0 0 0 0 0 0 0 0 0 0
+[  696.601519] tasks-torture: Free-Block Circulation:  2609 2609 2608 2607 2606 2605 2604 2603 2602 2601 0
+[  700.080614] tasks-torture: rcu_torture_read_exit: Start of episode
+[  700.091995] tasks-torture: rcu_torture_read_exit: End of episode
+[  711.920701] tasks-torture: rtc: (____ptrval____) ver: 2676 tfle: 0 rta: 2677 rtaf: 0 rtf: 2662 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 162428 barrier: 1672/1672:0 read-exits: 781
+[  711.943629] tasks-torture: Reader Pipe:  1221581853 0 0 0 0 0 0 0 0 0 0
+[  711.950747] tasks-torture: Reader Batch:  1221581853 0 0 0 0 0 0 0 0 0 0
+[  711.958274] tasks-torture: Free-Block Circulation:  2676 2675 2674 2671 2670 2669 2668 2664 2663 2662 0
+[  713.392280] tasks-torture: rcu_torture_read_exit: Start of episode
+[  717.488394] tasks-torture: rcu_torture_read_exit: End of episode
+[  727.280720] tasks-torture: rtc: (____ptrval____) ver: 2723 tfle: 0 rta: 2723 rtaf: 0 rtf: 2714 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 165010 barrier: 1707/1708:0 read-exits: 798
+[  727.300611] tasks-torture: Reader Pipe:  1240370340 0 0 0 0 0 0 0 0 0 0
+[  727.308633] tasks-torture: Reader Batch:  1240370340 0 0 0 0 0 0 0 0 0 0
+[  727.316298] tasks-torture: Free-Block Circulation:  2722 2722 2721 2720 2719 2718 2717 2716 2715 2714 0
+[  730.800214] tasks-torture: rcu_torture_read_exit: Start of episode
+[  730.811290] tasks-torture: rcu_torture_read_exit: End of episode
+[  742.640737] tasks-torture: rtc: (____ptrval____) ver: 2801 tfle: 0 rta: 2802 rtaf: 0 rtf: 2785 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 169527 barrier: 1744/1744:0 read-exits: 815
+[  742.662393] tasks-torture: Reader Pipe:  1276000251 0 0 0 0 0 0 0 0 0 0
+[  742.670572] tasks-torture: Reader Batch:  1276000251 0 0 0 0 0 0 0 0 0 0
+[  742.678492] tasks-torture: Free-Block Circulation:  2801 2797 2796 2794 2793 2791 2790 2789 2788 2785 0
+[  744.112337] tasks-torture: rcu_torture_read_exit: Start of episode
+[  748.208561] tasks-torture: rcu_torture_read_exit: End of episode
+[  758.000570] tasks-torture: rtc: (____ptrval____) ver: 2838 tfle: 0 rta: 2838 rtaf: 0 rtf: 2829 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 172112 barrier: 1778/1779:0 read-exits: 832
+[  758.021158] tasks-torture: Reader Pipe:  1297059206 0 0 0 0 0 0 0 0 0 0
+[  758.029281] tasks-torture: Reader Batch:  1297059206 0 0 0 0 0 0 0 0 0 0
+[  758.037283] tasks-torture: Free-Block Circulation:  2837 2837 2836 2835 2834 2833 2832 2831 2830 2829 0
+[  761.520232] tasks-torture: rcu_torture_read_exit: Start of episode
+[  761.538970] tasks-torture: rcu_torture_read_exit: End of episode
+[  773.360730] tasks-torture: rtc: (____ptrval____) ver: 2910 tfle: 0 rta: 2911 rtaf: 0 rtf: 2897 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 176629 barrier: 1815/1815:0 read-exits: 849
+[  773.383289] tasks-torture: Reader Pipe:  1330634519 0 0 0 0 0 0 0 0 0 0
+[  773.392216] tasks-torture: Reader Batch:  1330634519 0 0 0 0 0 0 0 0 0 0
+[  773.401543] tasks-torture: Free-Block Circulation:  2910 2909 2907 2906 2904 2902 2901 2899 2898 2897 0
+[  774.896245] tasks-torture: rcu_torture_read_exit: Start of episode
+[  778.933997] tasks-torture: rcu_torture_read_exit: End of episode
+[  788.720318] tasks-torture: rtc: (____ptrval____) ver: 2954 tfle: 0 rta: 2954 rtaf: 0 rtf: 2945 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 179220 barrier: 1848/1849:0 read-exits: 866
+[  788.743524] tasks-torture: Reader Pipe:  1349986917 0 0 0 0 0 0 0 0 0 0
+[  788.751895] tasks-torture: Reader Batch:  1349986917 0 0 0 0 0 0 0 0 0 0
+[  788.759278] tasks-torture: Free-Block Circulation:  2953 2953 2952 2951 2950 2949 2948 2947 2946 2945 0
+[  792.241758] tasks-torture: rcu_torture_read_exit: Start of episode
+[  792.252110] tasks-torture: rcu_torture_read_exit: End of episode
+[  804.080617] tasks-torture: rtc: (____ptrval____) ver: 3020 tfle: 0 rta: 3021 rtaf: 0 rtf: 3007 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 183742 barrier: 1884/1885:0 read-exits: 883
+[  804.099279] tasks-torture: Reader Pipe:  1385055971 0 0 0 0 0 0 0 0 0 0
+[  804.107685] tasks-torture: Reader Batch:  1385055971 0 0 0 0 0 0 0 0 0 0
+[  804.115358] tasks-torture: Free-Block Circulation:  3020 3019 3017 3016 3015 3014 3011 3009 3008 3007 0
+[  805.552229] tasks-torture: rcu_torture_read_exit: Start of episode
+[  809.648394] tasks-torture: rcu_torture_read_exit: End of episode
+[  819.440859] tasks-torture: rtc: (____ptrval____) ver: 3062 tfle: 0 rta: 3062 rtaf: 0 rtf: 3053 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 186330 barrier: 1923/1924:0 read-exits: 900
+[  819.464871] tasks-torture: Reader Pipe:  1404715649 0 0 0 0 0 0 0 0 0 0
+[  819.472029] tasks-torture: Reader Batch:  1404715649 0 0 0 0 0 0 0 0 0 0
+[  819.479561] tasks-torture: Free-Block Circulation:  3061 3061 3060 3059 3058 3057 3056 3055 3054 3053 0
+[  822.961623] tasks-torture: rcu_torture_read_exit: Start of episode
+[  822.973023] tasks-torture: rcu_torture_read_exit: End of episode
+[  834.800246] tasks-torture: rtc: (____ptrval____) ver: 3122 tfle: 0 rta: 3123 rtaf: 0 rtf: 3112 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 190845 barrier: 1957/1958:0 read-exits: 917
+[  834.821469] tasks-torture: Reader Pipe:  1439486409 0 0 0 0 0 0 0 0 0 0
+[  834.829919] tasks-torture: Reader Batch:  1439486409 0 0 0 0 0 0 0 0 0 0
+[  834.838408] tasks-torture: Free-Block Circulation:  3122 3121 3120 3118 3117 3116 3115 3114 3113 3112 0
+[  836.272266] tasks-torture: rcu_torture_read_exit: Start of episode
+[  840.368406] tasks-torture: rcu_torture_read_exit: End of episode
+[  850.160208] tasks-torture: rtc: (____ptrval____) ver: 3181 tfle: 0 rta: 3181 rtaf: 0 rtf: 3172 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 193442 barrier: 1995/1996:0 read-exits: 934
+[  850.179309] tasks-torture: Reader Pipe:  1459674309 0 0 0 0 0 0 0 0 0 0
+[  850.186628] tasks-torture: Reader Batch:  1459674309 0 0 0 0 0 0 0 0 0 0
+[  850.194044] tasks-torture: Free-Block Circulation:  3180 3180 3179 3178 3177 3176 3175 3174 3173 3172 0
+[  853.680658] tasks-torture: rcu_torture_read_exit: Start of episode
+[  853.700880] tasks-torture: rcu_torture_read_exit: End of episode
+[  865.520202] tasks-torture: rtc: (____ptrval____) ver: 3253 tfle: 0 rta: 3254 rtaf: 0 rtf: 3237 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 197956 barrier: 2030/2030:0 read-exits: 951
+[  865.538802] tasks-torture: Reader Pipe:  1493528563 0 0 0 0 0 0 0 0 0 0
+[  865.546060] tasks-torture: Reader Batch:  1493528563 0 0 0 0 0 0 0 0 0 0
+[  865.553440] tasks-torture: Free-Block Circulation:  3253 3252 3249 3245 3244 3242 3241 3240 3239 3237 0
+[  867.056253] tasks-torture: rcu_torture_read_exit: Start of episode
+[  871.088462] tasks-torture: rcu_torture_read_exit: End of episode
+[  880.880912] tasks-torture: rtc: (____ptrval____) ver: 3299 tfle: 0 rta: 3299 rtaf: 0 rtf: 3290 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 200550 barrier: 2065/2066:0 read-exits: 968
+[  880.899952] tasks-torture: Reader Pipe:  1513079379 0 0 0 0 0 0 0 0 0 0
+[  880.907167] tasks-torture: Reader Batch:  1513079379 0 0 0 0 0 0 0 0 0 0
+[  880.914400] tasks-torture: Free-Block Circulation:  3298 3298 3297 3296 3295 3294 3293 3292 3291 3290 0
+[  884.401188] tasks-torture: rcu_torture_read_exit: Start of episode
+[  884.411003] tasks-torture: rcu_torture_read_exit: End of episode
+[  896.240267] tasks-torture: rtc: (____ptrval____) ver: 3381 tfle: 0 rta: 3382 rtaf: 0 rtf: 3366 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 205076 barrier: 2101/2102:0 read-exits: 985
+[  896.261902] tasks-torture: Reader Pipe:  1546363280 0 0 0 0 0 0 0 0 0 0
+[  896.270423] tasks-torture: Reader Batch:  1546363280 0 0 0 0 0 0 0 0 0 0
+[  896.278879] tasks-torture: Free-Block Circulation:  3381 3380 3379 3378 3374 3373 3369 3368 3367 3366 0
+[  897.712242] tasks-torture: rcu_torture_read_exit: Start of episode
+[  901.808478] tasks-torture: rcu_torture_read_exit: End of episode
+[  911.600315] tasks-torture: rtc: (____ptrval____) ver: 3422 tfle: 0 rta: 3422 rtaf: 0 rtf: 3413 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 207669 barrier: 2139/2140:0 read-exits: 1002
+[  911.622513] tasks-torture: Reader Pipe:  1565320566 0 0 0 0 0 0 0 0 0 0
+[  911.631157] tasks-torture: Reader Batch:  1565320566 0 0 0 0 0 0 0 0 0 0
+[  911.639882] tasks-torture: Free-Block Circulation:  3421 3421 3420 3419 3418 3417 3416 3415 3414 3413 0
+[  915.120627] tasks-torture: rcu_torture_read_exit: Start of episode
+[  915.142097] tasks-torture: rcu_torture_read_exit: End of episode
+[  926.960762] tasks-torture: rtc: (____ptrval____) ver: 3483 tfle: 0 rta: 3484 rtaf: 0 rtf: 3470 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 212187 barrier: 2175/2175:0 read-exits: 1019
+[  926.983588] tasks-torture: Reader Pipe:  1599645415 0 0 0 0 0 0 0 0 0 0
+[  926.992007] tasks-torture: Reader Batch:  1599645415 0 0 0 0 0 0 0 0 0 0
+[  927.000531] tasks-torture: Free-Block Circulation:  3483 3480 3479 3478 3477 3476 3474 3472 3471 3470 0
+[  928.496237] tasks-torture: rcu_torture_read_exit: Start of episode
+[  932.528401] tasks-torture: rcu_torture_read_exit: End of episode
+[  942.320709] tasks-torture: rtc: (____ptrval____) ver: 3532 tfle: 0 rta: 3532 rtaf: 0 rtf: 3523 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 214763 barrier: 2210/2211:0 read-exits: 1036
+[  942.340044] tasks-torture: Reader Pipe:  1619247686 0 0 0 0 0 0 0 0 0 0
+[  942.348706] tasks-torture: Reader Batch:  1619247686 0 0 0 0 0 0 0 0 0 0
+[  942.356010] tasks-torture: Free-Block Circulation:  3531 3531 3530 3529 3528 3527 3526 3525 3524 3523 0
+[  945.841641] tasks-torture: rcu_torture_read_exit: Start of episode
+[  945.852579] tasks-torture: rcu_torture_read_exit: End of episode
+[  957.680870] tasks-torture: rtc: (____ptrval____) ver: 3601 tfle: 0 rta: 3602 rtaf: 0 rtf: 3590 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 219272 barrier: 2247/2248:0 read-exits: 1053
+[  957.702449] tasks-torture: Reader Pipe:  1652919901 0 0 0 0 0 0 0 0 0 0
+[  957.710544] tasks-torture: Reader Batch:  1652919901 0 0 0 0 0 0 0 0 0 0
+[  957.718948] tasks-torture: Free-Block Circulation:  3601 3600 3599 3598 3597 3596 3595 3594 3591 3590 0
+[  959.152261] tasks-torture: rcu_torture_read_exit: Start of episode
+[  963.248479] tasks-torture: rcu_torture_read_exit: End of episode
+[  973.040734] tasks-torture: rtc: (____ptrval____) ver: 3648 tfle: 0 rta: 3648 rtaf: 0 rtf: 3639 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 221862 barrier: 2282/2283:0 read-exits: 1070
+[  973.059791] tasks-torture: Reader Pipe:  1668821243 0 0 0 0 0 0 0 0 0 0
+[  973.066974] tasks-torture: Reader Batch:  1668821243 0 0 0 0 0 0 0 0 0 0
+[  973.074875] tasks-torture: Free-Block Circulation:  3647 3647 3646 3645 3644 3643 3642 3641 3640 3639 0
+[  976.561207] tasks-torture: rcu_torture_read_exit: Start of episode
+[  976.570570] tasks-torture: rcu_torture_read_exit: End of episode
+[  988.400682] tasks-torture: rtc: (____ptrval____) ver: 3722 tfle: 0 rta: 3723 rtaf: 0 rtf: 3708 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 226386 barrier: 2319/2320:0 read-exits: 1087
+[  988.419570] tasks-torture: Reader Pipe:  1703409541 0 0 0 0 0 0 0 0 0 0
+[  988.426738] tasks-torture: Reader Batch:  1703409541 0 0 0 0 0 0 0 0 0 0
+[  988.434447] tasks-torture: Free-Block Circulation:  3722 3721 3719 3717 3716 3715 3714 3712 3710 3708 0
+[  989.872218] tasks-torture: rcu_torture_read_exit: Start of episode
+[  993.968401] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1003.760214] tasks-torture: rtc: (____ptrval____) ver: 3769 tfle: 0 rta: 3769 rtaf: 0 rtf: 3760 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 228979 barrier: 2355/2356:0 read-exits: 1104
+[ 1003.779993] tasks-torture: Reader Pipe:  1722310239 0 0 0 0 0 0 0 0 0 0
+[ 1003.787694] tasks-torture: Reader Batch:  1722310239 0 0 0 0 0 0 0 0 0 0
+[ 1003.795754] tasks-torture: Free-Block Circulation:  3768 3768 3767 3766 3765 3764 3763 3762 3761 3760 0
+[ 1007.280698] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1007.293263] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1019.120744] tasks-torture: rtc: (____ptrval____) ver: 3847 tfle: 0 rta: 3848 rtaf: 0 rtf: 3831 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 233483 barrier: 2395/2395:0 read-exits: 1121
+[ 1019.144383] tasks-torture: Reader Pipe:  1755635543 0 0 0 0 0 0 0 0 0 0
+[ 1019.153911] tasks-torture: Reader Batch:  1755635543 0 0 0 0 0 0 0 0 0 0
+[ 1019.163303] tasks-torture: Free-Block Circulation:  3847 3846 3842 3841 3840 3838 3834 3833 3832 3831 0
+[ 1020.592234] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1024.695757] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1034.480891] tasks-torture: rtc: (____ptrval____) ver: 3891 tfle: 0 rta: 3891 rtaf: 0 rtf: 3882 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 236066 barrier: 2433/2434:0 read-exits: 1138
+[ 1034.504363] tasks-torture: Reader Pipe:  1775627974 0 0 0 0 0 0 0 0 0 0
+[ 1034.513328] tasks-torture: Reader Batch:  1775627974 0 0 0 0 0 0 0 0 0 0
+[ 1034.522523] tasks-torture: Free-Block Circulation:  3890 3890 3889 3888 3887 3886 3885 3884 3883 3882 0
+[ 1038.000234] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1038.019067] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1049.840677] tasks-torture: rtc: (____ptrval____) ver: 3961 tfle: 0 rta: 3962 rtaf: 0 rtf: 3948 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 240580 barrier: 2471/2471:0 read-exits: 1155
+[ 1049.862582] tasks-torture: Reader Pipe:  1808049967 0 0 0 0 0 0 0 0 0 0
+[ 1049.871689] tasks-torture: Reader Batch:  1808049967 0 0 0 0 0 0 0 0 0 0
+[ 1049.880618] tasks-torture: Free-Block Circulation:  3961 3960 3959 3957 3956 3955 3954 3952 3949 3948 0
+[ 1051.376242] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1055.408535] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1065.200666] tasks-torture: rtc: (____ptrval____) ver: 4006 tfle: 0 rta: 4006 rtaf: 0 rtf: 3997 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 243164 barrier: 2508/2509:0 read-exits: 1172
+[ 1065.223586] tasks-torture: Reader Pipe:  1828239964 0 0 0 0 0 0 0 0 0 0
+[ 1065.232564] tasks-torture: Reader Batch:  1828239964 0 0 0 0 0 0 0 0 0 0
+[ 1065.241592] tasks-torture: Free-Block Circulation:  4005 4005 4004 4003 4002 4001 4000 3999 3998 3997 0
+[ 1068.720217] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1068.731312] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1080.560228] tasks-torture: rtc: (____ptrval____) ver: 4076 tfle: 0 rta: 4077 rtaf: 0 rtf: 4062 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 247675 barrier: 2545/2545:0 read-exits: 1189
+[ 1080.582263] tasks-torture: Reader Pipe:  1863415954 0 0 0 0 0 0 0 0 0 0
+[ 1080.590910] tasks-torture: Reader Batch:  1863415954 0 0 0 0 0 0 0 0 0 0
+[ 1080.599561] tasks-torture: Free-Block Circulation:  4076 4075 4074 4072 4070 4069 4066 4065 4064 4062 0
+[ 1082.032310] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1086.128414] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1095.920701] tasks-torture: rtc: (____ptrval____) ver: 4123 tfle: 0 rta: 4123 rtaf: 0 rtf: 4114 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 250252 barrier: 2583/2584:0 read-exits: 1206
+[ 1095.939371] tasks-torture: Reader Pipe:  1882280478 0 0 0 0 0 0 0 0 0 0
+[ 1095.946751] tasks-torture: Reader Batch:  1882280478 0 0 0 0 0 0 0 0 0 0
+[ 1095.954059] tasks-torture: Free-Block Circulation:  4122 4122 4121 4120 4119 4118 4117 4116 4115 4114 0
+[ 1099.440230] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1099.449947] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1111.280744] tasks-torture: rtc: (____ptrval____) ver: 4183 tfle: 0 rta: 4184 rtaf: 0 rtf: 4171 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 254761 barrier: 2620/2620:0 read-exits: 1223
+[ 1111.303217] tasks-torture: Reader Pipe:  1915799196 0 0 0 0 0 0 0 0 0 0
+[ 1111.311817] tasks-torture: Reader Batch:  1915799196 0 0 0 0 0 0 0 0 0 0
+[ 1111.320330] tasks-torture: Free-Block Circulation:  4183 4181 4180 4177 4176 4175 4174 4173 4172 4171 0
+[ 1112.752281] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1116.848566] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1126.640886] tasks-torture: rtc: (____ptrval____) ver: 4228 tfle: 0 rta: 4228 rtaf: 0 rtf: 4219 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 257339 barrier: 2658/2659:0 read-exits: 1240
+[ 1126.661921] tasks-torture: Reader Pipe:  1934417545 0 0 0 0 0 0 0 0 0 0
+[ 1126.669280] tasks-torture: Reader Batch:  1934417545 0 0 0 0 0 0 0 0 0 0
+[ 1126.676928] tasks-torture: Free-Block Circulation:  4227 4227 4226 4225 4224 4223 4222 4221 4220 4219 0
+[ 1130.161674] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1130.172775] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1142.000806] tasks-torture: rtc: (____ptrval____) ver: 4291 tfle: 0 rta: 4292 rtaf: 0 rtf: 4279 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 261851 barrier: 2693/2694:0 read-exits: 1257
+[ 1142.023697] tasks-torture: Reader Pipe:  1966737979 0 0 0 0 0 0 0 0 0 0
+[ 1142.032393] tasks-torture: Reader Batch:  1966737979 0 0 0 0 0 0 0 0 0 0
+[ 1142.041097] tasks-torture: Free-Block Circulation:  4291 4290 4289 4288 4287 4285 4284 4282 4280 4279 0
+[ 1143.472211] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1147.569007] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1157.360894] tasks-torture: rtc: (____ptrval____) ver: 4341 tfle: 0 rta: 4341 rtaf: 0 rtf: 4332 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 264434 barrier: 2735/2736:0 read-exits: 1274
+[ 1157.382767] tasks-torture: Reader Pipe:  1985626689 0 0 0 0 0 0 0 0 0 0
+[ 1157.391003] tasks-torture: Reader Batch:  1985626689 0 0 0 0 0 0 0 0 0 0
+[ 1157.399150] tasks-torture: Free-Block Circulation:  4340 4340 4339 4338 4337 4336 4335 4334 4333 4332 0
+[ 1160.881209] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1160.892071] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1172.720190] tasks-torture: rtc: (____ptrval____) ver: 4412 tfle: 0 rta: 4413 rtaf: 0 rtf: 4399 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 268960 barrier: 2771/2772:0 read-exits: 1291
+[ 1172.738343] tasks-torture: Reader Pipe:  2020082439 0 0 0 0 0 0 0 0 0 0
+[ 1172.745429] tasks-torture: Reader Batch:  2020082439 0 0 0 0 0 0 0 0 0 0
+[ 1172.752508] tasks-torture: Free-Block Circulation:  4412 4410 4408 4407 4406 4405 4404 4402 4400 4399 0
+[ 1174.192217] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1178.288461] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1188.080740] tasks-torture: rtc: (____ptrval____) ver: 4454 tfle: 0 rta: 4454 rtaf: 0 rtf: 4445 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 271550 barrier: 2810/2811:0 read-exits: 1308
+[ 1188.100364] tasks-torture: Reader Pipe:  2038447662 0 0 0 0 0 0 0 0 0 0
+[ 1188.108431] tasks-torture: Reader Batch:  2038447662 0 0 0 0 0 0 0 0 0 0
+[ 1188.117795] tasks-torture: Free-Block Circulation:  4453 4453 4452 4451 4450 4449 4448 4447 4446 4445 0
+[ 1191.601200] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1191.611238] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1203.440724] tasks-torture: rtc: (____ptrval____) ver: 4545 tfle: 0 rta: 4546 rtaf: 0 rtf: 4525 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 276064 barrier: 2849/2849:0 read-exits: 1325
+[ 1203.462057] tasks-torture: Reader Pipe:  2071890781 0 0 0 0 0 0 0 0 0 0
+[ 1203.470351] tasks-torture: Reader Batch:  2071890781 0 0 0 0 0 0 0 0 0 0
+[ 1203.478338] tasks-torture: Free-Block Circulation:  4545 4543 4542 4541 4537 4536 4531 4529 4528 4525 0
+[ 1204.912247] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1209.015894] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1218.800678] tasks-torture: rtc: (____ptrval____) ver: 4591 tfle: 0 rta: 4591 rtaf: 0 rtf: 4582 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 278652 barrier: 2884/2885:0 read-exits: 1342
+[ 1218.819668] tasks-torture: Reader Pipe:  2091412566 0 0 0 0 0 0 0 0 0 0
+[ 1218.826905] tasks-torture: Reader Batch:  2091412566 0 0 0 0 0 0 0 0 0 0
+[ 1218.834793] tasks-torture: Free-Block Circulation:  4590 4590 4589 4588 4587 4586 4585 4584 4583 4582 0
+[ 1222.321754] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1222.332746] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1234.160216] tasks-torture: rtc: (____ptrval____) ver: 4659 tfle: 0 rta: 4660 rtaf: 0 rtf: 4649 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 283174 barrier: 2920/2921:0 read-exits: 1359
+[ 1234.178855] tasks-torture: Reader Pipe:  2124514078 0 0 0 0 0 0 0 0 0 0
+[ 1234.186072] tasks-torture: Reader Batch:  2124514078 0 0 0 0 0 0 0 0 0 0
+[ 1234.193460] tasks-torture: Free-Block Circulation:  4659 4658 4656 4655 4654 4653 4652 4651 4650 4649 0
+[ 1235.632811] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1239.728748] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1249.520252] tasks-torture: rtc: (____ptrval____) ver: 4700 tfle: 0 rta: 4700 rtaf: 0 rtf: 4691 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 285767 barrier: 2959/2960:0 read-exits: 1376
+[ 1249.539269] tasks-torture: Reader Pipe:  2144412605 0 0 0 0 0 0 0 0 0 0
+[ 1249.546965] tasks-torture: Reader Batch:  2144412605 0 0 0 0 0 0 0 0 0 0
+[ 1249.554396] tasks-torture: Free-Block Circulation:  4699 4699 4698 4697 4696 4695 4694 4693 4692 4691 0
+[ 1253.041665] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1253.052696] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1264.880293] tasks-torture: rtc: (____ptrval____) ver: 4771 tfle: 0 rta: 4772 rtaf: 0 rtf: 4757 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 290285 barrier: 2996/2996:0 read-exits: 1393
+[ 1264.900229] tasks-torture: Reader Pipe:  2178930303 0 0 0 0 0 0 0 0 0 0
+[ 1264.909245] tasks-torture: Reader Batch:  2178930303 0 0 0 0 0 0 0 0 0 0
+[ 1264.918719] tasks-torture: Free-Block Circulation:  4771 4770 4769 4768 4765 4762 4761 4760 4758 4757 0
+[ 1266.352268] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1270.448591] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1280.240731] tasks-torture: rtc: (____ptrval____) ver: 4818 tfle: 0 rta: 4818 rtaf: 0 rtf: 4809 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 292871 barrier: 3032/3033:0 read-exits: 1410
+[ 1280.262844] tasks-torture: Reader Pipe:  2197338940 0 0 0 0 0 0 0 0 0 0
+[ 1280.271514] tasks-torture: Reader Batch:  2197338940 0 0 0 0 0 0 0 0 0 0
+[ 1280.280225] tasks-torture: Free-Block Circulation:  4817 4817 4816 4815 4814 4813 4812 4811 4810 4809 0
+[ 1283.760238] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1283.781663] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1295.600222] tasks-torture: rtc: (____ptrval____) ver: 4880 tfle: 0 rta: 4881 rtaf: 0 rtf: 4866 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 297383 barrier: 3067/3068:0 read-exits: 1427
+[ 1295.621835] tasks-torture: Reader Pipe:  2231410635 0 0 0 0 0 0 0 0 0 0
+[ 1295.630204] tasks-torture: Reader Batch:  2231410635 0 0 0 0 0 0 0 0 0 0
+[ 1295.638944] tasks-torture: Free-Block Circulation:  4880 4878 4877 4876 4874 4873 4872 4868 4867 4866 0
+[ 1297.136213] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1301.168398] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1310.960660] tasks-torture: rtc: (____ptrval____) ver: 4919 tfle: 0 rta: 4919 rtaf: 0 rtf: 4910 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 299972 barrier: 3105/3106:0 read-exits: 1444
+[ 1310.982283] tasks-torture: Reader Pipe:  2251119355 0 0 0 0 0 0 0 0 0 0
+[ 1310.990525] tasks-torture: Reader Batch:  2251119355 0 0 0 0 0 0 0 0 0 0
+[ 1310.998925] tasks-torture: Free-Block Circulation:  4918 4918 4917 4916 4915 4914 4913 4912 4911 4910 0
+[ 1314.481741] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1314.495435] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1326.320623] tasks-torture: rtc: (____ptrval____) ver: 4992 tfle: 0 rta: 4993 rtaf: 0 rtf: 4977 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 304489 barrier: 3141/3142:0 read-exits: 1461
+[ 1326.342223] tasks-torture: Reader Pipe:  2286446072 0 0 0 0 0 0 0 0 0 0
+[ 1326.350214] tasks-torture: Reader Batch:  2286446072 0 0 0 0 0 0 0 0 0 0
+[ 1326.358473] tasks-torture: Free-Block Circulation:  4992 4991 4990 4988 4987 4985 4984 4982 4978 4977 0
+[ 1327.792218] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1331.891049] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1341.680237] tasks-torture: rtc: (____ptrval____) ver: 5038 tfle: 0 rta: 5038 rtaf: 0 rtf: 5029 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 307074 barrier: 3176/3177:0 read-exits: 1478
+[ 1341.701778] tasks-torture: Reader Pipe:  2305110249 0 0 0 0 0 0 0 0 0 0
+[ 1341.710315] tasks-torture: Reader Batch:  2305110249 0 0 0 0 0 0 0 0 0 0
+[ 1341.719027] tasks-torture: Free-Block Circulation:  5037 5037 5036 5035 5034 5033 5032 5031 5030 5029 0
+[ 1345.201686] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1345.212725] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1357.040686] tasks-torture: rtc: (____ptrval____) ver: 5112 tfle: 0 rta: 5113 rtaf: 0 rtf: 5098 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 311588 barrier: 3211/3211:0 read-exits: 1495
+[ 1357.062480] tasks-torture: Reader Pipe:  2338494512 0 0 0 0 0 0 0 0 0 0
+[ 1357.070911] tasks-torture: Reader Batch:  2338494512 0 0 0 0 0 0 0 0 0 0
+[ 1357.079414] tasks-torture: Free-Block Circulation:  5112 5110 5108 5107 5106 5104 5102 5101 5099 5098 0
+[ 1358.512250] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1362.608557] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1372.400241] tasks-torture: rtc: (____ptrval____) ver: 5158 tfle: 0 rta: 5158 rtaf: 0 rtf: 5149 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 314184 barrier: 3249/3250:0 read-exits: 1512
+[ 1372.420898] tasks-torture: Reader Pipe:  2358616253 0 0 0 0 0 0 0 0 0 0
+[ 1372.429391] tasks-torture: Reader Batch:  2358616253 0 0 0 0 0 0 0 0 0 0
+[ 1372.438668] tasks-torture: Free-Block Circulation:  5157 5157 5156 5155 5154 5153 5152 5151 5150 5149 0
+[ 1375.920288] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1375.940459] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1387.760568] tasks-torture: rtc: (____ptrval____) ver: 5245 tfle: 0 rta: 5246 rtaf: 0 rtf: 5226 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 318701 barrier: 3285/3286:0 read-exits: 1529
+[ 1387.782350] tasks-torture: Reader Pipe:  2392547661 0 0 0 0 0 0 0 0 0 0
+[ 1387.789657] tasks-torture: Reader Batch:  2392547661 0 0 0 0 0 0 0 0 0 0
+[ 1387.797001] tasks-torture: Free-Block Circulation:  5245 5244 5241 5236 5235 5233 5232 5230 5229 5226 0
+[ 1389.296305] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1393.328746] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1403.120247] tasks-torture: rtc: (____ptrval____) ver: 5287 tfle: 0 rta: 5287 rtaf: 0 rtf: 5278 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 321299 barrier: 3322/3323:0 read-exits: 1546
+[ 1403.140151] tasks-torture: Reader Pipe:  2411839700 0 0 0 0 0 0 0 0 0 0
+[ 1403.147922] tasks-torture: Reader Batch:  2411839700 0 0 0 0 0 0 0 0 0 0
+[ 1403.155287] tasks-torture: Free-Block Circulation:  5286 5286 5285 5284 5283 5282 5281 5280 5279 5278 0
+[ 1406.640213] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1406.652049] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1418.480714] tasks-torture: rtc: (____ptrval____) ver: 5350 tfle: 0 rta: 5351 rtaf: 0 rtf: 5341 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 325822 barrier: 3356/3357:0 read-exits: 1563
+[ 1418.500271] tasks-torture: Reader Pipe:  2446338720 0 0 0 0 0 0 0 0 0 0
+[ 1418.509378] tasks-torture: Reader Batch:  2446338720 0 0 0 0 0 0 0 0 0 0
+[ 1418.517658] tasks-torture: Free-Block Circulation:  5350 5349 5348 5347 5346 5345 5344 5343 5342 5341 0
+[ 1419.952241] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1424.048511] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1433.840188] tasks-torture: rtc: (____ptrval____) ver: 5402 tfle: 0 rta: 5402 rtaf: 0 rtf: 5393 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 328416 barrier: 3395/3396:0 read-exits: 1580
+[ 1433.858213] tasks-torture: Reader Pipe:  2465332465 0 0 0 0 0 0 0 0 0 0
+[ 1433.865164] tasks-torture: Reader Batch:  2465332465 0 0 0 0 0 0 0 0 0 0
+[ 1433.872319] tasks-torture: Free-Block Circulation:  5401 5401 5400 5399 5398 5397 5396 5395 5394 5393 0
+[ 1437.361184] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1437.370373] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1449.200203] tasks-torture: rtc: (____ptrval____) ver: 5483 tfle: 0 rta: 5484 rtaf: 0 rtf: 5463 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 332933 barrier: 3429/3430:0 read-exits: 1597
+[ 1449.220515] tasks-torture: Reader Pipe:  2500449739 0 0 0 0 0 0 0 0 0 0
+[ 1449.227978] tasks-torture: Reader Batch:  2500449739 0 0 0 0 0 0 0 0 0 0
+[ 1449.236307] tasks-torture: Free-Block Circulation:  5483 5482 5480 5479 5474 5473 5472 5470 5464 5463 0
+[ 1450.672396] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1454.768531] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1464.560191] tasks-torture: rtc: (____ptrval____) ver: 5518 tfle: 0 rta: 5518 rtaf: 0 rtf: 5509 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 335518 barrier: 3465/3466:0 read-exits: 1614
+[ 1464.578734] tasks-torture: Reader Pipe:  2516569970 0 0 0 0 0 0 0 0 0 0
+[ 1464.586052] tasks-torture: Reader Batch:  2516569970 0 0 0 0 0 0 0 0 0 0
+[ 1464.593419] tasks-torture: Free-Block Circulation:  5517 5517 5516 5515 5514 5513 5512 5511 5510 5509 0
+[ 1468.080693] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1468.101946] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1479.920229] tasks-torture: rtc: (____ptrval____) ver: 5590 tfle: 0 rta: 5591 rtaf: 0 rtf: 5577 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 340032 barrier: 3502/3503:0 read-exits: 1631
+[ 1479.942316] tasks-torture: Reader Pipe:  2549750628 0 0 0 0 0 0 0 0 0 0
+[ 1479.951070] tasks-torture: Reader Batch:  2549750628 0 0 0 0 0 0 0 0 0 0
+[ 1479.959891] tasks-torture: Free-Block Circulation:  5590 5589 5588 5585 5584 5582 5581 5580 5578 5577 0
+[ 1481.456206] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1485.488515] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1495.280274] tasks-torture: rtc: (____ptrval____) ver: 5639 tfle: 0 rta: 5639 rtaf: 0 rtf: 5630 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 342623 barrier: 3541/3542:0 read-exits: 1648
+[ 1495.303106] tasks-torture: Reader Pipe:  2568751281 0 0 0 0 0 0 0 0 0 0
+[ 1495.311945] tasks-torture: Reader Batch:  2568751281 0 0 0 0 0 0 0 0 0 0
+[ 1495.320956] tasks-torture: Free-Block Circulation:  5638 5638 5637 5636 5635 5634 5633 5632 5631 5630 0
+[ 1498.800265] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1498.818458] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1510.640299] tasks-torture: rtc: (____ptrval____) ver: 5712 tfle: 0 rta: 5713 rtaf: 0 rtf: 5697 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 347150 barrier: 3575/3576:0 read-exits: 1665
+[ 1510.662745] tasks-torture: Reader Pipe:  2602963457 0 0 0 0 0 0 0 0 0 0
+[ 1510.671912] tasks-torture: Reader Batch:  2602963457 0 0 0 0 0 0 0 0 0 0
+[ 1510.680866] tasks-torture: Free-Block Circulation:  5712 5711 5710 5708 5707 5706 5704 5701 5700 5697 0
+[ 1512.176370] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1516.208500] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1526.000993] tasks-torture: rtc: (____ptrval____) ver: 5767 tfle: 0 rta: 5767 rtaf: 0 rtf: 5758 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 349739 barrier: 3616/3617:0 read-exits: 1682
+[ 1526.020446] tasks-torture: Reader Pipe:  2622543406 0 0 0 0 0 0 0 0 0 0
+[ 1526.027911] tasks-torture: Reader Batch:  2622543406 0 0 0 0 0 0 0 0 0 0
+[ 1526.035462] tasks-torture: Free-Block Circulation:  5766 5766 5765 5764 5763 5762 5761 5760 5759 5758 0
+[ 1529.521206] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1529.532465] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1541.360219] tasks-torture: rtc: (____ptrval____) ver: 5845 tfle: 0 rta: 5846 rtaf: 0 rtf: 5834 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 354257 barrier: 3653/3653:0 read-exits: 1699
+[ 1541.381258] tasks-torture: Reader Pipe:  2656323196 0 0 0 0 0 0 0 0 0 0
+[ 1541.389516] tasks-torture: Reader Batch:  2656323196 0 0 0 0 0 0 0 0 0 0
+[ 1541.397736] tasks-torture: Free-Block Circulation:  5845 5843 5842 5841 5840 5839 5838 5837 5836 5834 0
+[ 1542.832274] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1546.928397] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1556.720184] tasks-torture: rtc: (____ptrval____) ver: 5882 tfle: 0 rta: 5882 rtaf: 0 rtf: 5873 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 356856 barrier: 3689/3690:0 read-exits: 1716
+[ 1556.738335] tasks-torture: Reader Pipe:  2675728152 0 0 0 0 0 0 0 0 0 0
+[ 1556.745472] tasks-torture: Reader Batch:  2675728152 0 0 0 0 0 0 0 0 0 0
+[ 1556.752909] tasks-torture: Free-Block Circulation:  5881 5881 5880 5879 5878 5877 5876 5875 5874 5873 0
+[ 1560.241185] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1560.249374] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1572.080258] tasks-torture: rtc: (____ptrval____) ver: 5958 tfle: 0 rta: 5959 rtaf: 0 rtf: 5941 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 361371 barrier: 3723/3724:0 read-exits: 1733
+[ 1572.103032] tasks-torture: Reader Pipe:  2710610521 0 0 0 0 0 0 0 0 0 0
+[ 1572.111881] tasks-torture: Reader Batch:  2710610521 0 0 0 0 0 0 0 0 0 0
+[ 1572.120868] tasks-torture: Free-Block Circulation:  5958 5956 5954 5950 5949 5948 5947 5944 5943 5941 0
+[ 1573.552215] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1577.648427] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1587.440930] tasks-torture: rtc: (____ptrval____) ver: 6011 tfle: 0 rta: 6011 rtaf: 0 rtf: 6002 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 363956 barrier: 3766/3767:0 read-exits: 1750
+[ 1587.460304] tasks-torture: Reader Pipe:  2729749521 0 0 0 0 0 0 0 0 0 0
+[ 1587.467654] tasks-torture: Reader Batch:  2729749521 0 0 0 0 0 0 0 0 0 0
+[ 1587.475051] tasks-torture: Free-Block Circulation:  6010 6010 6009 6008 6007 6006 6005 6004 6003 6002 0
+[ 1590.961579] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1590.970974] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1602.801032] tasks-torture: rtc: (____ptrval____) ver: 6078 tfle: 0 rta: 6079 rtaf: 0 rtf: 6066 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 368476 barrier: 3801/3801:0 read-exits: 1767
+[ 1602.821387] tasks-torture: Reader Pipe:  2764340563 0 0 0 0 0 0 0 0 0 0
+[ 1602.829957] tasks-torture: Reader Batch:  2764340563 0 0 0 0 0 0 0 0 0 0
+[ 1602.837291] tasks-torture: Free-Block Circulation:  6078 6076 6075 6074 6072 6071 6070 6068 6067 6066 0
+[ 1604.272227] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1608.368743] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1618.160678] tasks-torture: rtc: (____ptrval____) ver: 6114 tfle: 0 rta: 6114 rtaf: 0 rtf: 6105 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 371066 barrier: 3840/3841:0 read-exits: 1784
+[ 1618.180178] tasks-torture: Reader Pipe:  2783270372 0 0 0 0 0 0 0 0 0 0
+[ 1618.187524] tasks-torture: Reader Batch:  2783270372 0 0 0 0 0 0 0 0 0 0
+[ 1618.195160] tasks-torture: Free-Block Circulation:  6113 6113 6112 6111 6110 6109 6108 6107 6106 6105 0
+[ 1621.680715] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1621.700300] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1633.520305] tasks-torture: rtc: (____ptrval____) ver: 6195 tfle: 0 rta: 6196 rtaf: 0 rtf: 6184 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 375570 barrier: 3879/3879:0 read-exits: 1801
+[ 1633.542715] tasks-torture: Reader Pipe:  2816259942 0 0 0 0 0 0 0 0 0 0
+[ 1633.550042] tasks-torture: Reader Batch:  2816259942 0 0 0 0 0 0 0 0 0 0
+[ 1633.557590] tasks-torture: Free-Block Circulation:  6195 6194 6193 6192 6191 6190 6188 6187 6186 6184 0
+[ 1635.056259] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1639.095410] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1648.880239] tasks-torture: rtc: (____ptrval____) ver: 6244 tfle: 0 rta: 6244 rtaf: 0 rtf: 6235 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 378163 barrier: 3917/3918:0 read-exits: 1818
+[ 1648.900995] tasks-torture: Reader Pipe:  2834263223 0 0 0 0 0 0 0 0 0 0
+[ 1648.908755] tasks-torture: Reader Batch:  2834263223 0 0 0 0 0 0 0 0 0 0
+[ 1648.917675] tasks-torture: Free-Block Circulation:  6243 6243 6242 6241 6240 6239 6238 6237 6236 6235 0
+[ 1652.401202] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1652.410484] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1664.240694] tasks-torture: rtc: (____ptrval____) ver: 6314 tfle: 0 rta: 6315 rtaf: 0 rtf: 6302 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 382683 barrier: 3951/3952:0 read-exits: 1835
+[ 1664.260697] tasks-torture: Reader Pipe:  2868636284 0 0 0 0 0 0 0 0 0 0
+[ 1664.269348] tasks-torture: Reader Batch:  2868636284 0 0 0 0 0 0 0 0 0 0
+[ 1664.277040] tasks-torture: Free-Block Circulation:  6314 6312 6311 6309 6308 6306 6305 6304 6303 6302 0
+[ 1665.712643] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1669.808407] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1679.600694] tasks-torture: rtc: (____ptrval____) ver: 6351 tfle: 0 rta: 6351 rtaf: 0 rtf: 6342 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 385275 barrier: 3987/3988:0 read-exits: 1852
+[ 1679.624256] tasks-torture: Reader Pipe:  2886919926 0 0 0 0 0 0 0 0 0 0
+[ 1679.633058] tasks-torture: Reader Batch:  2886919926 0 0 0 0 0 0 0 0 0 0
+[ 1679.640346] tasks-torture: Free-Block Circulation:  6350 6350 6349 6348 6347 6346 6345 6344 6343 6342 0
+[ 1683.120705] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1683.143269] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1694.960231] tasks-torture: rtc: (____ptrval____) ver: 6427 tfle: 0 rta: 6428 rtaf: 0 rtf: 6415 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 389794 barrier: 4024/4024:0 read-exits: 1869
+[ 1694.981543] tasks-torture: Reader Pipe:  2921862651 0 0 0 0 0 0 0 0 0 0
+[ 1694.990201] tasks-torture: Reader Batch:  2921862651 0 0 0 0 0 0 0 0 0 0
+[ 1694.998590] tasks-torture: Free-Block Circulation:  6427 6423 6422 6421 6420 6419 6418 6417 6416 6415 0
+[ 1696.496190] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1700.533727] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1710.320199] tasks-torture: rtc: (____ptrval____) ver: 6467 tfle: 0 rta: 6467 rtaf: 0 rtf: 6458 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 392386 barrier: 4062/4063:0 read-exits: 1886
+[ 1710.343735] tasks-torture: Reader Pipe:  2940726310 0 0 0 0 0 0 0 0 0 0
+[ 1710.352094] tasks-torture: Reader Batch:  2940726310 0 0 0 0 0 0 0 0 0 0
+[ 1710.360512] tasks-torture: Free-Block Circulation:  6466 6466 6465 6464 6463 6462 6461 6460 6459 6458 0
+[ 1713.841579] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1713.852519] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1725.680236] tasks-torture: rtc: (____ptrval____) ver: 6531 tfle: 0 rta: 6532 rtaf: 0 rtf: 6519 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 396903 barrier: 4097/4097:0 read-exits: 1903
+[ 1725.701784] tasks-torture: Reader Pipe:  2972739584 0 0 0 0 0 0 0 0 0 0
+[ 1725.710956] tasks-torture: Reader Batch:  2972739584 0 0 0 0 0 0 0 0 0 0
+[ 1725.720211] tasks-torture: Free-Block Circulation:  6531 6529 6527 6526 6525 6524 6522 6521 6520 6519 0
+[ 1727.153023] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1731.248557] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1741.040954] tasks-torture: rtc: (____ptrval____) ver: 6570 tfle: 0 rta: 6570 rtaf: 0 rtf: 6561 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 399496 barrier: 4131/4132:0 read-exits: 1920
+[ 1741.061529] tasks-torture: Reader Pipe:  2992742125 0 0 0 0 0 0 0 0 0 0
+[ 1741.069323] tasks-torture: Reader Batch:  2992742125 0 0 0 0 0 0 0 0 0 0
+[ 1741.077223] tasks-torture: Free-Block Circulation:  6569 6569 6568 6567 6566 6565 6564 6563 6562 6561 0
+[ 1744.561270] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1744.572494] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1756.400291] tasks-torture: rtc: (____ptrval____) ver: 6644 tfle: 0 rta: 6645 rtaf: 0 rtf: 6625 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 404017 barrier: 4167/4168:0 read-exits: 1937
+[ 1756.419158] tasks-torture: Reader Pipe:  3026735674 0 0 0 0 0 0 0 0 0 0
+[ 1756.426691] tasks-torture: Reader Batch:  3026735674 0 0 0 0 0 0 0 0 0 0
+[ 1756.434235] tasks-torture: Free-Block Circulation:  6644 6643 6642 6641 6640 6637 6634 6628 6627 6625 0
+[ 1757.872259] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1761.968388] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1771.760709] tasks-torture: rtc: (____ptrval____) ver: 6688 tfle: 0 rta: 6688 rtaf: 0 rtf: 6679 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 406612 barrier: 4202/4203:0 read-exits: 1954
+[ 1771.781500] tasks-torture: Reader Pipe:  3046460574 0 0 0 0 0 0 0 0 0 0
+[ 1771.788831] tasks-torture: Reader Batch:  3046460574 0 0 0 0 0 0 0 0 0 0
+[ 1771.796184] tasks-torture: Free-Block Circulation:  6687 6687 6686 6685 6684 6683 6682 6681 6680 6679 0
+[ 1775.280197] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1775.289954] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1787.120192] tasks-torture: rtc: (____ptrval____) ver: 6769 tfle: 0 rta: 6770 rtaf: 0 rtf: 6752 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 411136 barrier: 4240/4240:0 read-exits: 1971
+[ 1787.138830] tasks-torture: Reader Pipe:  3081837380 0 0 0 0 0 0 0 0 0 0
+[ 1787.146048] tasks-torture: Reader Batch:  3081837380 0 0 0 0 0 0 0 0 0 0
+[ 1787.153538] tasks-torture: Free-Block Circulation:  6769 6768 6766 6764 6763 6760 6757 6756 6755 6752 0
+[ 1788.592211] tasks-torture: rcu_torture_read_exit: Start of episode
+[ 1792.688394] tasks-torture: rcu_torture_read_exit: End of episode
+[ 1802.481042] tasks-torture: rtc: (____ptrval____) ver: 6818 tfle: 0 rta: 6818 rtaf: 0 rtf: 6809 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 413732 barrier: 4279/4280:0 read-exits: 1988
+[ 1802.505997] tasks-torture: Reader Pipe:  3100411343 0 0 0 0 0 0 0 0 0 0
+[ 1802.514241] tasks-torture: Reader Batch:  3100411343 0 0 0 0 0 0 0 0 0 0
+[ 1802.521973] tasks-torture: Free-Block Circulation:  6817 6817 6816 6815 6814 6813 6812 6811 6810 6809 0
+[ 1805.321690] tasks-torture: torture_shutdown task shutting down system
+[ 1805.329716] tasks-torture: Stopping torture_shuffle task
+[ 1805.335663] tasks-torture: Stopping torture_shuffle
+[ 1805.342603] tasks-torture: Stopping rcu_torture_reader
+[ 1805.349641] tasks-torture: Stopping torture_stutter task
+[ 1805.355519] tasks-torture: Stopping rcu_torture_barrier
+[ 1805.361280] tasks-torture: Stopping torture_stutter
+[ 1805.472288] tasks-torture: Dynamic grace-period expediting was disabled.
+[ 1805.480700] tasks-torture: Stopping rcu_torture_writer
+[ 1805.487487] tasks-torture: Stopping rcu_torture_fakewriter
+[ 1805.494420] tasks-torture: Stopping rcu_torture_fakewriter
+[ 1805.501632] tasks-torture: Stopping rcu_torture_fakewriter
+[ 1805.508731] tasks-torture: Stopping rcu_torture_fakewriter
+[ 1806.000380] tasks-torture: Stopping rcu_torture_read_exit
+[ 1806.012796] tasks-torture: Stopping rcutorture_read_exit task
+[ 1806.022289] tasks-torture: Stopping rcu_torture_barrier task
+[ 1806.030367] tasks-torture: Stopping rcu_torture_barrier_cbs task
+[ 1806.038815] tasks-torture: Stopping rcu_torture_barrier_cbs
+[ 1806.046110] tasks-torture: Stopping rcu_torture_barrier_cbs task
+[ 1806.144241] tasks-torture: Stopping rcu_torture_barrier_cbs
+[ 1806.151620] tasks-torture: Stopping rcu_torture_barrier_cbs task
+[ 1806.248222] tasks-torture: Stopping rcu_torture_barrier_cbs
+[ 1806.255601] tasks-torture: Stopping rcu_torture_barrier_cbs task
+[ 1806.352246] tasks-torture: Stopping rcu_torture_barrier_cbs
+[ 1806.359755] tasks-torture: Stopping rcu_torture_writer task
+[ 1806.367231] tasks-torture: Stopping rcu_torture_reader task
+[ 1806.374624] tasks-torture: Stopping rcu_torture_fakewriter task
+[ 1806.382428] tasks-torture: Stopping rcu_torture_fakewriter task
+[ 1806.390274] tasks-torture: Stopping rcu_torture_fakewriter task
+[ 1806.398011] tasks-torture: Stopping rcu_torture_fakewriter task
+[ 1806.405920] tasks:  End-test grace-period state: g0 f0x0 total-gps=0
+[ 1806.414117] tasks-torture: Stopping rcu_torture_stats task
+[ 1806.421197] tasks-torture: rtc: 0000000000000000 VER: 6833 tfle: 0 rta: 6833 rtaf: 0 rtf: 6821 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 414835 barrier: 4285/4285:0 read-exits: 1988
+[ 1806.443181] tasks-torture: Reader Pipe:  3109442167 0 0 0 0 0 0 0 0 0 0
+[ 1806.451789] tasks-torture: Reader Batch:  3109442167 0 0 0 0 0 0 0 0 0 0
+[ 1806.460313] tasks-torture: Free-Block Circulation:  6832 6831 6830 6829 6828 6827 6825 6824 6823 6821 0
+[ 1806.472078] tasks-torture: Stopping rcu_torture_stats
+[ 1806.584342] tasks-torture: rtc: 0000000000000000 VER: 6833 tfle: 0 rta: 6833 rtaf: 0 rtf: 6821 rtmbe: 0 rtbe: 0 rtbke: 0 rtbre: 0 rtbf: 0 rtb: 0 nt: 414835 barrier: 4285/4285:0 read-exits: 1988
+[ 1806.603076] tasks-torture: Reader Pipe:  3109442167 0 0 0 0 0 0 0 0 0 0
+[ 1806.610296] tasks-torture: Reader Batch:  3109442167 0 0 0 0 0 0 0 0 0 0
+[ 1806.617703] tasks-torture: Free-Block Circulation:  6832 6831 6830 6829 6828 6827 6825 6824 6823 6821 0
+[ 1806.628030] tasks-torture:--- End of test: SUCCESS: nreaders=1 nfakewriters=4 stat_interval=15 verbose=1 test_no_idle_hz=1 shuffle_interval=3 stutter=5 irqreader=1 fqs_duration=0 fqs_holdoff=0 fqs_stutter=3 test_boost=1/0 test_boost_interval=7 test_boost_duration=4 shutdown_secs=1800 stall_cpu=0 stall_cpu_holdoff=10 stall_cpu_irqsoff=0 stall_cpu_block=0 n_barrier_cbs=4 onoff_interval=0 onoff_holdoff=0 read_exit_delay=13 read_exit_burst=16
+[ 1806.671089] i2c i2c-0: shutdown
+[ 1806.674828] alarmtimer alarmtimer.0.auto: shutdown
+[ 1806.680201] psmouse serio1: shutdown
+[ 1806.685542] atkbd serio0: shutdown
+[ 1806.689628] i8042 i8042: shutdown
+[ 1806.694409] serial8250 serial8250: shutdown
+[ 1806.699571] system 00:05: shutdown
+[ 1806.703497] rtc_cmos 00:04: shutdown
+[ 1806.707968] serial 00:03: shutdown
+[ 1806.711861] pnp 00:02: shutdown
+[ 1806.715421] i8042 aux 00:01: shutdown
+[ 1806.719495] i8042 kbd 00:00: shutdown
+[ 1806.723764] i801_smbus 0000:00:1f.3: shutdown
+[ 1806.730463] ahci 0000:00:1f.2: shutdown
+[ 1806.736755] pci 0000:00:1f.0: shutdown
+[ 1806.741008] pci 0000:00:01.0: shutdown
+[ 1806.745226] pci 0000:00:00.0: shutdown
+[ 1806.749689] ACPI: Preparing to enter system sleep state S5
+[ 1806.756641] PM: Calling mce_syscore_shutdown+0x0/0x10
+[ 1806.762365] PM: Calling i8259A_shutdown+0x0/0x10
+[ 1806.767751] reboot: Power down
+[ 1806.783208] acpi_power_off called
