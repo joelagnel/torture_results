@@ -1,0 +1,211 @@
+/tmp/tmp.gzD1cnncKz/tools/testing/selftests/rcutorture/bin/kvm.sh --duration 30 --cpus 96
+----Start batch 1: Tue Dec 13 02:27:03 AM UTC 2022
+TREE03 16: Starting build. Tue Dec 13 02:27:03 AM UTC 2022
+TREE03 16: Waiting for build to complete. Tue Dec 13 02:27:04 AM UTC 2022
+TREE03 16: Build complete. Tue Dec 13 02:28:25 AM UTC 2022
+TREE07 16: Starting build. Tue Dec 13 02:28:25 AM UTC 2022
+TREE07 16: Waiting for build to complete. Tue Dec 13 02:28:25 AM UTC 2022
+TREE07 16: Build complete. Tue Dec 13 02:29:43 AM UTC 2022
+SRCU-P 8: Starting build. Tue Dec 13 02:29:43 AM UTC 2022
+SRCU-P 8: Waiting for build to complete. Tue Dec 13 02:29:43 AM UTC 2022
+SRCU-P 8: Build complete. Tue Dec 13 02:31:04 AM UTC 2022
+TREE01 8: Starting build. Tue Dec 13 02:31:04 AM UTC 2022
+TREE01 8: Waiting for build to complete. Tue Dec 13 02:31:04 AM UTC 2022
+TREE01 8: Build complete. Tue Dec 13 02:32:26 AM UTC 2022
+TREE02 8: Starting build. Tue Dec 13 02:32:26 AM UTC 2022
+TREE02 8: Waiting for build to complete. Tue Dec 13 02:32:26 AM UTC 2022
+TREE02 8: Build complete. Tue Dec 13 02:33:46 AM UTC 2022
+TREE04 8: Starting build. Tue Dec 13 02:33:46 AM UTC 2022
+TREE04 8: Waiting for build to complete. Tue Dec 13 02:33:46 AM UTC 2022
+TREE04 8: Build complete. Tue Dec 13 02:35:04 AM UTC 2022
+TREE05 8: Starting build. Tue Dec 13 02:35:04 AM UTC 2022
+TREE05 8: Waiting for build to complete. Tue Dec 13 02:35:04 AM UTC 2022
+TREE05 8: Build complete. Tue Dec 13 02:36:25 AM UTC 2022
+SRCU-N 4: Starting build. Tue Dec 13 02:36:25 AM UTC 2022
+SRCU-N 4: Waiting for build to complete. Tue Dec 13 02:36:25 AM UTC 2022
+SRCU-N 4: Build complete. Tue Dec 13 02:37:44 AM UTC 2022
+TRACE01 4: Starting build. Tue Dec 13 02:37:44 AM UTC 2022
+TRACE01 4: Waiting for build to complete. Tue Dec 13 02:37:44 AM UTC 2022
+TRACE01 4: Build complete. Tue Dec 13 02:39:05 AM UTC 2022
+TRACE02 4: Starting build. Tue Dec 13 02:39:05 AM UTC 2022
+TRACE02 4: Waiting for build to complete. Tue Dec 13 02:39:05 AM UTC 2022
+TRACE02 4: Build complete. Tue Dec 13 02:40:23 AM UTC 2022
+RUDE01 2: Starting build. Tue Dec 13 02:40:23 AM UTC 2022
+RUDE01 2: Waiting for build to complete. Tue Dec 13 02:40:23 AM UTC 2022
+RUDE01 2: Build complete. Tue Dec 13 02:41:45 AM UTC 2022
+TASKS01 2: Starting build. Tue Dec 13 02:41:45 AM UTC 2022
+TASKS01 2: Waiting for build to complete. Tue Dec 13 02:41:45 AM UTC 2022
+TASKS01 2: Build complete. Tue Dec 13 02:43:06 AM UTC 2022
+TASKS03 2: Starting build. Tue Dec 13 02:43:06 AM UTC 2022
+TASKS03 2: Waiting for build to complete. Tue Dec 13 02:43:06 AM UTC 2022
+TASKS03 2: Build complete. Tue Dec 13 02:44:26 AM UTC 2022
+SRCU-t 1: Starting build. Tue Dec 13 02:44:26 AM UTC 2022
+SRCU-t 1: Waiting for build to complete. Tue Dec 13 02:44:26 AM UTC 2022
+SRCU-t 1: Build complete. Tue Dec 13 02:45:42 AM UTC 2022
+SRCU-u 1: Starting build. Tue Dec 13 02:45:42 AM UTC 2022
+SRCU-u 1: Waiting for build to complete. Tue Dec 13 02:45:42 AM UTC 2022
+SRCU-u 1: Build complete. Tue Dec 13 02:47:01 AM UTC 2022
+TASKS02 1: Starting build. Tue Dec 13 02:47:01 AM UTC 2022
+TASKS02 1: Waiting for build to complete. Tue Dec 13 02:47:01 AM UTC 2022
+TASKS02 1: Build complete. Tue Dec 13 02:48:21 AM UTC 2022
+TINY01 1: Starting build. Tue Dec 13 02:48:21 AM UTC 2022
+TINY01 1: Waiting for build to complete. Tue Dec 13 02:48:21 AM UTC 2022
+TINY01 1: Build complete. Tue Dec 13 02:49:37 AM UTC 2022
+TINY02 1: Starting build. Tue Dec 13 02:49:37 AM UTC 2022
+TINY02 1: Waiting for build to complete. Tue Dec 13 02:49:37 AM UTC 2022
+TINY02 1: Build complete. Tue Dec 13 02:50:55 AM UTC 2022
+TREE09 1: Starting build. Tue Dec 13 02:50:55 AM UTC 2022
+TREE09 1: Waiting for build to complete. Tue Dec 13 02:50:55 AM UTC 2022
+TREE09 1: Build complete. Tue Dec 13 02:52:15 AM UTC 2022
+---- TREE03 16: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- TREE07 16: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- SRCU-P 8: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- TREE01 8: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- TREE02 8: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- TREE04 8: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- TREE05 8: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- SRCU-N 4: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- TRACE01 4: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- TRACE02 4: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- RUDE01 2: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- TASKS01 2: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- TASKS03 2: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- SRCU-t 1: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- SRCU-u 1: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- TASKS02 1: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- TINY01 1: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- TINY02 1: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- TREE09 1: Kernel present. Tue Dec 13 02:52:15 AM UTC 2022
+---- Starting kernels. Tue Dec 13 02:52:15 AM UTC 2022
+---- All kernel runs complete. Tue Dec 13 03:22:36 AM UTC 2022
+---- TREE03 16: Build/run results:
+ --- Tue Dec 13 02:27:04 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:15 AM UTC 2022: Starting kernel
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1898987
+Grace period for qemu job at pid 1898987
+---- TREE07 16: Build/run results:
+ --- Tue Dec 13 02:28:25 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:15 AM UTC 2022: Starting kernel
+CPU-hotplug kernel, adding rcutorture onoff.
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1899268
+Grace period for qemu job at pid 1899268
+---- SRCU-P 8: Build/run results:
+ --- Tue Dec 13 02:29:43 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:15 AM UTC 2022: Starting kernel
+CPU-hotplug kernel, adding rcutorture onoff.
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1898816
+Grace period for qemu job at pid 1898816
+---- TREE01 8: Build/run results:
+ --- Tue Dec 13 02:31:04 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:16 AM UTC 2022: Starting kernel
+CPU-hotplug kernel, adding rcutorture onoff.
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1900735
+Grace period for qemu job at pid 1900735
+---- TREE02 8: Build/run results:
+ --- Tue Dec 13 02:32:26 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:15 AM UTC 2022: Starting kernel
+CPU-hotplug kernel, adding rcutorture onoff.
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1898696
+Grace period for qemu job at pid 1898696
+---- TREE04 8: Build/run results:
+ --- Tue Dec 13 02:33:46 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:15 AM UTC 2022: Starting kernel
+CPU-hotplug kernel, adding rcutorture onoff.
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1899581
+Grace period for qemu job at pid 1899581
+---- TREE05 8: Build/run results:
+ --- Tue Dec 13 02:35:04 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:16 AM UTC 2022: Starting kernel
+CPU-hotplug kernel, adding rcutorture onoff.
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1900220
+Grace period for qemu job at pid 1900220
+[033mWARNING: [mAssertion failure in /tmp/tmp.gzD1cnncKz/tools/testing/selftests/rcutorture/res/2022.12.13-02.27.03/TREE05/console.log TREE05
+[033mWARNING: [mSummary: Warnings: 2 Call Traces: 2
+---- SRCU-N 4: Build/run results:
+ --- Tue Dec 13 02:36:26 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:15 AM UTC 2022: Starting kernel
+CPU-hotplug kernel, adding rcutorture onoff.
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1899589
+Grace period for qemu job at pid 1899589
+[033mWARNING: [mAssertion failure in /tmp/tmp.gzD1cnncKz/tools/testing/selftests/rcutorture/res/2022.12.13-02.27.03/SRCU-N/console.log SRCU-N
+[033mWARNING: [mSummary:
+---- TRACE01 4: Build/run results:
+ --- Tue Dec 13 02:37:44 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:15 AM UTC 2022: Starting kernel
+CPU-hotplug kernel, adding rcutorture onoff.
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1900030
+Grace period for qemu job at pid 1900030
+---- TRACE02 4: Build/run results:
+ --- Tue Dec 13 02:39:05 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:16 AM UTC 2022: Starting kernel
+CPU-hotplug kernel, adding rcutorture onoff.
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1900518
+Grace period for qemu job at pid 1900518
+---- RUDE01 2: Build/run results:
+ --- Tue Dec 13 02:40:23 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:15 AM UTC 2022: Starting kernel
+CPU-hotplug kernel, adding rcutorture onoff.
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1899324
+Grace period for qemu job at pid 1899324
+---- TASKS01 2: Build/run results:
+ --- Tue Dec 13 02:41:45 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:15 AM UTC 2022: Starting kernel
+CPU-hotplug kernel, adding rcutorture onoff.
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1899585
+Grace period for qemu job at pid 1899585
+---- TASKS03 2: Build/run results:
+ --- Tue Dec 13 02:43:06 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:16 AM UTC 2022: Starting kernel
+CPU-hotplug kernel, adding rcutorture onoff.
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1900437
+Grace period for qemu job at pid 1900437
+---- SRCU-t 1: Build/run results:
+ --- Tue Dec 13 02:44:26 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:15 AM UTC 2022: Starting kernel
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1899747
+Grace period for qemu job at pid 1899747
+---- SRCU-u 1: Build/run results:
+ --- Tue Dec 13 02:45:42 AM UTC 2022: Starting build
+:CONFIG_PREEMPT_COUNT: improperly set
+ --- Tue Dec 13 02:52:15 AM UTC 2022: Starting kernel
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1899571
+Grace period for qemu job at pid 1899571
+---- TASKS02 1: Build/run results:
+ --- Tue Dec 13 02:47:01 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:15 AM UTC 2022: Starting kernel
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1898830
+Grace period for qemu job at pid 1898830
+---- TINY01 1: Build/run results:
+ --- Tue Dec 13 02:48:21 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:15 AM UTC 2022: Starting kernel
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1898138
+Grace period for qemu job at pid 1898138
+---- TINY02 1: Build/run results:
+ --- Tue Dec 13 02:49:37 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:16 AM UTC 2022: Starting kernel
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1900219
+Grace period for qemu job at pid 1900219
+---- TREE09 1: Build/run results:
+ --- Tue Dec 13 02:50:55 AM UTC 2022: Starting build
+ --- Tue Dec 13 02:52:16 AM UTC 2022: Starting kernel
+QEMU 7.1.0 monitor - type 'help' for more information
+(qemu) Monitoring qemu job at pid 1900338
+Grace period for qemu job at pid 1900338
