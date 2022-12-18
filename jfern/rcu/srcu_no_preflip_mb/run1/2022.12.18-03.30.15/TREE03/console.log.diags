@@ -1,0 +1,292 @@
+TREE03 no success message, 1004 successful version messages
+[15945.132829] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[15945.157876] rcu: rcu_preempt kthread starved for 20577 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[15945.192357] Call Trace:
+[16008.256887] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16008.282529] rcu: rcu_preempt kthread starved for 83701 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16008.317138] Call Trace:
+[16071.381893] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16071.407872] rcu: rcu_preempt kthread starved for 146827 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16071.442598] Call Trace:
+[16134.514895] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16134.541006] rcu: rcu_preempt kthread starved for 209960 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16134.575843] Call Trace:
+[16197.638876] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16197.665031] rcu: rcu_preempt kthread starved for 273084 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16197.699695] Call Trace:
+[16260.762872] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16260.788170] rcu: rcu_preempt kthread starved for 336207 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16260.821690] Call Trace:
+[16323.882878] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16323.909391] rcu: rcu_preempt kthread starved for 399327 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16323.946838] Call Trace:
+[16387.012887] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16387.039049] rcu: rcu_preempt kthread starved for 462458 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16387.075176] Call Trace:
+[16450.137875] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16450.167867] rcu: rcu_preempt kthread starved for 525587 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16450.202908] Call Trace:
+[16513.262895] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16513.298970] rcu: rcu_preempt kthread starved for 588718 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16513.336089] Call Trace:
+[16513.397202] Call Trace:
+[16576.402944] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16576.429133] rcu: rcu_preempt kthread starved for 651847 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16576.463623] Call Trace:
+[16639.522871] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16639.548945] rcu: rcu_preempt kthread starved for 714967 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16639.583637] Call Trace:
+[16702.642901] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16702.674841] rcu: rcu_preempt kthread starved for 778092 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16702.711067] Call Trace:
+[16765.777852] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16765.802676] rcu: rcu_preempt kthread starved for 841217 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16765.836344] Call Trace:
+[16828.892874] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16828.919444] rcu: rcu_preempt kthread starved for 904337 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16828.958983] Call Trace:
+[16892.017876] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16892.043197] rcu: rcu_preempt kthread starved for 967462 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16892.077208] Call Trace:
+[16955.137888] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[16955.163507] rcu: rcu_preempt kthread starved for 1030582 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[16955.197465] Call Trace:
+[17018.257913] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17018.283533] rcu: rcu_preempt kthread starved for 1093702 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17018.317135] Call Trace:
+[17081.377896] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17081.404457] rcu: rcu_preempt kthread starved for 1156822 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17081.441917] Call Trace:
+[17144.507839] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17144.533628] rcu: rcu_preempt kthread starved for 1219952 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17144.569434] Call Trace:
+[17207.633878] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17207.660122] rcu: rcu_preempt kthread starved for 1283078 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17207.694891] Call Trace:
+[17270.753883] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17270.783190] rcu: rcu_preempt kthread starved for 1346198 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17270.824042] Call Trace:
+[17333.888929] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17333.917342] rcu: rcu_preempt kthread starved for 1409333 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17333.952940] Call Trace:
+[17397.013929] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17397.040543] rcu: rcu_preempt kthread starved for 1472458 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17397.075450] Call Trace:
+[17460.133943] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17460.160210] rcu: rcu_preempt kthread starved for 1535578 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17460.196013] Call Trace:
+[17523.263995] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17523.296575] rcu: rcu_preempt kthread starved for 1598715 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17523.340474] Call Trace:
+[17586.416931] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17586.446878] rcu: rcu_preempt kthread starved for 1661866 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17586.481622] Call Trace:
+[17649.546904] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17649.574635] rcu: rcu_preempt kthread starved for 1724993 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17649.612260] Call Trace:
+[17712.679937] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17712.706198] rcu: rcu_preempt kthread starved for 1788125 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17712.741028] Call Trace:
+[17775.803939] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17775.830351] rcu: rcu_preempt kthread starved for 1851249 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17775.865399] Call Trace:
+[17838.929077] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17838.955956] rcu: rcu_preempt kthread starved for 1914374 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17838.991449] Call Trace:
+[17902.054935] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17902.080970] rcu: rcu_preempt kthread starved for 1977500 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17902.115801] Call Trace:
+[17902.192302] Call Trace:
+[17965.386932] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[17965.413423] rcu: rcu_preempt kthread starved for 2040832 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[17965.448556] Call Trace:
+[18028.512933] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18028.539311] rcu: rcu_preempt kthread starved for 2103958 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18028.574077] Call Trace:
+[18091.642956] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18091.675106] rcu: rcu_preempt kthread starved for 2167092 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18091.710156] Call Trace:
+[18154.777930] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18154.804265] rcu: rcu_preempt kthread starved for 2230223 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18154.839204] Call Trace:
+[18154.905194] Call Trace:
+[18217.910942] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18217.937206] rcu: rcu_preempt kthread starved for 2293356 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18217.973859] Call Trace:
+[18281.040936] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18281.066872] rcu: rcu_preempt kthread starved for 2356486 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18281.101456] Call Trace:
+[18344.163878] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18344.190503] rcu: rcu_preempt kthread starved for 2419609 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18344.225635] Call Trace:
+[18344.299118] Call Trace:
+[18407.479874] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18407.505976] rcu: rcu_preempt kthread starved for 2482925 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18407.540749] Call Trace:
+[18470.605879] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18470.632037] rcu: rcu_preempt kthread starved for 2546051 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18470.667093] Call Trace:
+[18533.729871] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18533.755734] rcu: rcu_preempt kthread starved for 2609174 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18533.790315] Call Trace:
+[18596.852908] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18596.878657] rcu: rcu_preempt kthread starved for 2672297 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18596.914082] Call Trace:
+[18659.983948] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18660.010173] rcu: rcu_preempt kthread starved for 2735429 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18660.051584] Call Trace:
+[18723.119875] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18723.145014] rcu: rcu_preempt kthread starved for 2798564 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18723.179975] Call Trace:
+[18786.239884] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18786.269495] rcu: rcu_preempt kthread starved for 2861684 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18786.304205] Call Trace:
+[18849.369890] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18849.395806] rcu: rcu_preempt kthread starved for 2924814 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18849.430330] Call Trace:
+[18912.493921] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18912.524005] rcu: rcu_preempt kthread starved for 2987943 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18912.557427] Call Trace:
+[18975.618883] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[18975.645105] rcu: rcu_preempt kthread starved for 3051063 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[18975.679239] Call Trace:
+[19038.738871] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19038.764406] rcu: rcu_preempt kthread starved for 3114183 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19038.805571] Call Trace:
+[19038.876174] Call Trace:
+[19102.043845] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19102.068671] rcu: rcu_preempt kthread starved for 3177483 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19102.102390] Call Trace:
+[19102.159034] Call Trace:
+[19165.163890] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19165.189509] rcu: rcu_preempt kthread starved for 3240608 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19165.227950] Call Trace:
+[19228.288867] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19228.315088] rcu: rcu_preempt kthread starved for 3303734 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19228.350254] Call Trace:
+[19291.413854] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19291.440663] rcu: rcu_preempt kthread starved for 3366859 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19291.478065] Call Trace:
+[19354.539825] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19354.566209] rcu: rcu_preempt kthread starved for 3429984 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19354.599912] Call Trace:
+[19354.655042] Call Trace:
+[19417.659901] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19417.685729] rcu: rcu_preempt kthread starved for 3493104 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19417.720719] Call Trace:
+[19480.779890] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19480.813393] rcu: rcu_preempt kthread starved for 3556232 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19480.859024] Call Trace:
+[19543.938869] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19543.969069] rcu: rcu_preempt kthread starved for 3619388 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19544.003485] Call Trace:
+[19607.066958] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19607.092435] rcu: rcu_preempt kthread starved for 3682511 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19607.126696] Call Trace:
+[19670.186869] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19670.212950] rcu: rcu_preempt kthread starved for 3745631 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19670.248709] Call Trace:
+[19733.316895] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19733.350299] rcu: rcu_preempt kthread starved for 3808766 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19733.386669] Call Trace:
+[19796.456867] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19796.483014] rcu: rcu_preempt kthread starved for 3871902 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19796.517883] Call Trace:
+[19859.579899] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19859.610263] rcu: rcu_preempt kthread starved for 3935029 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19859.647500] Call Trace:
+[19922.709896] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19922.736014] rcu: rcu_preempt kthread starved for 3998155 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19922.770651] Call Trace:
+[19985.830868] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[19985.856770] rcu: rcu_preempt kthread starved for 4061275 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[19985.891280] Call Trace:
+[20048.953055] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20048.979116] rcu: rcu_preempt kthread starved for 4124398 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20049.013899] Call Trace:
+[20112.073851] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20112.099817] rcu: rcu_preempt kthread starved for 4187518 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20112.134906] Call Trace:
+[20175.197824] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20175.224379] rcu: rcu_preempt kthread starved for 4250643 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20175.260348] Call Trace:
+[20238.321937] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20238.348215] rcu: rcu_preempt kthread starved for 4313766 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20238.382670] Call Trace:
+[20301.441933] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20301.468276] rcu: rcu_preempt kthread starved for 4376887 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20301.503500] Call Trace:
+[20364.566943] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20364.592908] rcu: rcu_preempt kthread starved for 4440012 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20364.627319] Call Trace:
+[20364.707260] Call Trace:
+[20427.880968] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20427.907199] rcu: rcu_preempt kthread starved for 4503326 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20427.942133] Call Trace:
+[20428.014657] Call Trace:
+[20491.185931] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20491.212256] rcu: rcu_preempt kthread starved for 4566630 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20491.247243] Call Trace:
+[20554.305939] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20554.332176] rcu: rcu_preempt kthread starved for 4629751 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20554.368056] Call Trace:
+[20617.436940] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20617.463016] rcu: rcu_preempt kthread starved for 4692881 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20617.497267] Call Trace:
+[20680.556949] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20680.583295] rcu: rcu_preempt kthread starved for 4756001 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20680.618272] Call Trace:
+[20680.676104] Call Trace:
+[20743.681923] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20743.707699] rcu: rcu_preempt kthread starved for 4819126 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20743.748424] Call Trace:
+[20806.806908] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20806.831886] rcu: rcu_preempt kthread starved for 4882251 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20806.866943] Call Trace:
+[20869.926930] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20869.952916] rcu: rcu_preempt kthread starved for 4945372 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20869.988192] Call Trace:
+[20933.051946] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20933.078447] rcu: rcu_preempt kthread starved for 5008497 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20933.117722] Call Trace:
+[20996.187946] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[20996.213916] rcu: rcu_preempt kthread starved for 5071633 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[20996.248887] Call Trace:
+[20996.320603] Call Trace:
+[21059.492989] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[21059.519028] rcu: rcu_preempt kthread starved for 5134937 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[21059.554438] Call Trace:
+[21122.612931] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[21122.638889] rcu: rcu_preempt kthread starved for 5198058 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[21122.673558] Call Trace:
+[21185.736977] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[21185.767429] rcu: rcu_preempt kthread starved for 5261186 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[21185.802195] Call Trace:
+[21248.861929] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[21248.887928] rcu: rcu_preempt kthread starved for 5324307 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[21248.922631] Call Trace:
+[21311.985937] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[21312.013836] rcu: rcu_preempt kthread starved for 5387432 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[21312.055688] Call Trace:
+[21375.123927] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[21375.149877] rcu: rcu_preempt kthread starved for 5450569 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[21375.184544] Call Trace:
+[21438.246850] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[21438.272978] rcu: rcu_preempt kthread starved for 5513692 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[21438.313400] Call Trace:
+[21501.378933] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[21501.407137] rcu: rcu_preempt kthread starved for 5576826 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[21501.447115] Call Trace:
+[21564.515938] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[21564.541749] rcu: rcu_preempt kthread starved for 5639960 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[21564.576342] Call Trace:
+[21627.635924] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[21627.661509] rcu: rcu_preempt kthread starved for 5703080 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[21627.695756] Call Trace:
+[21690.756995] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[21690.793618] rcu: rcu_preempt kthread starved for 5766211 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[21690.839965] Call Trace:
+[21753.916958] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[21753.944615] rcu: rcu_preempt kthread starved for 5829363 jiffies! g10188437 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=3
+[21753.979896] Call Trace:
+[21754.037057] Call Trace:

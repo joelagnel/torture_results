@@ -1,0 +1,174 @@
+*
+* Restart config...
+*
+*
+* RCU Subsystem
+*
+Make expert-level adjustments to RCU configuration (RCU_EXPERT) [Y/n/?] y
+Force selection of TASKS_RCU (FORCE_TASKS_RCU) [N/y/?] (NEW) 
+Force selection of Tasks Rude RCU (FORCE_TASKS_RUDE_RCU) [N/y/?] (NEW) 
+Force selection of Tasks Trace RCU (FORCE_TASKS_TRACE_RCU) [N/y/?] (NEW) 
+Tree-based hierarchical RCU fanout value (RCU_FANOUT) [2] 2
+Tree-based hierarchical RCU leaf-level fanout value (RCU_FANOUT_LEAF) [2] 2
+Enable RCU priority boosting (RCU_BOOST) [N/y/?] (NEW) 
+Offload RCU callback processing from boot-selected CPUs (RCU_NOCB_CPU) [N/y/?] (NEW) 
+*
+* General setup
+*
+Compile also drivers which will not load (COMPILE_TEST) [N/y/?] n
+Compile the kernel with warnings as errors (WERROR) [Y/n/?] y
+Local version - append to kernel release (LOCALVERSION) [] 
+Automatically append version information to the version string (LOCALVERSION_AUTO) [Y/n/?] y
+Build ID Salt (BUILD_SALT) [] 
+Kernel compression mode
+> 1. Gzip (KERNEL_GZIP)
+  2. Bzip2 (KERNEL_BZIP2)
+  3. LZMA (KERNEL_LZMA)
+  4. XZ (KERNEL_XZ)
+  5. LZO (KERNEL_LZO)
+  6. LZ4 (KERNEL_LZ4)
+  7. ZSTD (KERNEL_ZSTD)
+choice[1-7?]: 1
+Default init path (DEFAULT_INIT) [] 
+Default hostname (DEFAULT_HOSTNAME) [(none)] (none)
+System V IPC (SYSVIPC) [Y/n/?] y
+POSIX Message Queues (POSIX_MQUEUE) [Y/n/?] y
+General notification queue (WATCH_QUEUE) [N/y/?] n
+Enable process_vm_readv/writev syscalls (CROSS_MEMORY_ATTACH) [Y/n/?] y
+uselib syscall (for libc5 and earlier) (USELIB) [N/y/?] n
+Auditing support (AUDIT) [Y/n/?] y
+Preemption Model
+  1. No Forced Preemption (Server) (PREEMPT_NONE)
+  2. Voluntary Kernel Preemption (Desktop) (PREEMPT_VOLUNTARY)
+> 3. Preemptible Kernel (Low-Latency Desktop) (PREEMPT)
+choice[1-3?]: 3
+Preemption behaviour defined on boot (PREEMPT_DYNAMIC) [Y/n/?] y
+Core Scheduling for SMT (SCHED_CORE) [N/y/?] n
+CPU isolation (CPU_ISOLATION) [Y/n/?] y
+Kernel .config support (IKCONFIG) [N/m/y/?] n
+Enable kernel headers through /sys/kernel/kheaders.tar.xz (IKHEADERS) [N/m/y/?] n
+Kernel log buffer size (16 => 64KB, 17 => 128KB) (LOG_BUF_SHIFT) [18] 18
+CPU kernel log buffer size contribution (13 => 8 KB, 17 => 128KB) (LOG_CPU_MAX_BUF_SHIFT) [12] 12
+Temporary per-CPU printk log buffer size (12 => 4KB, 13 => 8KB) (PRINTK_SAFE_LOG_BUF_SHIFT) [13] 13
+Printk indexing debugfs interface (PRINTK_INDEX) [N/y/?] n
+Memory placement aware NUMA scheduler (NUMA_BALANCING) [N/y/?] n
+Checkpoint/restore support (CHECKPOINT_RESTORE) [N/y/?] n
+Automatic process group scheduling (SCHED_AUTOGROUP) [N/y/?] n
+Enable deprecated sysfs features to support old userspace tools (SYSFS_DEPRECATED) [N/y/?] n
+Kernel->user space relay support (formerly relayfs) (RELAY) [Y/?] y
+Initial RAM filesystem and RAM disk (initramfs/initrd) support (BLK_DEV_INITRD) [Y/n/?] y
+  Initramfs source file(s) (INITRAMFS_SOURCE) [/tmp/tmp.XbaKbm3Dnb/tools/testing/selftests/rcutorture/initrd] /tmp/tmp.XbaKbm3Dnb/tools/testing/selftests/rcutorture/initrd
+  User ID to map to 0 (user root) (INITRAMFS_ROOT_UID) [0] (NEW) 
+  Group ID to map to 0 (group root) (INITRAMFS_ROOT_GID) [0] (NEW) 
+  Support initial ramdisk/ramfs compressed using gzip (RD_GZIP) [Y/n/?] y
+  Support initial ramdisk/ramfs compressed using bzip2 (RD_BZIP2) [Y/n/?] y
+  Support initial ramdisk/ramfs compressed using LZMA (RD_LZMA) [Y/n/?] y
+  Support initial ramdisk/ramfs compressed using XZ (RD_XZ) [Y/n/?] y
+  Support initial ramdisk/ramfs compressed using LZO (RD_LZO) [Y/n/?] y
+  Support initial ramdisk/ramfs compressed using LZ4 (RD_LZ4) [Y/n/?] y
+  Support initial ramdisk/ramfs compressed using ZSTD (RD_ZSTD) [Y/n/?] y
+  Built-in initramfs compression mode
+  > 1. Gzip (INITRAMFS_COMPRESSION_GZIP) (NEW)
+    2. Bzip2 (INITRAMFS_COMPRESSION_BZIP2) (NEW)
+    3. LZMA (INITRAMFS_COMPRESSION_LZMA) (NEW)
+    4. XZ (INITRAMFS_COMPRESSION_XZ) (NEW)
+    5. LZO (INITRAMFS_COMPRESSION_LZO) (NEW)
+    6. LZ4 (INITRAMFS_COMPRESSION_LZ4) (NEW)
+    7. ZSTD (INITRAMFS_COMPRESSION_ZSTD) (NEW)
+    8. None (INITRAMFS_COMPRESSION_NONE) (NEW)
+  choice[1-8?]: 
+Boot config support (BOOT_CONFIG) [N/y/?] n
+Preserve cpio archive mtimes in initramfs (INITRAMFS_PRESERVE_MTIME) [Y/n/?] y
+Compiler optimization level
+> 1. Optimize for performance (-O2) (CC_OPTIMIZE_FOR_PERFORMANCE)
+  2. Optimize for size (-Os) (CC_OPTIMIZE_FOR_SIZE)
+choice[1-2?]: 1
+Embedded system (EMBEDDED) [N/y/?] n
+Profiling support (PROFILING) [Y/n/?] y
+*
+* Linux guest support
+*
+Linux guest support (HYPERVISOR_GUEST) [Y/n/?] y
+  Enable paravirtualization code (PARAVIRT) [Y/n/?] y
+  paravirt-ops debugging (PARAVIRT_DEBUG) [N/y/?] (NEW) 
+  Paravirtualization layer for spinlocks (PARAVIRT_SPINLOCKS) [N/y/?] (NEW) 
+  Xen guest support (XEN) [N/y/?] n
+  KVM Guest support (including kvmclock) (KVM_GUEST) [Y/n/?] y
+  Disable host haltpoll when loading haltpoll driver (ARCH_CPUIDLE_HALTPOLL) [Y/?] y
+  Support for running PVH guests (PVH) [N/y/?] n
+  Paravirtual steal time accounting (PARAVIRT_TIME_ACCOUNTING) [N/y/?] (NEW) 
+  Jailhouse non-root cell support (JAILHOUSE_GUEST) [N/y/?] n
+  ACRN Guest support (ACRN_GUEST) [N/y/?] n
+*
+* Lock Debugging (spinlocks, mutexes, etc...)
+*
+Lock debugging: prove locking correctness (PROVE_LOCKING) [Y/n/?] y
+  Enable raw_spinlock - spinlock nesting checks (PROVE_RAW_LOCK_NESTING) [N/y/?] (NEW) 
+Lock usage statistics (LOCK_STAT) [N/y/?] n
+RT Mutex debugging, deadlock detection (DEBUG_RT_MUTEXES) [Y/?] y
+Spinlock and rw-lock debugging: basic checks (DEBUG_SPINLOCK) [Y/?] y
+Mutex debugging: basic checks (DEBUG_MUTEXES) [Y/?] y
+Wait/wound mutex debugging: Slowpath testing (DEBUG_WW_MUTEX_SLOWPATH) [Y/?] y
+RW Semaphore debugging: basic checks (DEBUG_RWSEMS) [Y/?] y
+Lock debugging: detect incorrect freeing of live locks (DEBUG_LOCK_ALLOC) [Y/?] y
+Bitsize for MAX_LOCKDEP_ENTRIES (LOCKDEP_BITS) [15] (NEW) 
+Bitsize for MAX_LOCKDEP_CHAINS (LOCKDEP_CHAINS_BITS) [16] (NEW) 
+Bitsize for MAX_STACK_TRACE_ENTRIES (LOCKDEP_STACK_TRACE_BITS) [19] (NEW) 
+Bitsize for STACK_TRACE_HASH_SIZE (LOCKDEP_STACK_TRACE_HASH_BITS) [14] (NEW) 
+Bitsize for elements in circular_queue struct (LOCKDEP_CIRCULAR_QUEUE_BITS) [12] (NEW) 
+Lock dependency engine debugging (DEBUG_LOCKDEP) [N/y/?] (NEW) 
+Sleep inside atomic section checking (DEBUG_ATOMIC_SLEEP) [N/y/?] n
+Locking API boot-time self-tests (DEBUG_LOCKING_API_SELFTESTS) [N/y/?] n
+torture tests for locking (LOCK_TORTURE_TEST) [N/m/y/?] n
+Wait/wound mutex selftests (WW_MUTEX_SELFTEST) [N/m/y/?] n
+torture tests for smp_call_function*() (SCF_TORTURE_TEST) [N/m/y/?] n
+Debugging for csd_lock_wait(), called from smp_call_function*() (CSD_LOCK_WAIT_DEBUG) [N/y/?] n
+*
+* RCU Debugging
+*
+RCU list lockdep debugging (PROVE_RCU_LIST) [N/y/?] (NEW) 
+performance tests for RCU (RCU_SCALE_TEST) [N/m/y/?] n
+torture tests for RCU (RCU_TORTURE_TEST) [Y/n/m/?] y
+Scalability tests for read-side synchronization (RCU and others) (RCU_REF_SCALE_TEST) [N/m/y/?] n
+RCU CPU stall timeout in seconds (RCU_CPU_STALL_TIMEOUT) [21] 21
+Expedited RCU CPU stall timeout in milliseconds (RCU_EXP_CPU_STALL_TIMEOUT) [0] 0
+Enable tracing for RCU (RCU_TRACE) [N/y/?] n
+Provide debugging asserts for adding NO_HZ support to an arch (RCU_EQS_DEBUG) [N/y/?] n
+*
+* Tracers
+*
+Tracers (FTRACE) [Y/n/?] y
+  Boot-time Tracing support (BOOTTIME_TRACING) [N/y/?] n
+  Kernel Function Tracer (FUNCTION_TRACER) [N/y/?] n
+  Trace max stack (STACK_TRACER) [N/y/?] n
+  Interrupts-off Latency Tracer (IRQSOFF_TRACER) [N/y/?] n
+  Preemption-off Latency Tracer (PREEMPT_TRACER) [N/y/?] (NEW) 
+  Scheduling Latency Tracer (SCHED_TRACER) [N/y/?] n
+  Tracer to detect hardware latencies (like SMIs) (HWLAT_TRACER) [N/y/?] n
+  OS Noise tracer (OSNOISE_TRACER) [N/y/?] n
+  Timerlat tracer (TIMERLAT_TRACER) [N/y/?] n
+  Memory mapped IO tracing (MMIOTRACE) [N/y/?] n
+  Trace syscalls (FTRACE_SYSCALLS) [N/y/?] n
+  Create a snapshot trace buffer (TRACER_SNAPSHOT) [N/y/?] n
+  Branch Profiling
+  > 1. No branch profiling (BRANCH_PROFILE_NONE)
+    2. Trace likely/unlikely profiler (PROFILE_ANNOTATED_BRANCHES)
+    3. Profile all if conditionals (PROFILE_ALL_BRANCHES)
+  choice[1-3?]: 1
+  Support for tracing block IO actions (BLK_DEV_IO_TRACE) [Y/n/?] y
+  Enable kprobes-based dynamic events (KPROBE_EVENTS) [Y/n/?] y
+  Enable uprobes-based dynamic events (UPROBE_EVENTS) [Y/n/?] y
+  Synthetic trace events (SYNTH_EVENTS) [N/y/?] n
+  Histogram triggers (HIST_TRIGGERS) [N/y/?] n
+  Trace event injection (TRACE_EVENT_INJECT) [N/y/?] n
+  Add tracepoint that benchmarks tracepoints (TRACEPOINT_BENCHMARK) [N/y/?] n
+  Ring buffer benchmark stress tester (RING_BUFFER_BENCHMARK) [N/m/y/?] n
+  Show eval mappings for trace events (TRACE_EVAL_MAP_FILE) [N/y/?] n
+  Perform a startup test on ftrace (FTRACE_STARTUP_TEST) [N/y/?] n
+  Ring buffer startup self test (RING_BUFFER_STARTUP_TEST) [N/y/?] n
+  Verify ring buffer time stamp deltas (RING_BUFFER_VALIDATE_TIME_DELTAS) [N/y/?] n
+  Test module to create a preempt / IRQ disable delay thread to test latency tracers (PREEMPTIRQ_DELAY_TEST) [N/m/?] (NEW) 
+  Test module for in-kernel kprobe event generation (KPROBE_EVENT_GEN_TEST) [N/m/y/?] n
+#
+# configuration written to .config
+#

@@ -1,0 +1,25 @@
+To run this scenario on bare metal:
+
+ 1. Set your bare-metal build tree to the state shown in this file:
+    /tmp/tmp.XbaKbm3Dnb/tools/testing/selftests/rcutorture/res/2022.12.18-03.30.15/testid.txt
+ 2. Update your bare-metal build tree's .config based on this file:
+    /tmp/tmp.XbaKbm3Dnb/tools/testing/selftests/rcutorture/res/2022.12.18-03.30.15/SRCU-U/ConfigFragment
+ 3. Make the bare-metal kernel's build system aware of your .config updates:
+    $ yes "" | make oldconfig
+ 4. Build your bare-metal kernel.
+ 5. Boot your bare-metal kernel with the following parameters:
+    rcupdate.rcu_self_test=1
+ 6. Start the test with the following command:
+    $ modprobe rcutorture torture_type=srcud n_barrier_cbs=4 stat_interval=15 shutdown_secs=21600 test_no_idle_hz=1 verbose=1
+ 7. After some time, end the test with the following command:
+    $ rmmod rcutorture
+ 8. Copy your bare-metal kernel's .config file, overwriting this file:
+    /tmp/tmp.XbaKbm3Dnb/tools/testing/selftests/rcutorture/res/2022.12.18-03.30.15/SRCU-U/.config
+ 9. Copy the console output from just before the modprobe to just after
+    the rmmod into this file:
+    /tmp/tmp.XbaKbm3Dnb/tools/testing/selftests/rcutorture/res/2022.12.18-03.30.15/SRCU-U/console.log
+10. Check for runtime errors using the following command:
+    $ tools/testing/selftests/rcutorture/bin/kvm-recheck.sh /tmp/tmp.XbaKbm3Dnb/tools/testing/selftests/rcutorture/res/2022.12.18-03.30.15
+
+Some of the above steps may be skipped if you build your bare-metal
+kernel here: /tmp/tmp.XbaKbm3Dnb

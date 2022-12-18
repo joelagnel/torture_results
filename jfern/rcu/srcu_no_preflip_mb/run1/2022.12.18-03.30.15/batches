@@ -1,0 +1,6 @@
+1 TREE03 16
+1 SRCU-P 8
+1 SRCU-N 4
+1 SRCU-T 1
+1 SRCU-U 1
+# cpus=96
