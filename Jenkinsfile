@@ -21,7 +21,7 @@ pipeline {
 
                     if ("${env.SKIP_TORTURE_TEST}" == "false") {
                         echo "Testing with kvm.sh and skip=${env.SKIP_TORTURE_TEST}"
-                        sh "tools/testing/selftests/rcutorture/bin/kvm.sh --allcpus --duration 30 --trust-make"
+                        sh "tools/testing/selftests/rcutorture/bin/kvm.sh --allcpus --duration 30"
                     } else {
                         echo "Skipping build ${env.SKIP_TORTURE_TEST}"
                         currentBuild.result = 'ABORTED'
