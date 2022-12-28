@@ -5,6 +5,7 @@ pipeline {
     // A declarative pipeline needs this as the checkout stage is otherwise automatically added.
     options {
         skipDefaultCheckout(true)
+        buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '15', daysToKeepStr: '', numToKeepStr: '15')
     }
     
     stages {
