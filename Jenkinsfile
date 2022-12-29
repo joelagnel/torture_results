@@ -30,6 +30,13 @@ pipeline {
 
                     checkout scm
 
+                    script {
+                        env.SKIP_TORTURE_TEST = (sh(returnStatus: true, script: 'git show | grep Linux | grep rc') != 0)
+                        env.STABLE_VERSION = (sh(returnStdout: true, script: 'git show | grep Linux | grep rc | sed -e "s/.*Linux //g"'))
+                        currentBuild.description = "Stable testing"
+                        // env.BUILD_NUMBER = "${env.STABLE_VERSION}"
+                    }
+
                    /*
                     * A shallow checkout can be done as follows, however it appears to be much slower
                     * than the above normal 'checkout scm'
@@ -74,28 +81,24 @@ pipeline {
             // }
             steps {
                 script {
-                    env.SKIP_TORTURE_TEST = (sh(returnStatus: true, script: 'git show | grep Linux | grep rc') != 0)
-                    env.STABLE_VERSION = (sh(returnStdout: true, script: 'git show | grep Linux | grep rc | sed -e "s/.*Linux //g"'))
-                    // env.BUILD_NUMBER = "${env.STABLE_VERSION}"
-
-                    if ("${params.CPURL}" != "none") {
-                        currentBuild.displayName = "Cherrypick-Test-${env.STABLE_VERSION}"
-                    } else {
-                        currentBuild.displayName = "${env.STABLE_VERSION}"
-                    }
-
-                    currentBuild.description = "${env.STABLE_VERSION}"
 
                     // Print all env variables
                     // sh "printenv"
 
                     if ("${env.SKIP_TORTURE_TEST}" == "false") {
+                        if ("${params.CPURL}" != "none") {
+                            currentBuild.displayName = "Cherrypick-Test-${env.STABLE_VERSION}"
+                        } else {
+                            currentBuild.displayName = "${env.STABLE_VERSION}"
+                        }
+
                         echo "Testing with kvm.sh"
 
                         sh "tools/testing/selftests/rcutorture/bin/kvm.sh --allcpus --duration 30"
                         
                     } else {
                         echo "Skipping build ${env.SKIP_TORTURE_TEST}"
+                        currentBuild.displayName = "Skipped as ToT is not a stable commit (Linux...)"
                         currentBuild.result = 'ABORTED'
                     }
                 }
