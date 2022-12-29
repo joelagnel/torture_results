@@ -1,5 +1,18 @@
 pipeline {
     agent any
+
+    // TODO: Add triggers like this to trigger only at night
+    // ref: https://docs.cloudbees.com/docs/admin-resources/latest/pipeline-syntax-reference-guide/declarative-pipeline
+    // triggers {
+    //    cron('H 4/* 0 0 1-5')
+    // }
+
+    parameters {
+        string(name: 'CPURL', defaultValue: 'none', description: 'Custom Cherry-Pick Git URL', trim: true)
+        string(name: 'CPCOMMIT1', defaultValue: 'none', description: 'Custom Cherry-Pick Commit 1', trim: true)
+        string(name: 'CPCOMMIT2', defaultValue: 'none', description: 'Custom Cherry-Pick Commit 2', trim: true)
+    }
+
     
     // Disable default checkout so that I can have my own checkout stage.
     // A declarative pipeline needs this as the checkout stage is otherwise automatically added.
@@ -34,6 +47,21 @@ pipeline {
                     */
 
                     script {
+
+                        if ("{params.CPURL}" != "none") {
+                            echo "Doing custom cherry-picks"
+
+                            if ("{params.CPCOMMIT1}" != "none") {
+                                sh "git fetch ${params.CPURL} ${param.CPCOMMIT1} && git cherry-pick FETCH_HEAD"
+                            }
+
+                            if ("{params.CPCOMMIT2}" != "none") {
+                                sh "git fetch ${params.CPURL} ${param.CPCOMMIT2} && git cherry-pick FETCH_HEAD"
+                            }
+
+                            echo "Done custom cherry-picks"
+                        }
+
                         echo "Done scm checkout from Jenkinsfile"
                     }
                 }
@@ -50,9 +78,12 @@ pipeline {
                     env.STABLE_VERSION = (sh(returnStdout: true, script: 'git show | grep Linux | grep rc | sed -e "s/.*Linux //g"'))
                     // env.BUILD_NUMBER = "${env.STABLE_VERSION}"
 
-                    // When doing a cherry-pick replay, prepend this with some name to keep the build less confusion (TODO: make it a parameter)
-                    // example: "Real-Cherrypick-Test-${env.STABLE_VERSION}"
-                    currentBuild.displayName = "${env.STABLE_VERSION}"
+                    if ("{params.CPURL}" != "none") {
+                        currentBuild.displayName = "Cherrypick-Test-${env.STABLE_VERSION}"
+                    } else {
+                        currentBuild.displayName = "${env.STABLE_VERSION}"
+                    }
+
                     currentBuild.description = "${env.STABLE_VERSION}"
 
                     // Print all env variables
@@ -60,10 +91,6 @@ pipeline {
 
                     if ("${env.SKIP_TORTURE_TEST}" == "false") {
                         echo "Testing with kvm.sh"
-
-                        // Add below 2 lines when doing a cherry-pick of a commit (TODO: make the commit a parameter)
-                        // echo "Doing cherry-pick first"
-                        // sh 'git fetch git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 96017bf9039763a2e02dcc6adaa18592cd73a39d && git cherry-pick FETCH_HEAD'
 
                         sh "tools/testing/selftests/rcutorture/bin/kvm.sh --allcpus --duration 30"
                         
