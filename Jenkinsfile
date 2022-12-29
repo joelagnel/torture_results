@@ -48,15 +48,15 @@ pipeline {
 
                     script {
 
-                        if ("{params.CPURL}" != "none") {
+                        if ("${params.CPURL}" != "none") {
                             echo "Doing custom cherry-picks"
 
-                            if ("{params.CPCOMMIT1}" != "none") {
-                                sh "git fetch ${params.CPURL} ${param.CPCOMMIT1} && git cherry-pick FETCH_HEAD"
+                            if ("${params.CPCOMMIT1}" != "none") {
+                                sh "git fetch ${params.CPURL} ${params.CPCOMMIT1} && git cherry-pick FETCH_HEAD"
                             }
 
-                            if ("{params.CPCOMMIT2}" != "none") {
-                                sh "git fetch ${params.CPURL} ${param.CPCOMMIT2} && git cherry-pick FETCH_HEAD"
+                            if ("${params.CPCOMMIT2}" != "none") {
+                                sh "git fetch ${params.CPURL} ${params.CPCOMMIT2} && git cherry-pick FETCH_HEAD"
                             }
 
                             echo "Done custom cherry-picks"
@@ -78,7 +78,7 @@ pipeline {
                     env.STABLE_VERSION = (sh(returnStdout: true, script: 'git show | grep Linux | grep rc | sed -e "s/.*Linux //g"'))
                     // env.BUILD_NUMBER = "${env.STABLE_VERSION}"
 
-                    if ("{params.CPURL}" != "none") {
+                    if ("${params.CPURL}" != "none") {
                         currentBuild.displayName = "Cherrypick-Test-${env.STABLE_VERSION}"
                     } else {
                         currentBuild.displayName = "${env.STABLE_VERSION}"
