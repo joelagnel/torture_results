@@ -1,14 +1,11 @@
-// Jenkinsfile for longer stable tests
-
 pipeline {
     agent any
 
-    // cron trigger
+    // TODO: Add triggers like this to trigger only at night
     // ref: https://docs.cloudbees.com/docs/admin-resources/latest/pipeline-syntax-reference-guide/declarative-pipeline
-    // “At 00:00 on every day-of-week from Sunday through Wednesday.”
-    // triggers {
-    //    cron('0 0 * * 0-3')
-    // }
+     triggers {
+        cron('0 0 * * 0-3')
+     }
 
     parameters {
         string(name: 'CPURL', defaultValue: 'none', description: 'Custom Cherry-Pick Git URL', trim: true)
