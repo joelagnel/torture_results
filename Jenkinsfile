@@ -95,7 +95,7 @@ pipeline {
                         echo "Testing with kvm.sh"
 
 // Non-tracing version
-sh "tools/testing/selftests/rcutorture/bin/kvm.sh --allcpus --duration 30"
+sh "tools/testing/selftests/rcutorture/bin/kvm.sh --allcpus --duration 45"
 
 // For replay-tracing: Uncomment for tracing version of rcutorture
 // The configs and duration can be modified, also change displayName above to differentiate properly.
