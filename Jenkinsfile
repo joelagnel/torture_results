@@ -1,10 +1,10 @@
 pipeline {
     agent any
 
-    // TODO: Add triggers like this to trigger only at night
+    // to trigger only at night
     // ref: https://docs.cloudbees.com/docs/admin-resources/latest/pipeline-syntax-reference-guide/declarative-pipeline
      triggers {
-        cron('0 0 * * 4-6')
+        cron('0 0 * * *')
      }
 
     parameters {
