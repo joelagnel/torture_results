@@ -33,8 +33,8 @@ pipeline {
                     checkout scm
 
                     script {
-                        env.SKIP_TORTURE_TEST = (sh(returnStatus: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+"') != 0)
-                        env.STABLE_VERSION = (sh(returnStdout: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+" | sed -e "s/.*Linux //g"'))
+                        env.SKIP_TORTURE_TEST = (sh(returnStatus: true, script: 'git show | egrep "Linux [0-9]+\\\\.[0-9]+\\\\.[0-9]+"') != 0)
+                        env.STABLE_VERSION = (sh(returnStdout: true, script: 'git show | egrep "Linux [0-9]+\\\\.[0-9]+\\\\.[0-9]+" | sed -e "s/.*Linux //g"'))
                         currentBuild.description = "Stable testing"
                         // env.BUILD_NUMBER = "${env.STABLE_VERSION}"
                     }
