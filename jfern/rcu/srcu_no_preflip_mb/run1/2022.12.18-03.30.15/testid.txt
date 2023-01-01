@@ -1,9 +1,0 @@
-Build directory: /tmp/tmp.XbaKbm3Dnb
-Current commit: 5f9f4a5a10fd5a54817b0a42196da97749b77db9
-
- --- Output of 'git status':
-On branch crap
-nothing to commit, working tree clean
-
-
- --- Output of 'git diff HEAD':

@@ -1,6 +1,0 @@
-[   42.628511] =============================
-[   42.628512] WARNING: suspicious RCU usage
-[   42.628541] Call Trace:
-[   42.628542] =============================
-[   42.628543] WARNING: suspicious RCU usage
-[   42.628573] Call Trace:

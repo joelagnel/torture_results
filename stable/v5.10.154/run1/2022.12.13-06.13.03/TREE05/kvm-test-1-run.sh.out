@@ -1,8 +1,0 @@
- --- Tue Dec 13 06:21:02 AM UTC 2022: Starting build
- --- Tue Dec 13 06:38:09 AM UTC 2022: Starting kernel
-CPU-hotplug kernel, adding rcutorture onoff.
-QEMU 7.1.0 monitor - type 'help' for more information
-(qemu) Monitoring qemu job at pid 2208829
-Grace period for qemu job at pid 2208829
-[033mWARNING: [mAssertion failure in /tmp/tmp.CWS1tXL9Ud/tools/testing/selftests/rcutorture/res/2022.12.13-06.13.03/TREE05/console.log TREE05
-[033mWARNING: [mSummary: Warnings: 2 Call Traces: 2

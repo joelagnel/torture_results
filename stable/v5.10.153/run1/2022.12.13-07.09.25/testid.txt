@@ -1,4 +1,0 @@
-/tmp/tmp.lza1CqS9yj
-On branch crap
-nothing to commit, working tree clean
-95aa34f72132ee42ee3f632a5540c84a5ee8624f

@@ -1,8 +1,0 @@
-qemu-system-x86_64 -enable-kvm -nographic -smp 4 -net none -machine q35,accel=kvm -cpu kvm64 -serial file:/tmp/tmp.XbaKbm3Dnb/tools/testing/selftests/rcutorture/res/2022.12.18-03.30.15/SRCU-N/console.log -m 512 -kernel /tmp/tmp.XbaKbm3Dnb/tools/testing/selftests/rcutorture/res/2022.12.18-03.30.15/SRCU-N/bzImage -append "debug_boot_weak_hash panic=-1 selinux=0 initcall_debug debug console=ttyS0 rcutorture.torture_type=srcu rcutorture.fwd_progress=3 rcutorture.onoff_interval=1000 rcutorture.onoff_holdoff=30 rcutorture.n_barrier_cbs=4 rcutorture.stat_interval=15 rcutorture.shutdown_secs=21600 rcutorture.test_no_idle_hz=1 rcutorture.verbose=1"
-# TORTURE_SHUTDOWN_GRACE=180
-# seconds=21600
-# TORTURE_KCONFIG_GDB_ARG=""
-# TORTURE_JITTER_START=". jitterstart.sh 96 /tmp/tmp.XbaKbm3Dnb/tools/testing/selftests/rcutorture/res/2022.12.18-03.30.15/ 21600  "
-# TORTURE_JITTER_STOP=". jitterstop.sh /tmp/tmp.XbaKbm3Dnb/tools/testing/selftests/rcutorture/res/2022.12.18-03.30.15/ "
-# TORTURE_TRUST_MAKE=""; export TORTURE_TRUST_MAKE
-# TORTURE_CPU_COUNT=4
