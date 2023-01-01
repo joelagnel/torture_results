@@ -1,13 +1,11 @@
 pipeline {
     agent any
 
-    // cron trigger
+    // TODO: Add triggers like this to trigger only at night
     // ref: https://docs.cloudbees.com/docs/admin-resources/latest/pipeline-syntax-reference-guide/declarative-pipeline
-    // “At 00:00 on every day-of-week from Thursday through Saturday.”
     // triggers {
-    //    cron('0 0 * * 4-6')
+    //    cron('H 4/* 0 0 1-5')
     // }
-
 
     parameters {
         string(name: 'CPURL', defaultValue: 'none', description: 'Custom Cherry-Pick Git URL', trim: true)
