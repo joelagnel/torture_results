@@ -4,9 +4,9 @@ pipeline {
     // cron trigger
     // ref: https://docs.cloudbees.com/docs/admin-resources/latest/pipeline-syntax-reference-guide/declarative-pipeline
     // “At 00:00 on every day-of-week from Thursday through Saturday.”
-    triggers {
-        cron('0 0 * * 4-6')
-    }
+    // triggers {
+    //    cron('0 0 * * 4-6')
+    // }
 
 
     parameters {
