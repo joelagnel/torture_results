@@ -1,13 +1,14 @@
+// Jenkinsfile for longer stable tests
+
 pipeline {
     agent any
 
     // cron trigger
     // ref: https://docs.cloudbees.com/docs/admin-resources/latest/pipeline-syntax-reference-guide/declarative-pipeline
-    // “At 00:00 on every day-of-week from Thursday through Saturday.”
+    // “At 00:00 on every day-of-week from Sunday through Wednesday.”
     triggers {
-        cron('0 0 * * 4-6')
+        cron('0 0 * * 0-3')
     }
-
 
     parameters {
         string(name: 'CPURL', defaultValue: 'none', description: 'Custom Cherry-Pick Git URL', trim: true)
@@ -97,7 +98,7 @@ pipeline {
                         echo "Testing with kvm.sh"
 
 // Non-tracing version
-sh "tools/testing/selftests/rcutorture/bin/kvm.sh --allcpus --duration 30"
+sh "tools/testing/selftests/rcutorture/bin/kvm.sh --allcpus --duration 300"
 
 // For replay-tracing: Uncomment for tracing version of rcutorture
 // The configs and duration can be modified, also change displayName above to differentiate properly.
