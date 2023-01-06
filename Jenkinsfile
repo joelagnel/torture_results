@@ -1,11 +1,15 @@
 pipeline {
     agent any
 
-    // to trigger only at night
-    // ref: https://docs.cloudbees.com/docs/admin-resources/latest/pipeline-syntax-reference-guide/declarative-pipeline
-     triggers {
+    // Unconditionally trigger every night (but also we will trigger (in
+    // multibranch project settings) by scanning for new changes every 6 hours
+    // for branch changes).
+    // Note that the unconditional nightly trigger does not care about branch
+    // changes, and will build regardless.  ref:
+    // https://docs.cloudbees.com/docs/admin-resources/latest/pipeline-syntax-reference-guide/declarative-pipeline
+    triggers {
         cron('0 0 * * *')
-     }
+    }
 
     parameters {
         string(name: 'CPURL', defaultValue: 'none', description: 'Custom Cherry-Pick Git URL', trim: true)
@@ -95,12 +99,12 @@ pipeline {
                         echo "Testing with kvm.sh"
 
 // Non-tracing version
-sh "tools/testing/selftests/rcutorture/bin/kvm.sh --allcpus --duration 45"
+sh "tools/testing/selftests/rcutorture/bin/kvm.sh --cpus 64 --duration 60"
 
 // For replay-tracing: Uncomment for tracing version of rcutorture
 // The configs and duration can be modified, also change displayName above to differentiate properly.
 // sh '''
-// tools/testing/selftests/rcutorture/bin/kvm.sh --allcpus --duration 5 --configs "100*TREE07" --bootargs "trace_event=sched:sched_switch,sched:sched_waking,rcu:rcu_callback,rcu:rcu_fqs,rcu:rcu_grace_period ftrace_dump_on_oops panic_on_warn=1 sysctl.kernel.panic_on_rcu_stall=1 sysctl.kernel.max_rcu_stall_to_panic=1 trace_buf_size=100K" --kconfig "CONFIG_RCU_TRACE=y CONFIG_DEBUG_INFO_DWARF5=y CONFIG_RANDOMIZE_BASE=n"
+// tools/testing/selftests/rcutorture/bin/kvm.sh --cpus 64 --duration 5 --configs "100*TREE07" --bootargs "trace_event=sched:sched_switch,sched:sched_waking,rcu:rcu_callback,rcu:rcu_fqs,rcu:rcu_grace_period ftrace_dump_on_oops panic_on_warn=1 sysctl.kernel.panic_on_rcu_stall=1 sysctl.kernel.max_rcu_stall_to_panic=1 trace_buf_size=100K" --kconfig "CONFIG_RCU_TRACE=y CONFIG_DEBUG_INFO_DWARF5=y CONFIG_RANDOMIZE_BASE=n"
 // '''
                         
                     } else {
