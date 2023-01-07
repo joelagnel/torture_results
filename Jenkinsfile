@@ -98,6 +98,9 @@ pipeline {
 
                         echo "Testing with kvm.sh"
 
+# This module may not be autoloaded causes qemu to fail, try to load it.
+sh "modprobe kvm_intel || true"
+
 // Non-tracing version
 sh "tools/testing/selftests/rcutorture/bin/kvm.sh --cpus 48 --duration 120"
 
