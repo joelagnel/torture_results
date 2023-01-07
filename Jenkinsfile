@@ -98,7 +98,7 @@ pipeline {
 
                         echo "Testing with kvm.sh"
 
-# This module may not be autoloaded causes qemu to fail, try to load it.
+// This module may not be autoloaded causes qemu to fail, try to load it.
 sh "modprobe kvm_intel || true"
 
 // Non-tracing version
