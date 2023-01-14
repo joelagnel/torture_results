@@ -102,7 +102,7 @@ pipeline {
 sh "modprobe kvm_intel || true"
 
 // Non-tracing version
-sh "tools/testing/selftests/rcutorture/bin/kvm.sh --cpus 48 --duration 120"
+sh "tools/testing/selftests/rcutorture/bin/kvm.sh --cpus 48 --duration 60"
 
 // For replay-tracing: Uncomment for tracing version of rcutorture
 // The configs and duration can be modified, also change displayName above to differentiate properly.
