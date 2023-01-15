@@ -35,10 +35,20 @@ pipeline {
                     checkout scm
 
                     script {
-                        env.SKIP_TORTURE_TEST = (sh(returnStatus: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+"') != 0)
-                        env.STABLE_VERSION = (sh(returnStdout: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+" | sed -e "s/.*Linux //g"'))
-                        currentBuild.description = "Stable testing"
-                        // env.BUILD_NUMBER = "${env.STABLE_VERSION}"
+                        env.GIT_TAG=sh(returnStdout: true, script: "git tag --contains")
+
+                        // Never skip torture text for next branches
+                        if ("${env.GIT_TAG}".contains("next-")) {
+                            env.SKIP_TORTURE_TEST = false
+                            env.JOB_NAME = "${env.GIT_TAG}"
+                            currentBuild.description = "Linux-next kernel testing"
+                        } else {
+                            env.SKIP_TORTURE_TEST = (sh(returnStatus: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+"') != 0)
+                            env.JOB_NAME = (sh(returnStdout: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+" | sed -e "s/.*Linux //g"'))
+                            currentBuild.description = "Stable kernel testing"
+                        }
+
+                        // env.BUILD_NUMBER = "${env.JOB_NAME}"
                     }
 
                    /*
@@ -91,9 +101,9 @@ pipeline {
 
                     if ("${env.SKIP_TORTURE_TEST}" == "false") {
                         if ("${params.CPURL}" != "none") {
-                            currentBuild.displayName = "Cherrypick-Test-${env.STABLE_VERSION}"
+                            currentBuild.displayName = "Cherrypick-Test-${env.JOB_NAME}"
                         } else {
-                            currentBuild.displayName = "${env.STABLE_VERSION}"
+                            currentBuild.displayName = "${env.JOB_NAME}"
                         }
 
                         echo "Testing with kvm.sh"
