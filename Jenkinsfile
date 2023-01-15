@@ -35,15 +35,17 @@ pipeline {
                     checkout scm
 
                     script {
-                        env.GIT_TAG=sh(returnStdout: true, script: "git tag --contains")
+                        env.SKIP_TORTURE_TEST = (sh(returnStatus: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+"') != 0)
 
-                        // Never skip torture text for next branches
-                        if ("${env.GIT_TAG}".contains("next-")) {
-                            env.SKIP_TORTURE_TEST = false
-                            env.JOB_NAME = "${env.GIT_TAG}"
-                            currentBuild.description = "Linux-next kernel testing"
+                        if ("${env.SKIP_TORTURE_TEST}" == "true") {
+                            env.GIT_TAG=sh(returnStdout: true, script: "git tag --contains")
+
+                            if ("${env.GIT_TAG}".contains("next-")) {
+                                env.SKIP_TORTURE_TEST = false   // Never script -next branches
+                                env.JOB_NAME = "${env.GIT_TAG}"
+                                currentBuild.description = "Linux-next kernel testing"
+                            }
                         } else {
-                            env.SKIP_TORTURE_TEST = (sh(returnStatus: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+"') != 0)
                             env.JOB_NAME = (sh(returnStdout: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+" | sed -e "s/.*Linux //g"'))
                             currentBuild.description = "Stable kernel testing"
                         }
