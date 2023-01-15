@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'x86' }
 
     // Unconditionally trigger every night (but also we will trigger (in
     // multibranch project settings) by scanning for new changes every 6 hours
