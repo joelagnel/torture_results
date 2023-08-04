@@ -69,6 +69,15 @@ pipeline {
                     ])
                     */
 
+                    /* Merge my staging branch for OOT-stable patches, if it exists. */
+                    script {
+                        sh """
+                            if git fetch https://github.com/joelagnel/linux-kernel.git rcu/$BRANCH_NAME; then
+                                git merge FETCH_HEAD
+                            fi
+                        """
+                    }
+
                     script {
 
                         if ("${params.CPURL}" != "none") {
