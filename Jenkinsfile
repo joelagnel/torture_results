@@ -145,6 +145,18 @@ sh "tools/testing/selftests/rcutorture/bin/kvm.sh --cpus 48 --duration 60"
         always {
             // TODO: Only extract the res directory corresponding to the currently run test.
             archiveArtifacts artifacts: 'tools/testing/selftests/rcutorture/res/', allowEmptyArchive: 'true'
+            
+            emailext (
+                body: '''$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+                          Check console output at $BUILD_URL to view the results.
+
+                          Console Output:
+                          ${BUILD_LOG}
+
+                          ''',
+                subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', 
+                to: 'joel@joelfernandes.org'
+            )
         }
     }
 }
