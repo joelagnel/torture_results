@@ -32,7 +32,18 @@ pipeline {
                         echo "Doing scm checkout from Jenkinsfile"
                     }
 
-                    checkout scm
+                    checkout([
+                         $class: 'GitSCM',
+                          branches: scm.branches,
+                          extensions: [[
+                           $class: 'CloneOption',
+                           shallow: true,
+                            depth:   50,
+                            noTags: true,
+                            timeout: 600
+                          ]],
+                         userRemoteConfigs: scm.userRemoteConfigs
+                    ])
 
                     script {
                         env.SKIP_TORTURE_TEST = (sh(returnStatus: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+"') != 0)
@@ -53,26 +64,11 @@ pipeline {
                         // env.BUILD_NUMBER = "${env.JOB_NAME}"
                     }
 
-                   /*
-                    * A shallow checkout can be done as follows, however it appears to be much slower
-                    * than the above normal 'checkout scm'
-                    checkout([
-                         $class: 'GitSCM',
-                          branches: scm.branches,
-                          extensions: [[
-                           $class: 'CloneOption',
-                           shallow: true,
-                            depth:   1,
-                            timeout: 30
-                          ]],
-                         userRemoteConfigs: scm.userRemoteConfigs
-                    ])
-                    */
 
                     /* Merge my staging branch for OOT-stable patches, if it exists. */
                     script {
                         sh """
-                            if git fetch https://github.com/joelagnel/linux-kernel.git rcu/$BRANCH_NAME; then
+                            if git fetch https://github.com/joelagnel/linux-kernel.git rcu/$BRANCH_NAME --depth=50; then
                                 git merge FETCH_HEAD
                             fi
                         """
