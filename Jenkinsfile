@@ -38,13 +38,7 @@ pipeline {
                         env.SKIP_TORTURE_TEST = (sh(returnStatus: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+"') != 0)
 
                         if ("${env.SKIP_TORTURE_TEST}" == "true") {
-                            env.GIT_TAG=sh(returnStdout: true, script: "git tag --contains")
-
-                            if ("${env.GIT_TAG}".contains("next-")) {
-                                env.SKIP_TORTURE_TEST = false   // Never script -next branches
-                                env.JOB_NAME = "${env.GIT_TAG}"
-                                currentBuild.description = "Linux-next kernel testing"
-                            }
+                            error("Aborting due to SKIP_TORTURE_TEST being set to true")
                         } else {
                             // The head commands are to make JOB_NAME extraction for grafted commits work where the entire diff is in the changelog.
                             // Since the entire diff is in the change log, this causes several hits to lines with the Linux pattern.
