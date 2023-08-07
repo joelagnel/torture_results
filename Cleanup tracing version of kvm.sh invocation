@@ -121,12 +121,53 @@ sh "modprobe kvm_intel || true"
 // Non-tracing version
 sh "tools/testing/selftests/rcutorture/bin/kvm.sh --cpus 48 --duration 60"
 
-// For replay-tracing: Uncomment for tracing version of rcutorture
+// For replay-tracing: Uncomment (remove END_COMMENT) for tracing version of rcutorture
 // The configs and duration can be modified, also change displayName above to differentiate properly.
-// sh '''
-// tools/testing/selftests/rcutorture/bin/kvm.sh --cpus 48 --duration 5 --configs "100*TREE07" --bootargs "trace_event=sched:sched_switch,sched:sched_waking,rcu:rcu_callback,rcu:rcu_fqs,rcu:rcu_grace_period ftrace_dump_on_oops panic_on_warn=1 sysctl.kernel.panic_on_rcu_stall=1 sysctl.kernel.max_rcu_stall_to_panic=1 trace_buf_size=100K traceoff_on_warning=1" --kconfig "CONFIG_RCU_TRACE=y CONFIG_DEBUG_INFO_DWARF5=y CONFIG_RANDOMIZE_BASE=n"
-// '''
-                        
+sh '''
+: <<'END_COMMENT'
+
+# Define the kconfig array
+kconfigs=(
+    "CONFIG_RCU_TRACE=y"
+    "CONFIG_DEBUG_INFO_DWARF5=y"
+    "CONFIG_RANDOMIZE_BASE=n"
+    "CONFIG_LOCKUP_DETECTOR=y"
+    "CONFIG_SOFTLOCKUP_DETECTOR=y"
+    "CONFIG_HARDLOCKUP_DETECTOR=y"
+    "CONFIG_DETECT_HUNG_TASK=y"
+    "CONFIG_DEFAULT_HUNG_TASK_TIMEOUT=60"
+)
+
+# Define the bootargs array (excluding trace_event)
+bootargs=(
+    "ftrace_dump_on_oops"
+    "panic_on_warn=1"
+    "sysctl.kernel.panic_on_rcu_stall=1"
+    "sysctl.kernel.max_rcu_stall_to_panic=1"
+    "trace_buf_size=10K"
+    "traceoff_on_warning=1"
+)
+
+# Define the trace events array passed to bootargs.
+trace_events=(
+    "sched:sched_switch"
+    "sched:sched_waking"
+    "rcu:rcu_callback"
+    "rcu:rcu_fqs"
+    "rcu:rcu_quiescent_state_report"
+    "rcu:rcu_grace_period"
+)
+
+# Call kvm.sh with the arrays
+tools/testing/selftests/rcutorture/bin/kvm.sh \
+    --cpus 48 \
+    --duration 120 \
+    --configs "2*TREE04" \
+    --kconfig "$(IFS=" "; echo "${kconfigs[*]}")" \
+    --bootargs "trace_event=$(IFS=,; echo "${trace_events[*]}") $(IFS=" "; echo "${bootargs[*]}")"
+
+END_COMMENT
+'''                        
                     } else {
                         echo "Skipping build ${env.SKIP_TORTURE_TEST}"
                         currentBuild.displayName = "Skipped as ToT is not a stable commit (Linux...)"
