@@ -129,6 +129,8 @@ sh '''
 # Define the kconfig array
 kconfigs=(
     "CONFIG_RCU_TRACE=y"
+    "CONFIG_PROVE_LOCKING=y"
+    "CONFIG_DEBUG_LOCK_ALLOC=y"
     "CONFIG_DEBUG_INFO_DWARF5=y"
     "CONFIG_RANDOMIZE_BASE=n"
     "CONFIG_LOCKUP_DETECTOR=y"
@@ -146,6 +148,7 @@ bootargs=(
     "sysctl.kernel.max_rcu_stall_to_panic=1"
     "trace_buf_size=10K"
     "traceoff_on_warning=1"
+    "panic_print=0x1f"      # To dump held locks, mem and other info.
 )
 
 # Define the trace events array passed to bootargs.
