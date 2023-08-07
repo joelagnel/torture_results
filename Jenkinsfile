@@ -46,7 +46,9 @@ pipeline {
                                 currentBuild.description = "Linux-next kernel testing"
                             }
                         } else {
-                            env.JOB_NAME = (sh(returnStdout: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+" | sed -e "s/.*Linux //g"'))
+                            // The head commands are to make JOB_NAME extraction for grafted commits work where the entire diff is in the changelog.
+                            // Since the entire diff is in the change log, this causes several hits to lines with the Linux pattern.
+                            env.JOB_NAME = (sh(returnStdout: true, script: 'git show | head -n 100 | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+" | head -n1 | sed -e "s/.*Linux //g"'))
                             currentBuild.description = "Stable kernel testing"
                         }
 
