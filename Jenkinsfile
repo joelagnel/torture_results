@@ -28,27 +28,13 @@ pipeline {
     stages {
             stage('Checkout') {
                 steps {
-                    script {
-                        echo "Doing scm checkout from Jenkinsfile"
-                    }
+                    // OLD WAY1: Slow
+                    // script {
+                    //    echo "Doing scm checkout from Jenkinsfile"
+                    // }
+                    // checkout scm
 
-                    checkout scm
-
-                    script {
-                        env.SKIP_TORTURE_TEST = (sh(returnStatus: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+"') != 0)
-
-                        if ("${env.SKIP_TORTURE_TEST}" == "true") {
-                            error("Aborting due to SKIP_TORTURE_TEST being set to true")
-                        } else {
-                            // The head commands are to make JOB_NAME extraction for grafted commits work where the entire diff is in the changelog.
-                            // Since the entire diff is in the change log, this causes several hits to lines with the Linux pattern.
-                            env.JOB_NAME = (sh(returnStdout: true, script: 'git show | head -n 100 | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+" | head -n1 | sed -e "s/.*Linux //g"'))
-                            currentBuild.description = "Stable kernel testing"
-                        }
-
-                        // env.BUILD_NUMBER = "${env.JOB_NAME}"
-                    }
-
+                   // OLD WAY2: Slow
                    /*
                     * A shallow checkout can be done as follows, however it appears to be much slower
                     * than the above normal 'checkout scm'
@@ -65,10 +51,32 @@ pipeline {
                     ])
                     */
 
+                    // NEW WAY (old school):
+                    script {
+                        echo "Doing scm checkout from Jenkinsfile"
+                        sh "git fetch --no-tags --depth=100 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git ${env.BRANCH_NAME}"
+                        sh "git checkout FETCH_HEAD"
+                    }
+                    
+                    script {
+                        env.SKIP_TORTURE_TEST = (sh(returnStatus: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+"') != 0)
+
+                        if ("${env.SKIP_TORTURE_TEST}" == "true") {
+                            error("Aborting due to SKIP_TORTURE_TEST being set to true")
+                        } else {
+                            // The head commands are to make JOB_NAME extraction for grafted commits work where the entire diff is in the changelog.
+                            // Since the entire diff is in the change log, this causes several hits to lines with the Linux pattern.
+                            env.JOB_NAME = (sh(returnStdout: true, script: 'git show | head -n 100 | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+" | head -n1 | sed -e "s/.*Linux //g"'))
+                            currentBuild.description = "Stable kernel testing"
+                        }
+
+                        // env.BUILD_NUMBER = "${env.JOB_NAME}"
+                    }
+
                     /* Merge my staging branch for OOT-stable patches, if it exists. */
                     script {
                         sh """
-                            if git fetch https://github.com/joelagnel/linux-kernel.git rcu/$BRANCH_NAME; then
+                            if git fetch --no-tags https://github.com/joelagnel/linux-kernel.git rcu/$BRANCH_NAME; then
                                 git merge FETCH_HEAD
                             fi
                         """
