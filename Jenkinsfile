@@ -54,7 +54,7 @@ pipeline {
                     // NEW WAY (old school):
                     script {
                         echo "Doing scm checkout from Jenkinsfile"
-                        sh "git fetch --no-tags --depth=100 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git ${env.BRANCH_NAME}"
+                        sh "git fetch --no-tags --depth=5000 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git ${env.BRANCH_NAME}"
                         sh "git checkout FETCH_HEAD"
                     }
                     
@@ -76,7 +76,7 @@ pipeline {
                     /* Merge my staging branch for OOT-stable patches, if it exists. */
                     script {
                         sh """
-                            if git fetch --no-tags https://github.com/joelagnel/linux-kernel.git rcu/$BRANCH_NAME; then
+                            if git fetch --no-tags --depth=5000 https://github.com/joelagnel/linux-kernel.git rcu/$BRANCH_NAME; then
                                 git merge FETCH_HEAD
                             fi
                         """
