@@ -30,7 +30,9 @@ pipeline {
                 steps {
                     script {
                         echo "Doing scm checkout from Jenkinsfile"
-                        sh "git fetch --no-tags --depth=10 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git ${env.BRANCH_NAME}"
+			sh "git reset HEAD"
+			sh "git checkout ."
+                        sh "git fetch --no-tags --depth=20 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git ${env.BRANCH_NAME}"
                         sh "git checkout FETCH_HEAD"
                     }
 
