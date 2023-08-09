@@ -30,9 +30,11 @@ pipeline {
                 steps {
                     script {
                         echo "Doing scm checkout from Jenkinsfile"
+                        sh "git fetch --no-tags --depth=10 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git ${env.BRANCH_NAME}"
+                        sh "git checkout FETCH_HEAD"
                     }
 
-                    checkout scm
+                    // checkout scm
 
                     script {
                         env.SKIP_TORTURE_TEST = (sh(returnStatus: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+"') != 0)
@@ -67,11 +69,13 @@ pipeline {
 
                     /* Merge my staging branch for OOT-stable patches, if it exists. */
                     script {
-                        sh """
-                            if git fetch https://github.com/joelagnel/linux-kernel.git rcu/$BRANCH_NAME; then
-                                git merge FETCH_HEAD
+                        sh '''
+                            if git fetch --no-tags --depth=300 https://github.com/joelagnel/linux-kernel.git rcu/$BRANCH_NAME; then
+	                        STABLE_COMMIT="$(git log --pretty=format:'%H %s' FETCH_HEAD | grep -E 'Linux [1-9][0-9]{0,2}\\.[1-9][0-9]{0,2}.*' | head -n1 | awk '{print $1}')"
+	                        git diff $STABLE_COMMIT..FETCH_HEAD > /tmp/apply.diff
+                                git apply /tmp/apply.diff
                             fi
-                        """
+                        '''
                     }
 
                     script {
