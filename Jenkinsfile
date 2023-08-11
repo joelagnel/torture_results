@@ -36,6 +36,8 @@ pipeline {
                         echo "Checking out base code"
 			sh "git reset HEAD"
 			sh "git checkout ."
+			sh "git clean -f -d"
+			sh "rm -rf tools/testing/selftests/rcutorture/res/*"
                         sh "git fetch --no-tags --depth=20 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git ${env.BRANCH_NAME}"
                         sh "git checkout FETCH_HEAD"
                     }
@@ -186,7 +188,6 @@ if (env.TRACE_MODE == 'non-tracing') {
                 subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', 
                 to: 'joel@joelfernandes.org'
             )
-
 	    // Clean up the res directory
 	    sh "rm -rf tools/testing/selftests/rcutorture/res/*"
         }
