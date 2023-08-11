@@ -2,6 +2,7 @@ pipeline {
     agent { label 'x86' }
     environment {
         APPEND_DISPLAY_NAME = '' // Add a custom name to append.
+	TRACE_MODE = 'non-tracing' // or 'tracing'
     }
 
     // Unconditionally trigger every night (but also we will trigger (in
@@ -78,18 +79,14 @@ pipeline {
 
                         if ("${params.CPURL}" != "none") {
                             echo "Doing custom cherry-picks"
-
                             if ("${params.CPCOMMIT1}" != "none") {
                                 sh "git fetch ${params.CPURL} ${params.CPCOMMIT1} && git cherry-pick FETCH_HEAD"
                             }
-
                             if ("${params.CPCOMMIT2}" != "none") {
                                 sh "git fetch ${params.CPURL} ${params.CPCOMMIT2} && git cherry-pick FETCH_HEAD"
                             }
-
                             echo "Done custom cherry-picks"
                         }
-
                         echo "Done scm checkout from Jenkinsfile"
                     }
                 }
@@ -98,10 +95,8 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-
                     // Print all env variables
                     // sh "printenv"
-
                     if ("${env.SKIP_TORTURE_TEST}" == "false") {
                         if ("${params.CPURL}" != "none") {
                             currentBuild.displayName = "$APPEND_DISPLAY_NAME-Cherrypick-Test-${env.JOB_NAME}"
@@ -109,64 +104,67 @@ pipeline {
                             currentBuild.displayName = "$APPEND_DISPLAY_NAME-${env.JOB_NAME}"
                         }
 
-                        echo "Testing with kvm.sh"
-
 // This module may not be autoloaded causes qemu to fail, try to load it.
 sh "modprobe kvm_intel || true"
 
-// Non-tracing version
-sh "tools/testing/selftests/rcutorture/bin/kvm.sh --cpus 48 --duration 60"
+/////////// RUNNING KVM.sh NOW ///////////////
+if (env.KVM_TRACE_MODE == 'non-tracing') {
+	// Non-tracing version
+	sh "tools/testing/selftests/rcutorture/bin/kvm.sh --cpus 48 --duration 60"
+else {
+	// For replay-tracing: Uncomment (remove END_COMMENT) for tracing version of rcutorture
+	// The configs and duration can be modified, also change displayName above to differentiate properly.
+	sh '''
+	: <<'END_COMMENT'
+	
+	# Define the kconfig array
+	kconfigs=(
+	    "CONFIG_RCU_TRACE=y"
+	    "CONFIG_PROVE_LOCKING=y"
+	    "CONFIG_DEBUG_LOCK_ALLOC=y"
+	    "CONFIG_DEBUG_INFO_DWARF5=y"
+	    "CONFIG_RANDOMIZE_BASE=n"
+	    "CONFIG_LOCKUP_DETECTOR=y"
+	    "CONFIG_SOFTLOCKUP_DETECTOR=y"
+	    "CONFIG_HARDLOCKUP_DETECTOR=y"
+	    "CONFIG_DETECT_HUNG_TASK=y"
+	    "CONFIG_DEFAULT_HUNG_TASK_TIMEOUT=60"
+	)
+	
+	# Define the bootargs array (excluding trace_event)
+	bootargs=(
+	    "ftrace_dump_on_oops"
+	    "panic_on_warn=1"
+	    "sysctl.kernel.panic_on_rcu_stall=1"
+	    "sysctl.kernel.max_rcu_stall_to_panic=1"
+	    "trace_buf_size=10K"
+	    "traceoff_on_warning=1"
+	    "panic_print=0x1f"      # To dump held locks, mem and other info.
+	)
+	
+	# Define the trace events array passed to bootargs.
+	trace_events=(
+	    "sched:sched_switch"
+	    "sched:sched_waking"
+	    "rcu:rcu_callback"
+	    "rcu:rcu_fqs"
+	    "rcu:rcu_quiescent_state_report"
+	    "rcu:rcu_grace_period"
+	)
+	
+	# Call kvm.sh with the arrays
+	tools/testing/selftests/rcutorture/bin/kvm.sh \
+	    --cpus 48 \
+	    --duration 120 \
+	    --configs "2*TREE04" \
+	    --kconfig "$(IFS=" "; echo "${kconfigs[*]}")" \
+	    --bootargs "trace_event=$(IFS=,; echo "${trace_events[*]}") $(IFS=" "; echo "${bootargs[*]}")"
+	
+	END_COMMENT
+	'''
+}
+////////////// DONE kvm.sh ///////////////////
 
-// For replay-tracing: Uncomment (remove END_COMMENT) for tracing version of rcutorture
-// The configs and duration can be modified, also change displayName above to differentiate properly.
-sh '''
-: <<'END_COMMENT'
-
-# Define the kconfig array
-kconfigs=(
-    "CONFIG_RCU_TRACE=y"
-    "CONFIG_PROVE_LOCKING=y"
-    "CONFIG_DEBUG_LOCK_ALLOC=y"
-    "CONFIG_DEBUG_INFO_DWARF5=y"
-    "CONFIG_RANDOMIZE_BASE=n"
-    "CONFIG_LOCKUP_DETECTOR=y"
-    "CONFIG_SOFTLOCKUP_DETECTOR=y"
-    "CONFIG_HARDLOCKUP_DETECTOR=y"
-    "CONFIG_DETECT_HUNG_TASK=y"
-    "CONFIG_DEFAULT_HUNG_TASK_TIMEOUT=60"
-)
-
-# Define the bootargs array (excluding trace_event)
-bootargs=(
-    "ftrace_dump_on_oops"
-    "panic_on_warn=1"
-    "sysctl.kernel.panic_on_rcu_stall=1"
-    "sysctl.kernel.max_rcu_stall_to_panic=1"
-    "trace_buf_size=10K"
-    "traceoff_on_warning=1"
-    "panic_print=0x1f"      # To dump held locks, mem and other info.
-)
-
-# Define the trace events array passed to bootargs.
-trace_events=(
-    "sched:sched_switch"
-    "sched:sched_waking"
-    "rcu:rcu_callback"
-    "rcu:rcu_fqs"
-    "rcu:rcu_quiescent_state_report"
-    "rcu:rcu_grace_period"
-)
-
-# Call kvm.sh with the arrays
-tools/testing/selftests/rcutorture/bin/kvm.sh \
-    --cpus 48 \
-    --duration 120 \
-    --configs "2*TREE04" \
-    --kconfig "$(IFS=" "; echo "${kconfigs[*]}")" \
-    --bootargs "trace_event=$(IFS=,; echo "${trace_events[*]}") $(IFS=" "; echo "${bootargs[*]}")"
-
-END_COMMENT
-'''                        
                     } else {
                         echo "Skipping build ${env.SKIP_TORTURE_TEST}"
                         currentBuild.displayName = "Skipped as ToT is not a stable commit (Linux...)"
