@@ -1,5 +1,9 @@
 pipeline {
     agent { label 'x86' }
+    environment {
+        APPEND_DISPLAY_NAME = '' // Add a custom name to append.
+    }
+
 
     // Unconditionally trigger every night (but also we will trigger (in
     // multibranch project settings) by scanning for new changes every 6 hours
@@ -123,9 +127,9 @@ pipeline {
 
                     if ("${env.SKIP_TORTURE_TEST}" == "false") {
                         if ("${params.CPURL}" != "none") {
-                            currentBuild.displayName = "Cherrypick-Test-${env.JOB_NAME}"
+                            currentBuild.displayName = "$APPEND_DISPLAY_NAME-Cherrypick-Test-${env.JOB_NAME}"
                         } else {
-                            currentBuild.displayName = "${env.JOB_NAME}"
+                            currentBuild.displayName = "$APPEND_DISPLAY_NAME-${env.JOB_NAME}"
                         }
 
                         echo "Testing with kvm.sh"
