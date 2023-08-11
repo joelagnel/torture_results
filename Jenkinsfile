@@ -4,7 +4,6 @@ pipeline {
         APPEND_DISPLAY_NAME = '' // Add a custom name to append.
     }
 
-
     // Unconditionally trigger every night (but also we will trigger (in
     // multibranch project settings) by scanning for new changes every 6 hours
     // for branch changes).
@@ -33,15 +32,13 @@ pipeline {
             stage('Checkout') {
                 steps {
                     script {
-                        echo "Doing scm checkout from Jenkinsfile"
+                        echo "Checking out base code"
 			sh "git reset HEAD"
 			sh "git checkout ."
                         sh "git fetch --no-tags --depth=20 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git ${env.BRANCH_NAME}"
                         sh "git checkout FETCH_HEAD"
                     }
-
-                    // checkout scm
-
+			
                     script {
                         env.SKIP_TORTURE_TEST = (sh(returnStatus: true, script: 'git show | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+"') != 0)
 
@@ -53,29 +50,13 @@ pipeline {
                             env.JOB_NAME = (sh(returnStdout: true, script: 'git show | head -n 100 | egrep "Linux [0-9]+\\.[0-9]+\\.[0-9]+" | head -n1 | sed -e "s/.*Linux //g"'))
                             currentBuild.description = "Stable kernel testing"
                         }
-
                         // env.BUILD_NUMBER = "${env.JOB_NAME}"
                     }
-
-                   /*
-                    * A shallow checkout can be done as follows, however it appears to be much slower
-                    * than the above normal 'checkout scm'
-                    checkout([
-                         $class: 'GitSCM',
-                          branches: scm.branches,
-                          extensions: [[
-                           $class: 'CloneOption',
-                           shallow: true,
-                            depth:   1,
-                            timeout: 30
-                          ]],
-                         userRemoteConfigs: scm.userRemoteConfigs
-                    ])
-                    */
 
 		        /* Merge my staging branch for OOT-stable patches, if it exists. */
 			script {
 			    sh '''
+       				echo "Checking out OOT code"
 			        # Create a unique temporary directory in /tmp/
 			        TMP_DIR=$(mktemp -d /tmp/git_patches_XXXXXX)
 				rm -rf $TMP_DIR/*
@@ -115,10 +96,6 @@ pipeline {
             }
             
         stage('Test') {
-            // when {
-            // changelog '.*Linux .*rc.*'
-            //    expression {  }
-            // }
             steps {
                 script {
 
