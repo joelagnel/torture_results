@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'x86' }
     environment {
-        APPEND_DISPLAY_NAME = '' // Add a custom name to append.
+        APPEND_DISPLAY_NAME = 'Default' // Add a custom name to append.
 	TRACE_MODE = 'non-tracing' // or 'tracing'
     }
 
