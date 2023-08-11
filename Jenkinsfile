@@ -193,6 +193,9 @@ END_COMMENT
                 subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', 
                 to: 'joel@joelfernandes.org'
             )
+
+	    // Clean up the res directory
+	    sh "rm -rf tools/testing/selftests/rcutorture/res/*"
         }
     }
 }
