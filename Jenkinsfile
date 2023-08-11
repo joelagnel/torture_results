@@ -97,21 +97,26 @@ pipeline {
                 script {
                     // Print all env variables
                     // sh "printenv"
+			echo "a"
                     if ("${env.SKIP_TORTURE_TEST}" == "false") {
+			    echo "b"
                         if ("${params.CPURL}" != "none") {
                             currentBuild.displayName = "$APPEND_DISPLAY_NAME-Cherrypick-Test-${env.JOB_NAME}"
                         } else {
                             currentBuild.displayName = "$APPEND_DISPLAY_NAME-${env.JOB_NAME}"
                         }
 
+echo "c"
 // This module may not be autoloaded causes qemu to fail, try to load it.
 sh "modprobe kvm_intel || true"
 
 /////////// RUNNING KVM.sh NOW ///////////////
 if (env.KVM_TRACE_MODE == 'non-tracing') {
+	echo "d"
 	// Non-tracing version
 	sh "tools/testing/selftests/rcutorture/bin/kvm.sh --cpus 48 --duration 60"
 } else {
+	echo "e"
 	// For replay-tracing: Uncomment (remove END_COMMENT) for tracing version of rcutorture
 	// The configs and duration can be modified, also change displayName above to differentiate properly.
 	sh '''
