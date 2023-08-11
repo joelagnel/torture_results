@@ -111,7 +111,7 @@ sh "modprobe kvm_intel || true"
 if (env.KVM_TRACE_MODE == 'non-tracing') {
 	// Non-tracing version
 	sh "tools/testing/selftests/rcutorture/bin/kvm.sh --cpus 48 --duration 60"
-else {
+} else {
 	// For replay-tracing: Uncomment (remove END_COMMENT) for tracing version of rcutorture
 	// The configs and duration can be modified, also change displayName above to differentiate properly.
 	sh '''
