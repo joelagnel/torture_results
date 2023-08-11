@@ -101,9 +101,9 @@ pipeline {
                     if ("${env.SKIP_TORTURE_TEST}" == "false") {
 			    echo "b"
                         if ("${params.CPURL}" != "none") {
-                            currentBuild.displayName = "$APPEND_DISPLAY_NAME-Cherrypick-Test-${env.JOB_NAME}"
+                            currentBuild.displayName = "${env.APPEND_DISPLAY_NAME}-Cherrypick-Test-${env.JOB_NAME}"
                         } else {
-                            currentBuild.displayName = "$APPEND_DISPLAY_NAME-${env.JOB_NAME}"
+                            currentBuild.displayName = "${env.APPEND_DISPLAY_NAME}-${env.JOB_NAME}"
                         }
 
 echo "c"
