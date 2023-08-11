@@ -115,8 +115,6 @@ else {
 	// For replay-tracing: Uncomment (remove END_COMMENT) for tracing version of rcutorture
 	// The configs and duration can be modified, also change displayName above to differentiate properly.
 	sh '''
-	: <<'END_COMMENT'
-	
 	# Define the kconfig array
 	kconfigs=(
 	    "CONFIG_RCU_TRACE=y"
@@ -158,13 +156,10 @@ else {
 	    --duration 120 \
 	    --configs "2*TREE04" \
 	    --kconfig "$(IFS=" "; echo "${kconfigs[*]}")" \
-	    --bootargs "trace_event=$(IFS=,; echo "${trace_events[*]}") $(IFS=" "; echo "${bootargs[*]}")"
-	
-	END_COMMENT
+	    --bootargs "trace_event=$(IFS=,; echo "${trace_events[*]}") $(IFS=" "; echo "${bootargs[*]}")"	
 	'''
 }
 ////////////// DONE kvm.sh ///////////////////
-
                     } else {
                         echo "Skipping build ${env.SKIP_TORTURE_TEST}"
                         currentBuild.displayName = "Skipped as ToT is not a stable commit (Linux...)"
