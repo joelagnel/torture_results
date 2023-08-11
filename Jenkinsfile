@@ -73,6 +73,7 @@ pipeline {
 			            fi
 	       			else echo "No Additional OOT patches being applied to this branch."
 			        fi
+	   			rm -rf $TMP_DIR
 			    '''
 			}
 
