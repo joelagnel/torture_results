@@ -69,16 +69,25 @@ pipeline {
                     ])
                     */
 
-                    /* Merge my staging branch for OOT-stable patches, if it exists. */
-                    script {
-                        sh '''
-                            if git fetch --no-tags --depth=300 https://github.com/joelagnel/linux-kernel.git rcu/$BRANCH_NAME; then
-	                        STABLE_COMMIT="$(git log --pretty=format:'%H %s' FETCH_HEAD | grep -E 'Linux [1-9][0-9]{0,2}\\.[1-9][0-9]{0,2}.*' | head -n1 | awk '{print $1}')"
-	                        git diff $STABLE_COMMIT..FETCH_HEAD > /tmp/apply.diff
-                                git apply /tmp/apply.diff
-                            fi
-                        '''
-                    }
+		        /* Merge my staging branch for OOT-stable patches, if it exists. */
+			script {
+			    sh '''
+			        # Create a unique temporary directory in /tmp/
+			        TMP_DIR=$(mktemp -d /tmp/git_patches_XXXXXX)
+				rm -rf $TMP_DIR/*
+    
+			        if git fetch --no-tags --depth=300 https://github.com/joelagnel/linux-kernel.git rcu/$BRANCH_NAME; then
+			            STABLE_COMMIT="$(git log --pretty=format:'%H %s' FETCH_HEAD | grep -E 'Linux [1-9][0-9]{0,2}\\.[1-9][0-9]{0,2}.*' | head -n1 | awk '{print $1}')"
+			            if [ -n "$STABLE_COMMIT" ]; then
+			                git format-patch $STABLE_COMMIT..FETCH_HEAD -o $TMP_DIR
+			                git am $TMP_DIR/*
+		   		    else echo "No Additional OOT patches being applied to this branch."
+			            fi
+	       			else echo "No Additional OOT patches being applied to this branch."
+			        fi
+			    '''
+			}
+
 
                     script {
 
