@@ -36,6 +36,8 @@ pipeline {
                         echo "Checking out base code"
 			sh "git reset HEAD"
 			sh "git checkout ."
+			sh "git rebase --abort || true"
+			sh "git am --abort || true"
 			sh "git clean -f -d"
 			sh "rm -rf tools/testing/selftests/rcutorture/res/*"
                         sh "git fetch --no-tags --depth=20 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git ${env.BRANCH_NAME}"
