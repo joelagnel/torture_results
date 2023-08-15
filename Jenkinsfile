@@ -34,11 +34,12 @@ pipeline {
                 steps {
                     script {
                         echo "Checking out base code"
-			sh "git reset HEAD"
-			sh "git checkout ."
+			sh "if ! test -d .git; then git init; fi"
+			sh "git reset HEAD || true"
+			sh "git checkout . || true"
 			sh "git rebase --abort || true"
 			sh "git am --abort || true"
-			sh "git clean -f -d"
+			sh "git clean -f -d || true"
 			sh "rm -rf tools/testing/selftests/rcutorture/res/*"
                         sh "git fetch --no-tags --depth=20 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git ${env.BRANCH_NAME}"
                         sh "git checkout FETCH_HEAD"
