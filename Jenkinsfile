@@ -180,18 +180,46 @@ if (env.TRACE_MODE == 'non-tracing') {
         always {
             // TODO: Only extract the res directory corresponding to the currently run test.
             archiveArtifacts artifacts: 'tools/testing/selftests/rcutorture/res/', allowEmptyArchive: 'true'
-            
-            emailext (
-                body: '''$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
-                          Check console output at $BUILD_URL to view the results.
 
+            script {
+                // Define BUILD_LOG at the script's top level
+                def BUILD_LOG
+
+                if (fileExists('tools/testing/selftests/rcutorture/res/*/log')) {
+                    BUILD_LOG = readFile('tools/testing/selftests/rcutorture/res/*/log')
+                } else {
+                    BUILD_LOG = ''
+                }
+
+                def extractLogPart = { log ->
+                    def pattern = /.*Test summary:/
+                    def matcher = log =~ pattern
+                    if (matcher.find()) {
+                        return log.substring(matcher.start(0))
+                    } else {
+                        return log
+                    }
+                }
+
+                def LOG_PART = extractLogPart(BUILD_LOG)
+
+            // inside script
+            emailext (
+                body:   '''$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+                          Check console output at $BUILD_URL to view the results.
+                        ''' +
+                        """Log summary: ${LOG_PART} """ +
+                        '''
                           Console Output:
                           ${BUILD_LOG}
-
-                          ''',
+                        ''',
                 subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', 
                 to: 'joel@joelfernandes.org'
             )
+
+            } // end script
+
+
 	    // Clean up the res directory
 	    sh "rm -rf tools/testing/selftests/rcutorture/res/*"
         }
