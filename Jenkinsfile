@@ -184,13 +184,14 @@ if (env.TRACE_MODE == 'non-tracing') {
             script {
                 // Define BUILD_LOG at the script's top level
                 def BUILD_LOG
-
-                if (fileExists('tools/testing/selftests/rcutorture/res/*/log')) {
-                    BUILD_LOG = readFile('tools/testing/selftests/rcutorture/res/*/log')
-                } else {
-                    BUILD_LOG = ''
-                }
-
+    // Use the sh step to check if the file exists and then cat its content
+    BUILD_LOG = sh(script: ''' 
+        if [ -f tools/testing/selftests/rcutorture/res/*/log ]; then
+            cat tools/testing/selftests/rcutorture/res/*/log
+        else
+            echo ""
+        fi
+    ''', returnStdout: true).trim()
                 def extractLogPart = { log ->
                     def pattern = /.*Test summary:/
                     def matcher = log =~ pattern
