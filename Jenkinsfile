@@ -71,7 +71,7 @@ pipeline {
 			            STABLE_COMMIT="$(git log --pretty=format:'%H %s' FETCH_HEAD | grep -E 'Linux [1-9][0-9]{0,2}\\.[1-9][0-9]{0,2}.*' | head -n1 | awk '{print $1}')"
 			            if [ -n "$STABLE_COMMIT" ]; then
 			                git format-patch $STABLE_COMMIT..FETCH_HEAD -o $TMP_DIR
-			                git am $TMP_DIR/*
+			                git am -3 $TMP_DIR/*
 		   		    else echo "No Additional OOT patches being applied to this branch."
 			            fi
 	       			else echo "No Additional OOT patches being applied to this branch."
