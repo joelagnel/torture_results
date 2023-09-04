@@ -26,7 +26,7 @@ pipeline {
     // A declarative pipeline needs this as the checkout stage is otherwise automatically added.
     options {
         skipDefaultCheckout(true)
-        buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '30', daysToKeepStr: '', numToKeepStr: '30')
+        buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '100', daysToKeepStr: '', numToKeepStr: '30')
     }
     
     stages {
@@ -178,6 +178,10 @@ if (env.TRACE_MODE == 'non-tracing') {
 
     post {
         always {
+	    // Delete vmlinux and bzImage due to space
+	    sh "find tools/testing/selftests/rcutorture/res/ -name vmlinux | xargs rm"
+	    sh "find tools/testing/selftests/rcutorture/res/ -name bzImage | xargs rm"
+		
             // TODO: Only extract the res directory corresponding to the currently run test.
             archiveArtifacts artifacts: 'tools/testing/selftests/rcutorture/res/', allowEmptyArchive: 'true'
 
