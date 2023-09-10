@@ -115,7 +115,12 @@ sh "modprobe kvm_intel || true"
 
 /////////// RUNNING KVM.sh NOW ///////////////
 if (env.TRACE_MODE == 'non-tracing') {
-	// Non-tracing version
+	// Non-tracing version (kvm.sh)
+	//
+	// Also run torture.sh in another pipeline later as:
+	// tools/testing/selftests/rcutorture/bin/torture.sh --do-all --do-no-kcsan --do-no-kasan --duration 30
+	// Takes 3 hours on 96 CPUs.
+	//
 	sh "tools/testing/selftests/rcutorture/bin/kvm.sh --cpus 48 --duration 60"
 } else {
 	// For replay-tracing: Uncomment (remove END_COMMENT) for tracing version of rcutorture
