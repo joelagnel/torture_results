@@ -184,8 +184,8 @@ if (env.TRACE_MODE == 'non-tracing') {
     post {
         always {
 	    // Delete vmlinux and bzImage due to space
-	    sh "find tools/testing/selftests/rcutorture/res/ -name vmlinux | xargs rm"
-	    sh "find tools/testing/selftests/rcutorture/res/ -name bzImage | xargs rm"
+	    sh "find tools/testing/selftests/rcutorture/res/ -name vmlinux | xargs rm -rf"
+	    sh "find tools/testing/selftests/rcutorture/res/ -name bzImage | xargs rm -rf"
 		
             // TODO: Only extract the res directory corresponding to the currently run test.
             archiveArtifacts artifacts: 'tools/testing/selftests/rcutorture/res/', allowEmptyArchive: 'true'
